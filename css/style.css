@@ -1,0 +1,43 @@
+/* General body styling */
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #121212;
+  color: #e0e0e0;
+}
+
+/* Section headers */
+h2, h4 {
+  color: #ffffff;
+}
+
+/* Project cards */
+.card {
+  border: 1px solid #2c2c2c;
+  transition: transform 0.2s ease;
+}
+
+.card:hover {
+  transform: scale(1.01);
+}
+
+/* Buttons */
+.btn-outline-light {
+  border-color: #ffffff;
+  color: #ffffff;
+}
+
+.btn-outline-light:hover {
+  background-color: #ffffff;
+  color: #000000;
+}
+
+/* Navbar */
+.navbar-dark .navbar-nav .nav-link.active {
+  font-weight: bold;
+  border-bottom: 2px solid #ffffff;
+}
+
+/* Resume download buttons */
+.btn-download {
+  margin-top: 10px;
+}
