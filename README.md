@@ -3,7 +3,7 @@
 Welcome to my personal portfolio website! This project showcases my work in data analytics and development, including real-world examples using Python, SQL, and machine learning.
 
 ## 🚀 Live Site
-🌐 *[Add your GitHub Pages link here once published]*
+🌐 *https://tdailey1121.github.io/taya-portfolio/*
 
 ---
 
