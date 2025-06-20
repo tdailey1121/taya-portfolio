@@ -30,17 +30,22 @@
   <section class="container py-5">
     <h2 class="mb-4">Projects</h2>
 
-    <!-- Python Churn Prediction Project -->
-    <div class="card mb-4 bg-secondary text-white">
+  <!-- Python Churn Prediction Project -->
+<div class="card mb-4 bg-secondary text-white">
+  <div class="row g-0">
+    <div class="col-md-4">
+      <img src="Images/churn_roc.png" class="img-fluid rounded-start" alt="Churn Prediction ROC">
+    </div>
+    <div class="col-md-8">
       <div class="card-body">
         <h4 class="card-title">Churn Prediction Project</h4>
         <p class="card-text">
           <strong>Tools Used:</strong> Python, Pandas, Scikit-learn, Matplotlib, Seaborn<br>
-          Developed a predictive machine learning model to analyze customer churn using a real-world telecom dataset. The model uses a Random Forest Classifier to predict whether a customer is likely to leave based on features like contract type, tenure, charges, and service usage. Included data cleaning, feature encoding, model training, evaluation metrics (accuracy, confusion matrix, AUC), and visual insights into feature importance.
+          Developed a predictive machine learning model to analyze customer churn using a real-world telecom dataset. The model uses a Random Forest Classifier to predict whether a customer is likely to leave based on features like contract type, tenure, charges, and service usage.
         </p>
         <ul>
           <li>Cleaned and preprocessed over 7,000 records</li>
-          <li>Achieved classification accuracy with an AUC score visualization</li>
+          <li>Achieved classification accuracy with an AUC score of 0.81</li>
           <li>Identified key factors driving customer churn using feature importance</li>
         </ul>
         <p>
@@ -49,9 +54,16 @@
         </p>
       </div>
     </div>
+  </div>
+</div>
 
-    <!-- SQL Website Customer Insights Project -->
-    <div class="card mb-4 bg-secondary text-white">
+<!-- SQL Website Customer Insights Project -->
+<div class="card mb-4 bg-secondary text-white">
+  <div class="row g-0">
+    <div class="col-md-4">
+      <img src="Images/sql_conversion_table.png" class="img-fluid rounded-start" alt="SQL Customer Insights Table">
+    </div>
+    <div class="col-md-8">
       <div class="card-body">
         <h4 class="card-title">SQL Website Customer Insights</h4>
         <p class="card-text">
@@ -61,7 +73,7 @@
         <ul>
           <li>Designed a synthetic dataset with 500 records</li>
           <li>Executed complex aggregation queries for marketing & UX insights</li>
-          <li>Provided downloadable database and query files for easy replication</li>
+          <li>Included visualizations like conversion tables by view category</li>
         </ul>
         <p>
           <a href="downloads/website_analytics.db" class="btn btn-outline-light" download>Download SQLite Database (.db)</a>
@@ -69,6 +81,9 @@
         </p>
       </div>
     </div>
+  </div>
+</div>
+
 
   </section>
 
