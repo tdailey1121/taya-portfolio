@@ -20,39 +20,6 @@ h2, h4 {
   transform: scale(1.01);
 }
 
-.hover-image-container {
-  position: relative;
-  width: 100%;
-}
-
-.hover-image-container .img-main,
-.hover-image-container .img-hover {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  transition: opacity 0.4s ease;
-  border-radius: 10px;
-}
-
-.hover-image-container .img-main {
-  z-index: 1;
-  opacity: 1;
-}
-
-.hover-image-container .img-hover {
-  z-index: 2;
-  opacity: 0;
-}
-
-.hover-image-container:hover .img-hover {
-  opacity: 1;
-}
-
-.hover-image-container:hover .img-main {
-  opacity: 0;
-}
-
 /* Buttons */
 .btn-outline-light {
   border-color: #ffffff;
@@ -69,6 +36,42 @@ h2, h4 {
   font-weight: bold;
   border-bottom: 2px solid #ffffff;
 }
+
+.hover-image-container {
+  position: relative;
+  width: 100%;
+  max-width: 100%;
+}
+
+.hover-image-container .img-main,
+.hover-image-container .img-hover {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: auto;
+  transition: opacity 0.4s ease-in-out;
+  border-radius: 10px;
+}
+
+.hover-image-container .img-main {
+  opacity: 1;
+  z-index: 1;
+}
+
+.hover-image-container .img-hover {
+  opacity: 0;
+  z-index: 2;
+}
+
+.hover-image-container:hover .img-main {
+  opacity: 0;
+}
+
+.hover-image-container:hover .img-hover {
+  opacity: 1;
+}
+
 
 /* Resume download buttons */
 .btn-download {
