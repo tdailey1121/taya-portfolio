@@ -11,7 +11,7 @@
   <!-- Navbar -->
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <div class="container-fluid">
-      <a class="navbar-brand" href="#">Taya Dailey</a>
+      <a class="navbar-brand" href="index.html">Taya Dailey</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -22,85 +22,102 @@
           <li class="nav-item"><a class="nav-link" href="projects.html">Projects</a></li>
           <li class="nav-item"><a class="nav-link" href="development.html">Development</a></li>
           <li class="nav-item"><a class="nav-link" href="analytics.html">Analytics</a></li>
-          <li class="nav-item"><a class="nav-link" href="case_studies.html">Case Studies</a></li>
+          <li class="nav-item"><a class="nav-link active" href="case_studies.html">Case Studies</a></li>
           <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
         </ul>
       </div>
     </div>
   </nav>
 
+  <!-- PAGE HEADER -->
+  <header class="container my-5 text-center">
+    <h1>Customer Experience KPI Dashboard</h1>
+    <p class="lead">A case study in analytics, visualization, and actionable insights</p>
+  </header>
 
   <!-- Case Study Content -->
-  <main class="case-study-container">
-    <h1>Customer Experience KPI Dashboard</h1>
-    <p>
-      This interactive Power BI dashboard analyzes customer support metrics to help leadership
-      monitor team performance and customer satisfaction trends. It demonstrates how data visualization
-      can streamline operations, provide actionable insights, and enhance decision-making.
-    </p>
+  <main class="container my-5">
+    <section class="mb-5">
+      <p>
+        This interactive Power BI dashboard analyzes customer support metrics to help leadership
+        monitor team performance and customer satisfaction trends. It demonstrates how data visualization
+        can streamline operations, provide actionable insights, and enhance decision-making.
+      </p>
+    </section>
 
-    <h2>🎯 The Challenge</h2>
-    <p>
-      Support teams tracked KPIs in silos, making it difficult for leadership to see the full picture.
-      The challenge was to build a dashboard that consolidated <strong>resolution speed, customer satisfaction,
-      and bottleneck analysis</strong> into a single report.
-    </p>
+    <section class="mb-5">
+      <h2>🎯 The Challenge</h2>
+      <p>
+        Support teams tracked KPIs in silos, making it difficult for leadership to see the full picture.
+        The challenge was to build a dashboard that consolidated <strong>resolution speed, customer satisfaction,
+        and bottleneck analysis</strong> into a single report.
+      </p>
+    </section>
 
-    <h2>🛠️ The Process</h2>
-    <ul>
-      <li>Used <strong>Power Query</strong> to clean and transform raw ticket data.</li>
-      <li>Built <strong>DAX measures</strong> for KPIs like resolution time and customer rating.</li>
-      <li>Designed a layout that balanced high-level KPIs with detailed drilldowns.</li>
-      <li>Tested multiple visuals to ensure readability and consistency.</li>
-    </ul>
-
-    <h2>📊 The Solution</h2>
-    <div class="highlight">
-      <p><strong>Key Features:</strong></p>
-      <ul>
-        <li>KPI Cards → % resolved, avg. response time, avg. resolution time, avg. customer rating</li>
-        <li>Bar Charts → Agent performance comparisons</li>
-        <li>Donut Charts → Ticket volume by channel</li>
-        <li>Slicers → Filter by agent, channel, chatbot usage</li>
+    <section class="mb-5">
+      <h2>🛠️ The Process</h2>
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item bg-dark text-light">Used <strong>Power Query</strong> to clean and transform raw ticket data.</li>
+        <li class="list-group-item bg-dark text-light">Built <strong>DAX measures</strong> for KPIs like resolution time and customer rating.</li>
+        <li class="list-group-item bg-dark text-light">Designed a layout that balanced high-level KPIs with detailed drilldowns.</li>
+        <li class="list-group-item bg-dark text-light">Tested multiple visuals to ensure readability and consistency.</li>
       </ul>
-    </div>
+    </section>
 
-    <div class="screenshot">
-      <img src="assets/img/dashboard-sample.png" alt="Dashboard Screenshot">
-      <p><em>Sample dashboard visualization (synthetic data)</em></p>
-    </div>
+    <section class="mb-5">
+      <h2>📊 The Solution</h2>
+      <div class="alert alert-secondary p-3 rounded">
+        <p><strong>Key Features:</strong></p>
+        <ul>
+          <li>KPI Cards → % resolved, avg. response time, avg. resolution time, avg. customer rating</li>
+          <li>Bar Charts → Agent performance comparisons</li>
+          <li>Donut Charts → Ticket volume by channel</li>
+          <li>Slicers → Filter by agent, channel, chatbot usage</li>
+        </ul>
+      </div>
 
-    <h2>🔑 Key Insights</h2>
-    <ul>
-      <li>Phone support resolved tickets <strong>15% faster</strong> than email.</li>
-      <li><strong>Agent A</strong> achieved the highest satisfaction score: 4.32 / 5.</li>
-      <li>Chat requests had the longest resolution time (39.56 hours).</li>
-    </ul>
+      <div class="text-center my-4">
+        <img src="assets/img/dashboard-sample.png" alt="Dashboard Screenshot" class="img-fluid rounded shadow">
+        <p class="mt-2"><em>Sample dashboard visualization (synthetic data)</em></p>
+      </div>
+    </section>
 
-    <h2>🚀 Impact</h2>
-    <p>
-      Even with synthetic data, this dashboard shows how centralized reporting can save leadership
-      <strong>hours of manual reporting</strong> weekly, while enabling data-driven decisions
-      for team training and resource allocation.
-    </p>
+    <section class="mb-5">
+      <h2>🔑 Key Insights</h2>
+      <ul>
+        <li>Phone support resolved tickets <strong>15% faster</strong> than email.</li>
+        <li><strong>Agent A</strong> achieved the highest satisfaction score: 4.32 / 5.</li>
+        <li>Chat requests had the longest resolution time (39.56 hours).</li>
+      </ul>
+    </section>
 
-    <h2>🧰 Tools Used</h2>
-    <ul>
-      <li>Power BI (visualization & data modeling)</li>
-      <li>DAX (custom metrics)</li>
-      <li>Power Query (ETL & transformations)</li>
-    </ul>
+    <section class="mb-5">
+      <h2>🚀 Impact</h2>
+      <p>
+        Even with synthetic data, this dashboard shows how centralized reporting can save leadership
+        <strong>hours of manual reporting</strong> weekly, while enabling data-driven decisions
+        for team training and resource allocation.
+      </p>
+    </section>
 
-  <footer>
+    <section class="mb-5">
+      <h2>🧰 Tools Used</h2>
+      <ul>
+        <li>Power BI (visualization & data modeling)</li>
+        <li>DAX (custom metrics)</li>
+        <li>Power Query (ETL & transformations)</li>
+      </ul>
+    </section>
+
+
+  <!-- Footer -->
+  <footer class="bg-dark text-light text-center py-3 mt-5">
     <p>© 2025 Taya Dailey</p>
   </footer>
 
-
+  <!-- Bootstrap JS -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
-
-
-
 
 
