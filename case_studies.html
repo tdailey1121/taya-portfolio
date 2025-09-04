@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Case Study - Customer Experience KPI Dashboard</title>
+  <link rel="stylesheet" href="css/style.css"> <!-- use your existing main CSS -->
+  <style>
+    /* Extra case study styles */
+    .case-study-container {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 2rem;
+      line-height: 1.6;
+    }
+    h1, h2, h3 {
+      color: #222;
+      margin-top: 1.5rem;
+    }
+    h1 {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+    }
+    .highlight {
+      background: #f4f4f9;
+      border-left: 4px solid #4CAF50;
+      padding: 0.75rem 1rem;
+      margin: 1.5rem 0;
+    }
+    .screenshot {
+      margin: 1.5rem 0;
+      text-align: center;
+    }
+    .screenshot img {
+      max-width: 100%;
+      border-radius: 10px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+    }
+  </style>
+</head>
+<body>
+  <!-- Navigation (reuse your site’s nav structure) -->
+  <header>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="projects.html">Projects</a></li>
+        <li><a href="case-studies.html" class="active">Case Studies</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Case Study Content -->
+  <main class="case-study-container">
+    <h1>Customer Experience KPI Dashboard</h1>
+    <p>
+      This interactive Power BI dashboard analyzes customer support metrics to help leadership
+      monitor team performance and customer satisfaction trends. It demonstrates how data visualization
+      can streamline operations, provide actionable insights, and enhance decision-making.
+    </p>
+
+    <h2>🎯 The Challenge</h2>
+    <p>
+      Support teams tracked KPIs in silos, making it difficult for leadership to see the full picture.
+      The challenge was to build a dashboard that consolidated <strong>resolution speed, customer satisfaction,
+      and bottleneck analysis</strong> into a single report.
+    </p>
+
+    <h2>🛠️ The Process</h2>
+    <ul>
+      <li>Used <strong>Power Query</strong> to clean and transform raw ticket data.</li>
+      <li>Built <strong>DAX measures</strong> for KPIs like resolution time and customer rating.</li>
+      <li>Designed a layout that balanced high-level KPIs with detailed drilldowns.</li>
+      <li>Tested multiple visuals to ensure readability and consistency.</li>
+    </ul>
+
+    <h2>📊 The Solution</h2>
+    <div class="highlight">
+      <p><strong>Key Features:</strong></p>
+      <ul>
+        <li>KPI Cards → % resolved, avg. response time, avg. resolution time, avg. customer rating</li>
+        <li>Bar Charts → Agent performance comparisons</li>
+        <li>Donut Charts → Ticket volume by channel</li>
+        <li>Slicers → Filter by agent, channel, chatbot usage</li>
+      </ul>
+    </div>
+
+    <div class="screenshot">
+      <img src="assets/img/dashboard-sample.png" alt="Dashboard Screenshot">
+      <p><em>Sample dashboard visualization (synthetic data)</em></p>
+    </div>
+
+    <h2>🔑 Key Insights</h2>
+    <ul>
+      <li>Phone support resolved tickets <strong>15% faster</strong> than email.</li>
+      <li><strong>Agent A</strong> achieved the highest satisfaction score: 4.32 / 5.</li>
+      <li>Chat requests had the longest resolution time (39.56 hours).</li>
+    </ul>
+
+    <h2>🚀 Impact</h2>
+    <p>
+      Even with synthetic data, this dashboard shows how centralized reporting can save leadership
+      <strong>hours of manual reporting</strong> weekly, while enabling data-driven decisions
+      for team training and resource allocation.
+    </p>
+
+    <h2>🧰 Tools Used</h2>
+    <ul>
+      <li>Power BI (visualization & data modeling)</li>
+      <li>DAX (custom metrics)</li>
+      <li>Power Query (ETL & transformations)</li>
+    </ul>
+
+    <h2>🌐 Explore More</h2>
+    <p>
+      View this and other projects on my full <a href="https://tdailey1121.github.io">portfolio site</a>.
+    </p>
+  </main>
+
+  <footer>
+    <p>© 2025 Taya Dailey</p>
+  </footer>
+</body>
+</html>
