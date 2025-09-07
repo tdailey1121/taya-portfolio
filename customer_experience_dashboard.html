@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Customer Experience KPI Dashboard | Taya Dailey</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="index.html">Taya Dailey</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="resume.html">Resume</a></li>
+          <li class="nav-item"><a class="nav-link" href="projects.html">Projects</a></li>
+          <li class="nav-item"><a class="nav-link" href="development.html">Development</a></li>
+          <li class="nav-item"><a class="nav-link" href="analytics.html">Analytics</a></li>
+          <li class="nav-item"><a class="nav-link active" href="case_studies.html">Case Studies</a></li>
+          <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- MAIN CONTENT -->
+  <main class="container my-5">
+    <!-- Case Study -->
+    <article class="mb-5">
+      <header class="mb-4 text-center">
+        <h1>Customer Experience KPI Dashboard</h1>
+        <p class="lead">A case study in analytics, visualization, and actionable insights</p>
+      </header>
+
+      <section class="mb-5">
+        <p>
+          This interactive Power BI dashboard analyzes customer support metrics to help leadership
+          monitor team performance and customer satisfaction trends. It demonstrates how data visualization
+          can streamline operations, provide actionable insights, and enhance decision-making.
+        </p>
+      </section>
+
+      <section class="mb-5">
+        <h2>🎯 The Challenge</h2>
+        <p>
+          Support teams tracked KPIs in silos, making it difficult for leadership to see the full picture.
+          The challenge was to build a dashboard that consolidated <strong>resolution speed, customer satisfaction,
+          and bottleneck analysis</strong> into a single report.
+        </p>
+      </section>
+
+      <section class="mb-5">
+        <h2>🛠️ The Process</h2>
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item bg-dark text-light">Used <strong>Power Query</strong> to clean and transform raw ticket data.</li>
+          <li class="list-group-item bg-dark text-light">Built <strong>DAX measures</strong> for KPIs like resolution time and customer rating.</li>
+          <li class="list-group-item bg-dark text-light">Designed a layout that balanced high-level KPIs with detailed drilldowns.</li>
+          <li class="list-group-item bg-dark text-light">Tested multiple visuals to ensure readability and consistency.</li>
+        </ul>
+      </section>
+
+      <section class="mb-5">
+        <h2>📊 The Solution</h2>
+        <div class="alert alert-secondary p-3 rounded">
+          <p><strong>Key Features:</strong></p>
+          <ul>
+            <li>KPI Cards → % resolved, avg. response time, avg. resolution time, avg. customer rating</li>
+            <li>Bar Charts → Agent performance comparisons</li>
+            <li>Donut Charts → Ticket volume by channel</li>
+            <li>Slicers → Filter by agent, channel, chatbot usage</li>
+          </ul>
+        </div>
+
+        <div class="text-center my-4">
+          <img src="Images/dashboard-sample.png" alt="Dashboard Screenshot" class="img-fluid rounded shadow">
+          <p class="mt-2"><em>Sample dashboard visualization (synthetic data)</em></p>
+        </div>
+      </section>
+
+      <section class="mb-5">
+        <h2>🔑 Key Insights</h2>
+        <ul>
+          <li>Phone support resolved tickets <strong>15% faster</strong> than email.</li>
+          <li><strong>Agent A</strong> achieved the highest satisfaction score: 4.32 / 5.</li>
+          <li>Chat requests had the longest resolution time (39.56 hours).</li>
+        </ul>
+      </section>
+
+      <section class="mb-5">
+        <h2>🚀 Impact</h2>
+        <p>
+          Even with synthetic data, this dashboard shows how centralized reporting can save leadership
+          <strong>hours of manual reporting</strong> weekly, while enabling data-driven decisions
+          for team training and resource allocation.
+        </p>
+      </section>
+
+      <section class="mb-5">
+        <h2>🧰 Tools Used</h2>
+        <ul>
+          <li>Power BI (visualization & data modeling)</li>
+          <li>DAX (custom metrics)</li>
+          <li>Power Query (ETL & transformations)</li>
+        </ul>
+      </section>
+
+      <p class="text-center">
+        <a href="case_studies.html" class="btn btn-outline-light">← Back to Case Studies</a>
+      </p>
+    </article>
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-dark text-light text-center py-3 mt-5">
+    <p>© 2025 Taya Dailey</p>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
