@@ -1,0 +1,234 @@
+```html
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Used Car Sales Performance Analytics | Taya Dailey</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="index.html">Taya Dailey</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="resume.html">Resume</a></li>
+          <li class="nav-item"><a class="nav-link" href="projects.html">Projects</a></li>
+          <li class="nav-item"><a class="nav-link" href="development.html">Development</a></li>
+          <li class="nav-item"><a class="nav-link" href="analytics.html">Analytics</a></li>
+          <li class="nav-item"><a class="nav-link" href="case_studies.html">Case Studies</a></li>
+          <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- MAIN CONTENT -->
+  <main class="container my-5">
+    <article class="mb-5">
+
+      <header class="mb-4 text-center">
+        <h1>Used Car Sales Performance Analytics Dashboard</h1>
+        <p class="lead">
+          Power BI dashboard analyzing used vehicle sales, inventory efficiency, customer feedback, and sales performance trends
+        </p>
+      </header>
+
+      <!-- Intro -->
+      <section class="mb-5">
+        <p>
+          This project analyzes used car sales performance at AutoNation Global using Power BI. The dashboard evaluates
+          vehicle sales trends, inventory movement, customer feedback, sales agent performance, and location-level sales
+          efficiency. The goal was to transform a single sales dataset into an executive-ready analytics dashboard that
+          supports operational decision-making and identifies opportunities to improve inventory management, sales outcomes,
+          and customer experience.
+        </p>
+      </section>
+
+      <!-- Optional Video Link -->
+      <p class="text-center">
+        <a href="https://youtu.be/gG7aFZuWtkA" class="btn btn-outline-light" target="_blank">View Video Presentation</a>
+      </p>
+
+      <!-- Challenge -->
+      <section class="mb-5">
+        <h2>🎯 The Challenge</h2>
+        <p>
+          Used car sales data can reveal important patterns around inventory movement, sales performance, customer
+          satisfaction, and profitability. However, without a structured reporting view, it can be difficult to identify
+          which manufacturers, vehicle types, sales agents, and locations are driving performance. This project focused on
+          building an interactive Power BI dashboard to summarize performance trends, highlight unsold inventory, and
+          support data-driven business recommendations.
+        </p>
+      </section>
+
+      <!-- Process -->
+      <section class="mb-5">
+        <h2>🛠️ The Process</h2>
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item bg-dark text-light">Cleaned and transformed used car sales data in Power BI using Power Query.</li>
+          <li class="list-group-item bg-dark text-light">Created calculated fields and DAX measures for sales, inventory, profitability, commission, and efficiency analysis.</li>
+          <li class="list-group-item bg-dark text-light">Segmented vehicles by manufacturer, car type, location, mileage band, sales rating band, and sale status.</li>
+          <li class="list-group-item bg-dark text-light">Built interactive slicers to allow filtering by manufacturer, location, car type, sales agent, and feedback category.</li>
+          <li class="list-group-item bg-dark text-light">Designed executive-ready visuals to identify sales trends, unsold inventory concentrations, and performance opportunities.</li>
+        </ul>
+      </section>
+
+      <!-- Dashboard Overview -->
+      <section class="mb-5">
+        <h2>📊 Dashboard Overview</h2>
+        <p>
+          The dashboard provides a business-facing view of used car sales performance by combining sales KPIs, inventory
+          analysis, customer feedback, and agent productivity metrics. It was designed to help leaders quickly understand
+          where sales are strongest, where inventory may be moving more slowly, and where performance improvement
+          opportunities exist.
+        </p>
+
+        <div class="text-center my-4">
+          <img src="Images/Used_Car_Sales_Overview.png"
+               alt="Used Car Sales Performance Dashboard"
+               class="img-fluid rounded shadow">
+          <p class="mt-2"><em>Executive-facing used car sales performance dashboard</em></p>
+        </div>
+
+        <h3 class="mt-4">Executive Takeaways</h3>
+        <ul>
+          <li>Maruti, Hyundai, and Toyota appeared to have some of the highest sales volume compared to other brands.</li>
+          <li>Hatchbacks and SUVs were among the most frequently sold vehicle types.</li>
+          <li>Some locations showed higher concentrations of unsold inventory.</li>
+          <li>Customer feedback was generally positive, with Excellent and Good ratings making up the largest share of responses.</li>
+          <li>Sales agent performance varied, showing opportunities to share best practices across the broader sales team.</li>
+        </ul>
+      </section>
+
+      <!-- Sales and Inventory Analysis -->
+      <section class="mb-5">
+        <h2>📈 Sales & Inventory Analysis</h2>
+        <p>
+          This portion of the analysis focuses on understanding which manufacturers, car types, and locations contributed
+          most to sales activity. It also highlights where unsold vehicles were concentrated and where longer sales cycles
+          may create inventory efficiency concerns.
+        </p>
+
+        <div class="text-center my-4">
+          <img src="Images/Used_Car_Sales_Inventory.png"
+               alt="Used Car Sales and Inventory Analysis Dashboard"
+               class="img-fluid rounded shadow">
+          <p class="mt-2"><em>Sales volume and inventory efficiency analysis</em></p>
+        </div>
+
+        <h3 class="mt-4">Key Insights</h3>
+        <ul>
+          <li>Sales volume varied across manufacturers and vehicle categories.</li>
+          <li>Some locations appeared to hold more unsold inventory than others.</li>
+          <li>Average days to sell helped identify slower-moving vehicle segments.</li>
+          <li>Inventory patterns suggested opportunities for pricing, marketing, or location-level strategy adjustments.</li>
+        </ul>
+      </section>
+
+      <!-- Customer Feedback and Agent Performance -->
+      <section class="mb-5">
+        <h2>⭐ Customer Feedback & Agent Performance</h2>
+        <p>
+          This analysis also evaluates customer feedback and sales agent productivity. By comparing ratings, commission
+          totals, and vehicle sales activity, the dashboard helps identify both strong performance areas and opportunities
+          for additional coaching or process improvement.
+        </p>
+
+        <div class="text-center my-4">
+          <img src="Images/Used_Car_Sales_Agent_Performance.png"
+               alt="Customer Feedback and Sales Agent Performance Dashboard"
+               class="img-fluid rounded shadow">
+          <p class="mt-2"><em>Customer feedback and sales agent performance view</em></p>
+        </div>
+
+        <h3 class="mt-4">Key Insights</h3>
+        <ul>
+          <li>Customer feedback was generally positive across the dataset.</li>
+          <li>Some sales agents consistently sold more vehicles and generated higher commission totals.</li>
+          <li>Differences in sales agent performance may indicate opportunities for training or best-practice sharing.</li>
+          <li>Feedback trends can help leadership monitor the customer experience alongside sales outcomes.</li>
+        </ul>
+      </section>
+
+      <!-- KPI Design -->
+      <section class="mb-5">
+        <h2>🧮 KPI Design</h2>
+        <p>
+          I created custom measures to summarize key business performance indicators and make the dashboard easier to
+          interpret for decision-makers.
+        </p>
+
+        <ul>
+          <li>Total Cars</li>
+          <li>Cars Sold</li>
+          <li>Cars Unsold</li>
+          <li>Sales Conversion Rate</li>
+          <li>Total Sales Revenue</li>
+          <li>Average Sold Price</li>
+          <li>Average Sales Rating</li>
+          <li>Total Commission</li>
+          <li>Average Commission</li>
+          <li>Average Days to Sell</li>
+        </ul>
+      </section>
+
+      <!-- Recommended Actions -->
+      <section class="mb-5">
+        <h2>✅ Recommended Actions</h2>
+        <ul>
+          <li>Focus inventory reduction efforts on locations with the highest number of unsold vehicles.</li>
+          <li>Review slower-moving manufacturers and vehicle types for pricing or marketing opportunities.</li>
+          <li>Share best practices from top-performing sales agents with the broader sales team.</li>
+          <li>Continue monitoring customer feedback to maintain positive buying experiences.</li>
+          <li>Use sales and inventory reporting regularly to identify bottlenecks before they become larger business issues.</li>
+        </ul>
+      </section>
+
+      <!-- Tools -->
+      <section class="mb-5">
+        <h2>🧰 Tools Used</h2>
+        <ul>
+          <li>Power BI</li>
+          <li>DAX</li>
+          <li>Power Query</li>
+          <li>Excel / CSV Data</li>
+          <li>Data Cleaning & Validation</li>
+          <li>Business Intelligence Reporting</li>
+        </ul>
+      </section>
+
+      <!-- Next Steps -->
+      <section class="mb-5">
+        <h2>🔮 What I’d Do Next</h2>
+        <p>
+          Future enhancements could include adding predictive inventory risk scoring, deeper profitability analysis,
+          automated refresh pipelines, regional benchmarking, and more detailed drill-through views for vehicle-level,
+          location-level, and sales agent-level performance.
+        </p>
+      </section>
+
+      <p class="text-center">
+        <a href="case_studies.html" class="btn btn-outline-light">← Back to Case Studies</a>
+      </p>
+
+    </article>
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-dark text-light text-center py-3 mt-5">
+    <p>© 2026 Taya Dailey</p>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
+```
