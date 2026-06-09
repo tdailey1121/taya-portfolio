@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Detroit Shock Fan Lifecycle & CRM Intelligence Dashboard | Taya Dailey</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="index.html">Taya Dailey</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="resume.html">Resume</a></li>
+          <li class="nav-item"><a class="nav-link" href="projects.html">Projects</a></li>
+          <li class="nav-item"><a class="nav-link" href="development.html">Development</a></li>
+          <li class="nav-item"><a class="nav-link" href="analytics.html">Analytics</a></li>
+          <li class="nav-item"><a class="nav-link" href="case_studies.html">Case Studies</a></li>
+          <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <main class="container my-5">
+    <article class="mb-5">
+
+      <header class="mb-5 text-center">
+        <h1>Detroit Shock Fan Lifecycle & CRM Intelligence Dashboard</h1>
+        <p class="lead">
+          Power BI dashboard using fan-level modeling, lifecycle segmentation, data quality checks, and next-best-action strategy.
+        </p>
+      </header>
+
+      <section class="mb-5">
+        <h2>📌 Project Overview</h2>
+        <p>
+          This project expands my original Detroit Shock fan analytics work into a more advanced CRM intelligence dashboard.
+          The dashboard analyzes fan behavior across engagement, ticketing, and merchandise activity to identify lifecycle stages,
+          behavioral segments, fan value, retention opportunities, and recommended marketing actions.
+        </p>
+      </section>
+
+      <section class="mb-5">
+        <h2>🎯 Business Challenge</h2>
+        <p>
+          A sports organization needs more than basic fan reporting. Leadership needs to understand which fans are loyal,
+          which fans are slipping away, which audiences have conversion potential, and what actions should be taken to improve
+          retention, revenue, and engagement.
+        </p>
+        <p>
+          The goal was to transform raw fan, engagement, ticketing, and merchandise data into a structured Power BI dashboard
+          that supports CRM strategy and lifecycle marketing decisions.
+        </p>
+      </section>
+
+      <section class="mb-5">
+        <h2>🛠️ Process</h2>
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item bg-dark text-light">Imported fan, engagement, ticket purchase, and merchandise datasets into Power BI.</li>
+          <li class="list-group-item bg-dark text-light">Built relationships using <code>fan_id</code> to create a clean fan-level data model.</li>
+          <li class="list-group-item bg-dark text-light">Created a unified <code>Fan_Master</code> table to combine demographic, engagement, ticketing, and merchandise behavior.</li>
+          <li class="list-group-item bg-dark text-light">Developed DAX logic for fan value, engagement score, recency, lifecycle stage, fan segment, and next-best-action recommendations.</li>
+          <li class="list-group-item bg-dark text-light">Added data quality flags to identify records with transaction activity but missing purchase dates.</li>
+          <li class="list-group-item bg-dark text-light">Designed a three-page Power BI dashboard focused on executive summary, fan exploration, and CRM strategy.</li>
+        </ul>
+      </section>
+
+      <section class="mb-5">
+        <h2>📊 Dashboard Page 1 — Executive Overview</h2>
+        <p>
+          The Executive Overview page summarizes the overall fan base, including total fans, average fan value,
+          average engagement, percentage of at-risk fans, lifecycle distribution, and fan segment distribution.
+        </p>
+
+        <div class="text-center my-4">
+          <img src="Images/Detroit Shock Executive Overview.png"
+               alt="Detroit Shock Executive Overview Dashboard"
+               class="img-fluid rounded shadow">
+          <p class="mt-2"><em>Executive Overview — lifecycle, segmentation, and key fan metrics.</em></p>
+        </div>
+
+        <h3>Key Takeaways</h3>
+        <ul>
+          <li>The majority of fans fall into the casual segment, representing a large conversion opportunity.</li>
+          <li>At-risk fans make up a meaningful portion of the fan base and should be prioritized for retention campaigns.</li>
+          <li>VIP and loyal fans represent high-value audiences that should be protected through exclusive offers and personalized engagement.</li>
+        </ul>
+      </section>
+
+      <section class="mb-5">
+        <h2>🔍 Dashboard Page 2 — Fan Deep Dive</h2>
+        <p>
+          The Fan Deep Dive page allows users to filter fans by lifecycle stage, segment, gender, and age while viewing
+          fan-level details such as total fan value, engagement score, days since last activity, and recommended next best action.
+        </p>
+
+        <div class="text-center my-4">
+          <img src="Images/Detroit Shock Fan Deep Dive.png"
+               alt="Detroit Shock Fan Deep Dive Dashboard"
+               class="img-fluid rounded shadow">
+          <p class="mt-2"><em>Fan Deep Dive — interactive fan-level exploration and filtering.</em></p>
+        </div>
+
+        <h3>Key Takeaways</h3>
+        <ul>
+          <li>Stakeholders can quickly isolate high-value fans, at-risk fans, and specific behavioral segments.</li>
+          <li>The fan-level table connects customer attributes directly to recommended actions.</li>
+          <li>This page supports CRM targeting, campaign planning, and audience prioritization.</li>
+        </ul>
+      </section>
+
+      <section class="mb-5">
+        <h2>🎯 Dashboard Page 3 — Strategy & Next Best Action</h2>
+        <p>
+          The Strategy & Next Best Action page translates fan behavior into business recommendations.
+          It highlights where marketing efforts should focus across retention, conversion, upsell, and VIP engagement strategies.
+        </p>
+
+        <div class="text-center my-4">
+          <img src="Images/Detroit Shock Strategy Next Best Action.png"
+               alt="Detroit Shock Strategy and Next Best Action Dashboard"
+               class="img-fluid rounded shadow">
+          <p class="mt-2"><em>Strategy & Next Best Action — CRM recommendations by lifecycle and segment.</em></p>
+        </div>
+
+        <h3>Key Takeaways</h3>
+        <ul>
+          <li>Most recommended actions focus on introductory offers, reflecting a large casual fan base with conversion potential.</li>
+          <li>At-risk high-value fans are a small but important audience for VIP retention efforts.</li>
+          <li>Digital fans can be converted through app and email-based ticket or merchandise promotions.</li>
+          <li>VIP and loyal fans should receive exclusive perks, early access, and premium engagement opportunities.</li>
+        </ul>
+      </section>
+
+      <section class="mb-5">
+        <h2>🧪 Data Quality & Assumptions</h2>
+
+        <h3>Issues Identified</h3>
+        <ul>
+          <li>
+            <strong>Missing transaction dates:</strong> Some fans had ticket or merchandise spend but missing last purchase dates.
+            These records were flagged using <code>Missing_Ticket_Date_Flag</code> and <code>Missing_Merch_Date_Flag</code>.
+          </li>
+          <li>
+            <strong>Channel ambiguity:</strong> Some fans had merchandise spend but no team shop visits, suggesting online purchases
+            or differences in how store visits were tracked.
+          </li>
+          <li>
+            <strong>No recorded activity:</strong> Fans with no email, ticket, or merchandise activity were assigned
+            <code>Days_Since_Last_Activity = -1</code> and treated as dormant.
+          </li>
+          <li>
+            <strong>Historical activity skew:</strong> Some fans had more than 1,000 days since last activity.
+            Rather than modifying dates, lifecycle thresholds were adjusted to reflect the historical nature of the data.
+          </li>
+        </ul>
+
+        <h3>Modeling Assumptions</h3>
+        <ul>
+          <li>Lifecycle stages were based on observed recency, engagement, and value patterns.</li>
+          <li>The “New” lifecycle stage was excluded because the dataset did not include acquisition or join date fields.</li>
+          <li>Next-best-action recommendations were rule-based and designed to demonstrate CRM decisioning logic.</li>
+        </ul>
+      </section>
+
+      <section class="mb-5">
+        <h2>💡 Business Recommendations</h2>
+        <ul>
+          <li>Launch introductory ticket or merchandise offers to convert casual fans into higher-value segments.</li>
+          <li>Prioritize at-risk fans with re-engagement campaigns before they become fully dormant.</li>
+          <li>Use app and email campaigns to convert digital fans into purchasers.</li>
+          <li>Protect VIP and loyal fans through exclusive perks, early access, and premium experiences.</li>
+          <li>Continue monitoring data quality issues that impact recency and lifecycle classification.</li>
+        </ul>
+      </section>
+
+      <section class="mb-5">
+        <h2>🧰 Tools Used</h2>
+        <ul>
+          <li>Power BI</li>
+          <li>DAX</li>
+          <li>Power Query</li>
+          <li>Data Modeling</li>
+          <li>CRM / Lifecycle Segmentation Logic</li>
+        </ul>
+      </section>
+
+      <section class="mb-5">
+        <h2>🔮 Future Enhancements</h2>
+        <p>
+          Future enhancements could include publishing this dashboard as a Power BI App, adding campaign response data,
+          simulating revenue impact by action type, building a campaign ROI page, and adding more advanced churn-risk scoring.
+        </p>
+      </section>
+
+      <p class="text-center">
+        <a href="case_studies.html" class="btn btn-outline-light">← Back to Case Studies</a>
+      </p>
+
+    </article>
+  </main>
+
+  <footer class="bg-dark text-light text-center py-3 mt-5">
+    <p>© 2025 Taya Dailey</p>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
