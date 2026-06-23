@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>US Healthcare Analysis Dashboard | Taya Dailey</title>
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="index.html">Taya Dailey</a>
+
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+        <li class="nav-item"><a class="nav-link" href="resume.html">Resume</a></li>
+        <li class="nav-item"><a class="nav-link" href="projects.html">Projects</a></li>
+        <li class="nav-item"><a class="nav-link" href="development.html">Development</a></li>
+        <li class="nav-item"><a class="nav-link" href="analytics.html">Analytics</a></li>
+        <li class="nav-item"><a class="nav-link" href="case_studies.html">Case Studies</a></li>
+        <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<main class="container my-5">
+
+  <article>
+
+    <header class="text-center mb-5">
+      <h1>US Healthcare Analysis Dashboard</h1>
+      <p class="lead">
+        Power BI dashboard analyzing patient admissions, diagnostic outcomes,
+        healthcare utilization, and healthcare costs using a 55,000+ record healthcare dataset.
+      </p>
+    </header>
+
+    <section class="mb-5">
+      <h2>📌 Project Overview</h2>
+
+      <p>
+        This project explores patient admissions, diagnostic patterns,
+        healthcare utilization, and financial trends within a healthcare dataset.
+        The objective was to transform raw healthcare data into an interactive
+        Power BI dashboard that supports operational reporting and healthcare decision-making.
+      </p>
+
+      <p>
+        The final solution includes four interactive dashboard pages focused on
+        admissions, diagnosis trends, cost and utilization analysis, and patient-level exploration.
+      </p>
+    </section>
+
+    <section class="mb-5">
+      <h2>🎯 Business Challenge</h2>
+
+      <p>
+        Healthcare organizations need visibility into patient populations,
+        admission patterns, diagnostic outcomes, treatment costs, and resource utilization.
+      </p>
+
+      <p>
+        The goal was to build an interactive reporting solution that helps
+        stakeholders identify trends and better understand healthcare operations.
+      </p>
+    </section>
+
+    <section class="mb-5">
+      <h2>🛠️ Process</h2>
+
+      <ul class="list-group list-group-flush">
+
+        <li class="list-group-item bg-dark text-light">
+          Imported healthcare data into Power BI.
+        </li>
+
+        <li class="list-group-item bg-dark text-light">
+          Cleaned and transformed the dataset using Power Query.
+        </li>
+
+        <li class="list-group-item bg-dark text-light">
+          Created Patient ID, Admission Year, Age Group,
+          Length of Stay Categories, and Billing Categories.
+        </li>
+
+        <li class="list-group-item bg-dark text-light">
+          Built DAX measures for KPI reporting and trend analysis.
+        </li>
+
+        <li class="list-group-item bg-dark text-light">
+          Designed a four-page dashboard focused on admissions,
+          diagnostics, utilization, and patient exploration.
+        </li>
+
+        <li class="list-group-item bg-dark text-light">
+          Added slicers, conditional formatting,
+          and interactive filtering capabilities.
+        </li>
+
+      </ul>
+    </section>
+
+    <section class="mb-5">
+      <h2>📊 Dashboard Page 1 — Admission Overview</h2>
+
+      <div class="text-center my-4">
+        <img src="Images/Admission Overview.png"
+             alt="Admission Overview Dashboard"
+             class="img-fluid rounded shadow">
+      </div>
+
+      <h3>Key Takeaways</h3>
+
+      <ul>
+        <li>Over 55,000 patient records were analyzed.</li>
+        <li>Admissions remained relatively consistent throughout the year.</li>
+        <li>Long-stay patients represented the largest utilization category.</li>
+        <li>Patient populations were relatively balanced across major conditions.</li>
+      </ul>
+    </section>
+
+    <section class="mb-5">
+      <h2>🩺 Dashboard Page 2 — Diagnosis Overview</h2>
+
+      <div class="text-center my-4">
+        <img src="Images/Diagnosis Overview.png"
+             alt="Diagnosis Overview Dashboard"
+             class="img-fluid rounded shadow">
+      </div>
+
+      <h3>Key Takeaways</h3>
+
+      <ul>
+        <li>Test result distributions varied across medical conditions.</li>
+        <li>Medication usage patterns differed by diagnosis.</li>
+        <li>Age groups showed subtle differences in outcomes.</li>
+        <li>Clinical patterns became easier to explore through interactive visuals.</li>
+      </ul>
+    </section>
+
+    <section class="mb-5">
+      <h2>💰 Dashboard Page 3 — Cost & Utilization</h2>
+
+      <div class="text-center my-4">
+        <img src="Images/Cost & Utilization.png"
+             alt="Cost and Utilization Dashboard"
+             class="img-fluid rounded shadow">
+      </div>
+
+      <h3>Key Takeaways</h3>
+
+      <ul>
+        <li>Most patients fell into moderate and high-cost categories.</li>
+        <li>Length of stay varied slightly across admission types.</li>
+        <li>Average billing remained relatively consistent across providers.</li>
+        <li>Utilization metrics provided stronger insights than patient volume alone.</li>
+      </ul>
+    </section>
+
+    <section class="mb-5">
+      <h2>🔍 Dashboard Page 4 — Patient Explorer</h2>
+
+      <div class="text-center my-4">
+        <img src="Images/Patient Details.png"
+             alt="Patient Explorer Dashboard"
+             class="img-fluid rounded shadow">
+      </div>
+
+      <h3>Key Takeaways</h3>
+
+      <ul>
+        <li>Dynamic slicers support self-service analysis.</li>
+        <li>Patient-level detail enables deeper exploration.</li>
+        <li>Conditional formatting highlights important information.</li>
+        <li>Users can filter records across multiple healthcare dimensions.</li>
+      </ul>
+    </section>
+
+    <section class="mb-5">
+      <h2>🧪 Data Quality & Limitations</h2>
+
+      <p>
+        This project used a synthetic healthcare dataset rather than real patient records.
+        While the data resembles realistic healthcare information, it does not represent
+        actual patients or healthcare organizations.
+      </p>
+
+      <p>
+        Many variables were intentionally balanced, resulting in fewer dramatic differences
+        between patient groups than would typically be found in real-world healthcare data.
+        Because of this, the analysis focused more heavily on healthcare utilization,
+        treatment costs, admission patterns, and operational trends.
+      </p>
+
+      <p>
+        The dataset also represents a snapshot in time and does not include complete
+        patient histories or post-discharge outcomes.
+      </p>
+    </section>
+
+    <section class="mb-5">
+      <h2>💡 Business Recommendations</h2>
+
+      <ul>
+        <li>Monitor healthcare utilization trends regularly.</li>
+        <li>Continue tracking treatment cost distributions.</li>
+        <li>Expand future analyses with additional clinical variables.</li>
+        <li>Leverage interactive dashboards to support operational planning.</li>
+        <li>Use data-driven reporting to improve visibility into healthcare performance.</li>
+      </ul>
+    </section>
+
+    <section class="mb-5">
+      <h2>🧰 Tools Used</h2>
+
+      <ul>
+        <li>Power BI</li>
+        <li>Power Query</li>
+        <li>DAX</li>
+        <li>Data Modeling</li>
+        <li>Data Visualization</li>
+        <li>Healthcare Analytics</li>
+      </ul>
+    </section>
+
+    <section class="mb-5">
+      <h2>📂 Project Deliverables</h2>
+
+      <div class="d-flex gap-3 flex-wrap">
+
+        <a href="Documents/US Healthcare Analysis Presentation.pdf"
+           class="btn btn-outline-light"
+           target="_blank">
+           📑 View Presentation
+        </a>
+
+        <a href="Documents/US Healthcare Analysis Documentation.pdf"
+           class="btn btn-outline-light"
+           target="_blank">
+           📄 Full Documentation
+        </a>
+
+      </div>
+    </section>
+
+    <section class="mb-5">
+      <h2>🔮 Future Enhancements</h2>
+
+      <p>
+        Future improvements could include integrating real-world healthcare datasets,
+        adding patient outcome metrics, building predictive models for utilization,
+        and publishing the dashboard as a Power BI App for broader stakeholder access.
+      </p>
+    </section>
+
+    <p class="text-center">
+      <a href="case_studies.html" class="btn btn-outline-light">
+        ← Back to Case Studies
+      </a>
+    </p>
+
+  </article>
+
+</main>
+
+<footer class="bg-dark text-light text-center py-3 mt-5">
+  <p>© 2026 Taya Dailey</p>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>
