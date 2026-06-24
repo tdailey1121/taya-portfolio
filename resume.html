@@ -1,37 +1,39 @@
+```html
 <!DOCTYPE html>
 <html lang="en" data-bs-theme="dark">
 <head>
-  
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Resume | Taya Dailey</title>
 
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-Q5H3Q46XSD"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-Q5H3Q46XSD"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
 
-  gtag('config', 'G-Q5H3Q46XSD');
-</script>
-  
+    gtag('config', 'G-Q5H3Q46XSD');
+  </script>
+
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
-  <!-- Note: This resume page serves as a general version and is subject to regular updates as applications evolve. -->
 </head>
+
 <body>
+
   <!-- Navbar -->
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <div class="container-fluid">
-      <a class="navbar-brand" href="#">Taya Dailey</a>
+      <a class="navbar-brand" href="index.html">Taya Dailey</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
         <span class="navbar-toggler-icon"></span>
       </button>
+
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav ms-auto">
           <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
-          <li class="nav-item"><a class="nav-link" href="resume.html">Resume</a></li>
+          <li class="nav-item"><a class="nav-link active" href="resume.html">Resume</a></li>
           <li class="nav-item"><a class="nav-link" href="projects.html">Projects</a></li>
           <li class="nav-item"><a class="nav-link" href="development.html">Development</a></li>
           <li class="nav-item"><a class="nav-link" href="analytics.html">Analytics</a></li>
@@ -44,66 +46,87 @@
 
   <!-- Resume Section -->
   <section class="container py-5">
-    <div class="d-flex justify-content-between align-items-center mb-4">
-      <h2>Resume</h2>
+
+   <!-- <div class="d-flex justify-content-between align-items-center mb-4">
+      <h1>Resume</h1>
       <a href="downloads/T .Dailey Resume.pdf" class="btn btn-outline-light" download>Download PDF</a>
-    </div>
+    </div> -->
 
-    <!-- Visible Note -->
-    <p class="text-muted"><em>This is a general version of my resume and is updated regularly based on active job applications. Customized versions available upon request, but are also attached to all job applications.</em></p>
+    <p class="text-muted">
+      <em>This is a general version of my resume and is updated regularly based on active job applications.</em>
+    </p>
 
+    <!-- Professional Summary -->
+    <h2>Professional Summary</h2>
+    <p>
+      Customer Analytics and Business Intelligence professional with 4+ years of experience developing reporting solutions,
+      supporting customer data initiatives, and delivering actionable insights that drive operational performance,
+      engagement, and process improvement. Skilled in Power BI, SQL, Power Query, Excel, Power Automate, SharePoint,
+      Salesforce reporting, and data quality validation. Experienced in dashboard development, KPI reporting,
+      stakeholder collaboration, documentation, and translating business requirements into scalable analytics solutions.
+    </p>
+
+    <!-- Education -->
     <h2>Education</h2>
     <p><strong>Oakland University</strong> — Rochester Hills, MI</p>
     <ul>
-      <li>Master of Science, Business Analytics – Expected May 2026</li>
-      <li>Bachelor of Science, Management Information Systems – December 2022</li>
+      <li>Master of Science, Business Analytics — Expected May 2027</li>
+      <li>Bachelor of Science, Management Information Systems — December 2022</li>
     </ul>
 
-    <h2>Experience</h2>
+    <!-- Experience -->
+    <h2>Professional Experience</h2>
+
+    <p><strong>Henry Ford Health — Health Alliance Plan</strong> — Troy, MI</p>
+    <p><em>Data & Analytics Specialist, Revenue Cycle Operations | January 2026 – Present</em></p>
+    <ul>
+      <li>Analyze operational workflows, denial trends, and reporting discrepancies to identify recurring issues, data inconsistencies, and process gaps supporting revenue cycle operations.</li>
+      <li>Partner with cross-functional operational teams to investigate account discrepancies, validate reporting accuracy, and improve workflow efficiency across healthcare systems and processes.</li>
+      <li>Ensure data accuracy and compliance by validating account information, maintaining documentation standards, and supporting quality assurance initiatives within a HIPAA-regulated healthcare environment.</li>
+      <li>Support time-sensitive operational workflows requiring strong analytical thinking, attention to detail, consistency, and adherence to established procedures.</li>
+      <li>Collaborate with stakeholders to communicate findings, escalate reporting concerns, and support process improvement initiatives.</li>
+    </ul>
+
     <p><strong>Blue Cross Blue Shield of Michigan</strong> — Detroit, MI</p>
-    <p><em>Data & Training Analyst | July 2023 – August 2025</em></p>
+    <p><em>Business Intelligence & Strategy Analyst | July 2023 – August 2025</em></p>
     <ul>
-      <li>Developed AI-powered training content (Quantum Sim), streamlining onboarding and improving analyst learning efficiency.</li>
-      <li>Designed and optimized SharePoint process tools, enhancing remote collaboration and minimizing project delays.</li>
-      <li>Delivered executive-level dashboards and reports using SQL, Python, and Power BI to support strategic decision-making across multiple departments.</li>
-      <li>Automated recurring reporting workflows, reducing manual effort and freeing analyst time for higher-value tasks.</li>
-      <li>Collaborated across departments using Microsoft Teams and SharePoint, ensuring timely insights and effective communication.</li>
+      <li>Led the design and delivery of executive-level Power BI dashboards translating operational performance, member behavior, and engagement trends into actionable insights for business stakeholders.</li>
+      <li>Partnered with business owners and analytics stakeholders to gather reporting requirements, align KPIs, and standardize metric definitions supporting enterprise reporting consistency.</li>
+      <li>Built SQL-based datasets, Power Query transformations, and Power BI semantic models supporting reporting automation, audience analytics, and performance measurement across multiple data sources.</li>
+      <li>Supported operational and engagement reporting workflows through Salesforce reporting, customer data validation, and stakeholder-ready reporting solutions.</li>
+      <li>Collaborated with technical teams to support ingestion of new data sources, validate transformation logic, and improve reporting accuracy through data quality checks and exploratory analysis.</li>
+      <li>Developed Microsoft Forms-based surveys, quizzes, and intake tools while leveraging Microsoft 365, SharePoint, and Power Platform solutions to streamline data collection and reporting accessibility.</li>
+      <li>Documented data sources, reporting logic, KPI definitions, and dashboard standards to improve scalability, governance, and cross-team knowledge sharing.</li>
+      <li>Created user-focused training resources and documentation supporting reporting adoption, self-service analytics initiatives, and stakeholder enablement.</li>
     </ul>
 
-    <h2>Projects</h2>
-    <p><strong>Portfolio Website – Ongoing Enhancements</strong></p>
-    <p><em>HTML, CSS, JavaScript, GitHub</em></p>
-    <ul>
-      <li>Designed and launched a professional website to showcase technical projects and downloadable resume/portfolio PDFs.</li>
-      <li>Features interactive sections highlighting data analytics, development, and machine learning work.</li>
-      <li>Demonstrates front-end skills with Clean UI, responsive layout, and modern design.</li>
-    </ul>
-
-    <p><strong>Customer Churn Predictions Model</strong></p>
-    <p><em>Python, Scikit-Learn</em></p>
-    <ul>
-      <li>Built a Random Forest model to predict telecom customer churn and visualized key churn drivers.</li>
-      <li>Cleaned and engineered features from 7,000+ real-world customer records for model training.</li>
-      <li>Achieved strong accuracy using Random Forest; visualized insights using Seaborn and Matplotlib.</li>
-    </ul>
-
-    <p><strong>SQL Website Customer Insights</strong></p>
-    <p><em>SQL Queries, SQLite</em></p>
-    <ul>
-      <li>Created a website analytics database using synthetic visitor data to analyze customer engagement and conversion patterns.</li>
-      <li>Designed a 500-record synthetic dataset and executed complex SQL aggregation queries.</li>
-      <li>Provided downloadable database and query files for easy replication.</li>
-    </ul>
-
+    <!-- Technical Skills -->
     <h2>Technical Skills</h2>
-<ul>
-  <li><strong>Workflow & Automation:</strong> Power Automate (Cloud & Desktop), Power Apps, Offline JSON-based workflows, SharePoint Online (advanced), Salesforce</li>
-  <li><strong>Data & Analytics:</strong> Power BI, Tableau, Excel (Pivot Tables, Power Query, Macros), Python (Pandas, NumPy, Scikit-Learn, Matplotlib, Seaborn), R, DAX, ETL / Data Transformation</li>
-  <li><strong>Web Development & Programming:</strong> HTML, CSS, JavaScript, Bootstrap, VBA</li>
-  <li><strong>Databases & Querying:</strong> SQL (SQLite, SQL Server exposure)</li>
-  <li><strong>Cloud & AI:</strong> Microsoft Azure (AI & cloud services), Quantum Sim, ChatGPT</li>
-  <li><strong>Collaboration & Version Control:</strong> Git, GitHub, GitHub Pages, Google Suite</li>
-</ul>
+    <ul>
+      <li><strong>Data Visualization & Analytics:</strong> Power BI, SQL, Power Query, Excel, Dashboard Development, KPI Reporting, Data Modeling, Data Visualization</li>
+      <li><strong>CRM & Customer Analytics:</strong> Salesforce Reporting, Customer Segmentation, Customer Engagement Analysis, Lifecycle Analytics, Audience Analytics, Customer Insights</li>
+      <li><strong>Healthcare & Operational Analytics:</strong> Revenue Cycle Reporting, Operational Reporting, Workflow Analysis, Data Quality Validation, Process Improvement, HIPAA-Regulated Environments</li>
+      <li><strong>Data Strategy & Enablement:</strong> Requirements Gathering, Stakeholder Alignment, Metric Standardization, Data Mapping, Documentation, Data Governance Foundations, Self-Service Reporting Support</li>
+      <li><strong>Tools & Platforms:</strong> Power BI, Salesforce, Salesforce Marketing Cloud Exposure, SharePoint, Jira, Power Automate, Power Apps, Microsoft 365, GitHub</li>
+      <li><strong>Programming & Technical Exposure:</strong> Python, Pandas, NumPy, Matplotlib, Seaborn, HTML, CSS, JavaScript, Bootstrap</li>
+    </ul>
+
+    <!-- Certifications -->
+    <h2>Certifications</h2>
+    <ul>
+      <li>IBM Data Analyst Professional Certificate — 2025</li>
+      <li>Microsoft Cybersecurity Analyst Professional Certificate — 2026</li>
+      <li>Microsoft Dynamics 365 Fundamentals — MB-910, In Progress</li>
+    </ul>
+
+    <!-- Portfolio Note -->
+    <h2>Portfolio</h2>
+    <p>
+      Selected analytics dashboards, business intelligence projects, and case studies are available on the
+      <a href="analytics.html">Analytics</a> and <a href="case_studies.html">Case Studies</a> pages.
+    </p>
+
+  </section>
 
   <!-- Footer Note -->
   <footer class="text-center mt-5 mb-3">
@@ -113,10 +136,7 @@
   </footer>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
 </body>
 </html>
-
-
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-</body>
-</html>
+```
