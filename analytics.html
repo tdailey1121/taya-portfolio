@@ -1,38 +1,41 @@
+```html
 <!DOCTYPE html>
 <html lang="en" data-bs-theme="dark">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Analytic/Data Projects | Taya Dailey</title>
+  <title>Analytics & Data Projects | Taya Dailey</title>
 
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-Q5H3Q46XSD"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-Q5H3Q46XSD');
-</script>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-Q5H3Q46XSD"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-Q5H3Q46XSD');
+  </script>
   
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
   <link rel="stylesheet" href="css/style.css" />
 </head>
+
 <body>
+
   <!-- Navbar -->
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <div class="container-fluid">
-      <a class="navbar-brand" href="#">Taya Dailey</a>
+      <a class="navbar-brand" href="index.html">Taya Dailey</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
         <span class="navbar-toggler-icon"></span>
       </button>
+
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav ms-auto">
           <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
           <li class="nav-item"><a class="nav-link" href="resume.html">Resume</a></li>
           <li class="nav-item"><a class="nav-link" href="projects.html">Projects</a></li>
           <li class="nav-item"><a class="nav-link" href="development.html">Development</a></li>
-          <li class="nav-item"><a class="nav-link" href="analytics.html">Analytics</a></li>
+          <li class="nav-item"><a class="nav-link active" href="analytics.html">Analytics</a></li>
           <li class="nav-item"><a class="nav-link" href="case_studies.html">Case Studies</a></li>
           <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
         </ul>
@@ -40,44 +43,94 @@
     </div>
   </nav>
 
-<!-- PAGE HEADER -->
+  <!-- Page Header -->
   <header class="container my-5 text-center">
     <h1>Analytics & Data Projects</h1>
-    <p class="lead">Dashboards, data analysis, and visualizations using Power BI, Tableau, Python, and more.</p>
+    <p class="lead">
+      Dashboards, data analysis, and business intelligence projects using Power BI, SQL, Excel, Python, and more.
+    </p>
   </header>
 
-  <!-- ANALYTICS PROJECTS -->
+  <!-- Analytics Projects -->
   <section class="container my-5">
     <div class="row">
 
-      <!-- Churn Prediction Project - Hidden for CRM-focused portfolio version 
+      <!-- Used Car Sales Performance Analytics Dashboard -->
       <div class="col-md-6 mb-4">
         <div class="card h-100 bg-dark text-white shadow-sm">
-          <img src="Images/churn_roc.png" class="card-img-top" alt="Churn ROC Curve">
+          <img src="Images/Used_Car_Sales_Overview.png" class="card-img-top" alt="Used Car Sales Performance Analytics Dashboard">
           <div class="card-body">
-            <h5 class="card-title">Churn Prediction Project</h5>
+            <h5 class="card-title">Used Car Sales Performance Analytics Dashboard</h5>
             <p class="card-text">
-              Developed a machine learning model with Python (Pandas, Scikit-learn) to predict telecom customer churn.
-              Cleaned 7,000+ records, used Random Forest, achieved AUC 0.81, and identified key drivers with feature importance.
+              Interactive Power BI dashboard analyzing vehicle sales performance, inventory efficiency, customer feedback,
+              and sales agent productivity to identify trends, optimize inventory management, and support data-driven business decisions.
             </p>
-            <a href="downloads/churn_prediction.ipynb" class="btn btn-primary btn-sm" target="_blank">View Notebook</a>
-            <a href="Images/churn_features.png" class="btn btn-outline-light btn-sm" target="_blank">View Feature Plot</a>
+            <a href="downloads/Used%20Car%20Sales.pbix" class="btn btn-primary btn-sm" target="_blank">Download PBIX</a>
+            <a href="used-car-sales-performance-analytics.html" class="btn btn-outline-light btn-sm">View Case Study</a>
           </div>
         </div>
-      </div> -->
+      </div>
 
-       <!-- Detroit Shock Fan Segmentation -->
+      <!-- Detroit Shock Fan Lifecycle & CRM Intelligence Dashboard -->
+      <div class="col-md-6 mb-4">
+        <div class="card h-100 bg-dark text-white shadow-sm">
+          <img src="Images/Detroit Shock Executive Overview.png" class="card-img-top" alt="Detroit Shock Fan Lifecycle CRM Intelligence Dashboard">
+          <div class="card-body">
+            <h5 class="card-title">Detroit Shock Fan Lifecycle & CRM Intelligence Dashboard</h5>
+            <p class="card-text">
+              Advanced Power BI dashboard combining fan lifecycle modeling, behavioral segmentation, data quality monitoring,
+              and next-best-action recommendations to support customer retention and engagement strategy.
+            </p>
+            <a href="downloads/Detroit%20Shock%20Fan%20Lifecycle%20%26%20CRM%20Intelligence%20Dashboard.pbix" class="btn btn-primary btn-sm" target="_blank">Download PBIX</a>
+            <a href="Detroit%20Shock%20Fan%20Lifecycle%20CRM%20Intelligence.html" class="btn btn-outline-light btn-sm">View Case Study</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- US Healthcare Analysis Dashboard -->
+      <div class="col-md-6 mb-4">
+        <div class="card h-100 bg-dark text-white shadow-sm">
+          <img src="Images/Admission Overview.png" class="card-img-top" alt="US Healthcare Analysis Dashboard">
+          <div class="card-body">
+            <h5 class="card-title">US Healthcare Analysis Dashboard</h5>
+            <p class="card-text">
+              End-to-end Power BI healthcare analytics project featuring data transformation, DAX calculations, patient admissions analysis,
+              diagnostic reporting, healthcare utilization metrics, cost analysis, and interactive patient exploration.
+            </p>
+            <a href="downloads/US%20Healthcare%20Analysis%20Dashboard.pbix" class="btn btn-primary btn-sm" target="_blank">Download PBIX</a>
+            <a href="US%20Healthcare%20Analysis.html" class="btn btn-outline-light btn-sm">View Case Study</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Credit Card Customer Retention & Churn Analytics Dashboard -->
+      <div class="col-md-6 mb-4">
+        <div class="card h-100 bg-dark text-white shadow-sm">
+          <img src="Images/Credit Card Customer Insights.png" class="card-img-top" alt="Credit Card Customer Retention and Churn Analytics Dashboard">
+          <div class="card-body">
+            <h5 class="card-title">Credit Card Customer Retention & Churn Analytics Dashboard</h5>
+            <p class="card-text">
+              Advanced Power BI dashboard analyzing customer attrition, engagement patterns, credit behavior, and retention opportunities.
+              Combines customer segmentation, behavioral analytics, KPI monitoring, and risk identification to support data-driven retention strategies.
+            </p>
+            <a href="downloads/Credit%20Card%20Customer%20Retention%20%26%20Churn%20Analytics.pbix" class="btn btn-primary btn-sm" target="_blank">Download PBIX</a>
+            <a href="Credit%20Card%20Customer%20Retention%20%26%20Churn%20Analytics%20Dashboard.html" class="btn btn-outline-light btn-sm">View Case Study</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Detroit Shock Fan Segmentation -->
       <div class="col-md-6 mb-4">
         <div class="card h-100 bg-dark text-white shadow-sm">
           <img src="Images/Fan Segmentation Overview.png" class="card-img-top" alt="Detroit Shock Fan Segmentation">
           <div class="card-body">
             <h5 class="card-title">Detroit Shock Fan Segmentation & Revenue Analytics</h5>
             <p class="card-text">
-              Built a multi-page Power BI dashboard using SQL-modeled fan data to deliver audience-level insights across revenue, engagement, 
-              and digital touchpoints—supporting executive, CRM, and revenue stakeholders with connected funnel-ready reporting.
+              Built a multi-page Power BI dashboard using SQL-modeled fan data to deliver audience-level insights across revenue,
+              engagement, and digital touchpoints—supporting executive, CRM, and revenue stakeholders with connected funnel-ready reporting.
             </p>
-            <a href="downloads/Detroit Shock Fan Segmentation.pbix" class="btn btn-primary btn-sm" target="_blank">Download PBIX</a>
-            <a href="downloads/README-Detroit Shock Fan Segmentation & Revenue Analytics.txt" class="btn btn-outline-light btn-sm" target="_blank">View README</a>
+            <a href="downloads/Detroit%20Shock%20Fan%20Segmentation.pbix" class="btn btn-primary btn-sm" target="_blank">Download PBIX</a>
+            <a href="Detroit%20Shock%20Fan%20Segmentation.html" class="btn btn-outline-light btn-sm">View Case Study</a>
           </div>
         </div>
       </div>
@@ -93,20 +146,20 @@
               retention analysis, and institutional research insights—enabling proactive advising and data-informed student success strategy.
             </p>
             <a href="downloads/Hillman_Student_Success.pbix" class="btn btn-primary btn-sm" target="_blank">Download PBIX</a>
-            <a href="downloads/README-Hillman Student Success & Early Alert Analytics.txt" class="btn btn-outline-light btn-sm" target="_blank">View README</a>
+            <a href="Hillman%20College%20Student%20Success%20%26%20Early%20Alert%20Analytics.html" class="btn btn-outline-light btn-sm">View Case Study</a>
           </div>
         </div>
       </div>
 
       <!-- SQL Customer Insights -->
       <div class="col-md-6 mb-4">
-        <div class="card h-55 bg-dark text-white shadow-sm">
+        <div class="card h-100 bg-dark text-white shadow-sm">
           <img src="Images/sql_conversion_table.png" class="card-img-top" alt="SQL Conversion Table">
           <div class="card-body">
             <h5 class="card-title">SQL Website Customer Insights</h5>
             <p class="card-text">
-              Created an SQLite database of synthetic website visitor data. Ran advanced SQL queries to uncover
-              conversion rates, average time on site by device, and campaign performance with detailed tables.
+              Created an SQLite database of synthetic website visitor data. Ran advanced SQL queries to uncover conversion rates,
+              average time on site by device, and campaign performance with detailed tables.
             </p>
             <a href="downloads/website_insights.sql" class="btn btn-primary btn-sm" target="_blank">View SQL File</a>
             <a href="Images/sql_conversion_table.png" class="btn btn-outline-light btn-sm" target="_blank">View Table</a>
@@ -121,11 +174,11 @@
           <div class="card-body">
             <h5 class="card-title">Customer Experience KPI Dashboard</h5>
             <p class="card-text">
-              Built a Power BI dashboard to track support metrics: resolution time, % resolved, customer ratings,
-              with DAX measures and interactive visuals by channel and agent. Highlighted opportunities to improve chat resolution times.
+              Built a Power BI dashboard to track support metrics including resolution time, percent resolved, customer ratings,
+              channel trends, and agent performance.
             </p>
-            <a href="downloads/Customer Experience KPI Dashboard.pbix" class="btn btn-primary btn-sm" target="_blank">Download PBIX</a>
-            <a href="downloads/README - Customer Experience KPI Dashboard.txt" class="btn btn-outline-light btn-sm" target="_blank">View README</a>
+            <a href="downloads/Customer%20Experience%20KPI%20Dashboard.pbix" class="btn btn-primary btn-sm" target="_blank">Download PBIX</a>
+            <a href="downloads/README%20-%20Customer%20Experience%20KPI%20Dashboard.txt" class="btn btn-outline-light btn-sm" target="_blank">View README</a>
           </div>
         </div>
       </div>
@@ -133,14 +186,11 @@
     </div>
   </section>
 
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-</body>
-</html>
-
-
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
 </body>
 </html>
+```
 
 
 
