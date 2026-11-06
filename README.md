@@ -1,62 +1,38 @@
-# Taya Dailey – Data Portfolio
+# Taya Dailey – BI & Analytics Portfolio
 
-Welcome to my personal portfolio website! This project showcases my work in data analytics and development, including real-world examples using Python, SQL, and machine learning.
+Portfolio of Power BI dashboards, SQL and Python analysis, automation case studies, and hand-built web projects.
 
-## 🚀 Live Site
-🌐 *https://tdailey1121.github.io/taya-portfolio/*
+**Live site:** https://tdailey1121.github.io/taya-portfolio/
 
----
+## Featured projects
 
-## 📁 Projects Included
+| Project | Focus | Tools |
+|---|---|---|
+| [US Healthcare Performance & Cost Analysis](US%20Healthcare%20Analysis.html) | Admissions, diagnoses, cost and utilization across 55,000+ records | Power BI, DAX, Power Query |
+| [Detroit Shock Fan Lifecycle & CRM Intelligence](Detroit%20Shock%20Fan%20Lifecycle%20CRM%20Intelligence.html) | Lifecycle segmentation and next-best-action strategy | Power BI, SQL |
+| [Credit Card Customer Retention & Churn](Credit%20Card%20Customer%20Retention%20%26%20Churn%20Analytics%20Dashboard.html) | Attrition drivers and retention risk | Power BI |
+| [Hillman College Student Success & Early Alert](Hillman%20College%20Student%20Success%20%26%20Early%20Alert%20Analytics.html) | Early alert and retention analytics | Power BI, SQL, Python |
+| [Used Car Sales Performance](used-car-sales-performance-analytics.html) | Sales, inventory and agent performance | Power BI |
+| [Track Record: Music Listening Dashboard](music-listening-dashboard.html) | Eight years of my Apple Music history, incl. shuffle A/B comparison (AI-assisted) | Python, iTunes API, star schema |
 
-### 🔍 Churn Prediction (Python, Machine Learning)
-- Built a machine learning model to predict telecom customer churn
-- Tools: Python, Pandas, Scikit-learn, Seaborn, Matplotlib
-- Includes data preprocessing, model evaluation, and feature importance visualizations
-- 📄 [`churn_prediction.ipynb`](downloads/churn_prediction.ipynb)
+More: Detroit Shock Fan Segmentation, Customer Experience KPI Dashboard, SQL Website Customer Insights, Telco churn prediction notebook, Power Automate case studies.
 
----
+## Structure
 
-### 📊 Website Customer Insights (SQL)
-- Created a synthetic dataset to simulate website user behavior
-- Analyzed conversion rates, engagement metrics, and marketing effectiveness
-- Tools: SQLite, SQL queries
-- 📦 [`website_analytics.db`](downloads/website_analytics.db)  
-- 📄 [`website_insights.sql`](downloads/website_insights.sql)  
-- 📝 [`website_customer_insights_README.txt`](downloads/website_customer_insights_README.txt)
+```
+index.html                 Home: featured work, toolkit, contact
+analytics.html             All analytics and dashboard projects
+<project>.html             One case study page per project
+development.html           Web development projects
+case_studies.html          Automation case studies
+contact.html
+css/style.css              Shared styles (on top of Bootstrap 5.3)
+Images/                    Dashboard screenshots
+downloads/                 PBIX files, notebooks, SQL, resume PDF
+```
 
----
-
-## 🧠 Skills Demonstrated
-- Data Analysis & Cleaning
-- SQL Query Writing
-- Machine Learning Modeling
-- Data Visualization
-- Building and Styling Websites with HTML, CSS & Bootstrap
-
----
-
-## 📂 Folder Structure
-
-portfolio-site/
-├── index.html
-├── resume.html
-├── projects.html
-├── css/
-│ └── style.css
-├── downloads/
-│ ├── churn_prediction.ipynb
-│ ├── website_analytics.db
-│ ├── website_insights.sql
-│ ├── website_customer_insights_README.txt
-│ └── T.Dailey Resume.pdf
-
-
----
-
-## 📬 Contact
-Feel free to reach out or connect!
+## Contact
 
 - Email: dailey.t@outlook.com
-- LinkedIn: [https://www.linkedin.com/in/tayadailey/]
-- GitHub: [tdailey1121]
+- LinkedIn: https://www.linkedin.com/in/tayadailey/
+- GitHub: https://github.com/tdailey1121

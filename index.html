@@ -3,7 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>T.Dailey Portfolio</title>
+  <title>Taya Dailey | BI &amp; Analytics Portfolio</title>
+  <meta name="description" content="Taya Dailey, Detroit-based BI analyst. Power BI dashboards, SQL and automation for healthcare and customer analytics.">
 
     <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-Q5H3Q46XSD"></script>
@@ -15,40 +16,183 @@
   gtag('config', 'G-Q5H3Q46XSD');
 </script>
   
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 <!-- Navbar -->
-  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <div class="container-fluid">
-      <a class="navbar-brand" href="#">Taya Dailey</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+  <nav class="navbar navbar-expand-lg site-nav sticky-top">
+    <div class="container">
+      <a class="navbar-brand" href="index.html"><span class="brand-mark">TD</span> Taya Dailey</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav ms-auto">
-          <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
-          <!--<li class="nav-item"><a class="nav-link" href="resume.html">Resume</a></li>-->
-          <li class="nav-item"><a class="nav-link" href="projects.html">Projects</a></li>
-          <li class="nav-item"><a class="nav-link" href="development.html">Development</a></li>
+        <ul class="navbar-nav ms-auto align-items-lg-center">
+          <li class="nav-item"><a class="nav-link active" href="index.html" aria-current="page">Home</a></li>
           <li class="nav-item"><a class="nav-link" href="analytics.html">Analytics</a></li>
-          <li class="nav-item"><a class="nav-link" href="case_studies.html">Case Studies</a></li>
-          <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+          <li class="nav-item"><a class="nav-link" href="development.html">Web Dev</a></li>
+          <li class="nav-item"><a class="nav-link" href="case_studies.html">Automation</a></li>
+          <li class="nav-item"><a class="nav-link" href="downloads/T%20.Dailey%20Resume.pdf" target="_blank" rel="noopener">Resume</a></li>
+          <li class="nav-item"><a class="btn btn-accent btn-sm ms-lg-2" href="contact.html">Contact</a></li>
         </ul>
       </div>
     </div>
   </nav>
 
-  <!-- Hero Section -->
-  <section class="text-center py-5">
-    <div class="container">
-      <h1 class="display-4">Hi, I'm Taya Dailey</h1>
-      <h2 class="h5 text-muted mb-3">Blending analytics with creativity.</h2>
-      <p class="lead">I turn data into insights — and insights into experiences. As a data analyst growing into front-end development, I blend analytics, design, and code. This site, built with HTML, CSS, and JavaScript, showcases projects powered by Python and SQL — all designed to balance clarity with creativity.</p>
-      <a href="projects.html" class="btn btn-primary mt-3">View My Projects</a>
+  <main>
+    <!-- Hero -->
+    <section class="hero">
+      <div class="container">
+        <span class="eyebrow">Business Intelligence &amp; Analytics</span>
+        <h1>I build dashboards that turn <span class="accent">healthcare and customer data</span> into decisions.</h1>
+        <p class="lead">
+          I'm Taya Dailey, a BI analyst based in Detroit with a background in payer analytics and healthcare revenue cycle.
+          I design Power BI reports, model data with SQL, and automate the busywork in between, always aiming for
+          reports people actually open.
+        </p>
+        <div class="hero-actions">
+          <a href="analytics.html" class="btn btn-accent">See my dashboards</a>
+          <a href="downloads/T%20.Dailey%20Resume.pdf" class="btn btn-outline-light" target="_blank" rel="noopener">Download resume</a>
+          <a href="https://linkedin.com/in/tayadailey" class="btn btn-outline-light" target="_blank" rel="noopener">LinkedIn</a>
+        </div>
+
+        <div class="stat-row">
+          <div class="stat"><div class="stat-num">9</div><div class="stat-label">Dashboards &amp; analytics projects</div></div>
+          <div class="stat"><div class="stat-num">Epic</div><div class="stat-label">Professional Billing certified</div></div>
+          <div class="stat"><div class="stat-num">PL-300</div><div class="stat-label">Power BI Data Analyst, in progress</div></div>
+          <div class="stat"><div class="stat-num">MS</div><div class="stat-label">Business Analytics, Oakland University (2027)</div></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Featured work -->
+    <section class="section">
+      <div class="container">
+        <div class="section-head">
+          <h2>Featured work</h2>
+          <a href="analytics.html">All analytics projects &rarr;</a>
+        </div>
+        <div class="row g-4">
+
+          <div class="col-md-6">
+            <div class="card h-100">
+              <img src="Images/Admission%20Overview.png" class="card-img-top" alt="US Healthcare Analysis dashboard, admissions overview page" loading="lazy">
+              <div class="card-body">
+                <div class="tags"><span class="tag tag-accent">Healthcare</span><span class="tag">Power BI</span><span class="tag">DAX</span><span class="tag">Power Query</span></div>
+                <h3 class="card-title h5">US Healthcare Performance &amp; Cost Analysis</h3>
+                <p class="card-text">Four-page Power BI report on 55,000+ patient records covering admissions, diagnoses, cost and utilization, with a self-service patient explorer.</p>
+                <div><a href="US%20Healthcare%20Analysis.html" class="btn btn-accent btn-sm">View case study</a></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-6">
+            <div class="card h-100">
+              <img src="Images/Detroit%20Shock%20Executive%20Overview.png" class="card-img-top" alt="Detroit Shock Fan Lifecycle dashboard, executive overview page" loading="lazy">
+              <div class="card-body">
+                <div class="tags"><span class="tag tag-accent">CRM</span><span class="tag">Segmentation</span><span class="tag">Power BI</span></div>
+                <h3 class="card-title h5">Detroit Shock Fan Lifecycle &amp; CRM Intelligence</h3>
+                <p class="card-text">Fan lifecycle modeling and behavioral segmentation that end in next-best-action recommendations for retention and engagement.</p>
+                <div><a href="Detroit%20Shock%20Fan%20Lifecycle%20CRM%20Intelligence.html" class="btn btn-accent btn-sm">View case study</a></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-6">
+            <div class="card h-100">
+              <img src="Images/Credit%20Card%20Customer%20Insights.png" class="card-img-top" alt="Credit Card Customer Retention dashboard, customer insights page" loading="lazy">
+              <div class="card-body">
+                <div class="tags"><span class="tag tag-accent">Churn</span><span class="tag">Finance</span><span class="tag">Power BI</span></div>
+                <h3 class="card-title h5">Credit Card Customer Retention &amp; Churn</h3>
+                <p class="card-text">Attrition drivers, engagement patterns and risk segments, built to show a retention team where to act first.</p>
+                <div><a href="Credit%20Card%20Customer%20Retention%20%26%20Churn%20Analytics%20Dashboard.html" class="btn btn-accent btn-sm">View case study</a></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-6">
+            <div class="card h-100">
+              <div class="card-img-top music-cover" role="img" aria-label="Track Record music listening dashboard">
+                <span>Track Record</span>
+              </div>
+              <div class="card-body">
+                <div class="tags"><span class="tag tag-accent">Personal data</span><span class="tag">A/B comparison</span><span class="ai-badge">AI-assisted</span></div>
+                <h3 class="card-title h5">Track Record: Eight Years of My Listening</h3>
+                <p class="card-text">My real Apple Music history, 2018–2026, turned into an interactive dashboard, including a test of whether shuffle makes me skip more.</p>
+                <div><a href="music-listening-dashboard.html" class="btn btn-accent btn-sm">View case study</a></div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- Toolkit -->
+    <section class="section">
+      <div class="container">
+        <div class="section-head"><h2>Toolkit</h2></div>
+        <div class="skill-grid">
+          <span class="tag">Power BI</span><span class="tag">DAX</span><span class="tag">Power Query</span><span class="tag">SQL</span>
+          <span class="tag">Python (Pandas)</span><span class="tag">Tableau</span><span class="tag">Excel</span><span class="tag">SAS</span>
+          <span class="tag">Power Automate</span><span class="tag">Power Apps</span><span class="tag">SharePoint</span><span class="tag">Salesforce</span>
+          <span class="tag">Epic Professional Billing</span><span class="tag">Facets</span><span class="tag">Jira</span>
+          <span class="tag">HTML / CSS / JavaScript</span><span class="tag">Google Analytics &amp; Tag Manager</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- More -->
+    <section class="section">
+      <div class="container">
+        <div class="row g-4">
+          <div class="col-md-6">
+            <div class="card h-100">
+              <div class="card-body">
+                <h3 class="card-title h5">Automation case studies</h3>
+                <p class="card-text">Power Automate Desktop workflows that validate data and turn recurring checks into reports.</p>
+                <div><a href="case_studies.html" class="btn btn-outline-light btn-sm">See automation work</a></div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="card h-100">
+              <div class="card-body">
+                <h3 class="card-title h5">Web development</h3>
+                <p class="card-text">Responsive sites built by hand in HTML, CSS and JavaScript, including this one.</p>
+                <div><a href="development.html" class="btn btn-outline-light btn-sm">See web projects</a></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="cta-band">
+          <h2>Hiring for BI or healthcare analytics?</h2>
+          <p class="lead mb-4">I'd love to talk about what your team is working on.</p>
+          <a href="contact.html" class="btn btn-accent">Get in touch</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container d-flex flex-column flex-md-row justify-content-between align-items-center gap-2">
+      <p class="mb-0">&copy; 2026 Taya Dailey &middot; Detroit, MI</p>
+      <p class="mb-0 footer-links">
+        <a href="mailto:dailey.t@outlook.com">Email</a>
+        <a href="https://linkedin.com/in/tayadailey" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="https://github.com/tdailey1121" target="_blank" rel="noopener">GitHub</a>
+      </p>
     </div>
-  </section>
+  </footer>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
