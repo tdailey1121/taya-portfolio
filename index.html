@@ -443,13 +443,15 @@
   .apply-bar { height: 4px; border-radius: 2px; background: #3b3833; overflow: hidden; }
   .apply-bar i { display: block; height: 100%; width: 100%; background: var(--valid); transition: width 1.4s cubic-bezier(.3,.7,.2,1); }
   .apply-status b { color: #7fd1a6; font-weight: 600; }
-  .dest { position: relative; display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 12px; }
+  .dest { position: relative; display: grid; grid-template-columns: minmax(0, 1.6fr) repeat(3, minmax(0, 1fr)); gap: 12px; }
+  @media (max-width: 1000px) { .dest { grid-template-columns: repeat(3, minmax(0, 1fr)); } .dest .mail { grid-column: 1 / -1; } }
+  @media (max-width: 600px) { .dest { grid-template-columns: minmax(0, 1fr); } }
   .dest a, .dest .mail { display: grid; gap: 4px; text-decoration: none; color: #f6f2ea; background: #23211e; border: 1px solid #3b3833; border-radius: 14px; padding: 14px 16px; min-width: 0; transition: border-color 0.2s ease, transform 0.2s ease; }
   .dest a:hover { border-color: #ff9c78; transform: translateY(-2px); }
   .dest small { font: 600 0.66rem var(--mono); letter-spacing: 0.12em; text-transform: uppercase; color: #a39b8f; }
   .dest span { font-weight: 600; overflow-wrap: anywhere; }
   .mail-row { display: flex; align-items: center; justify-content: space-between; gap: 10px; }
-  .mail-row span { user-select: all; }
+  .mail-row span { user-select: all; white-space: nowrap; overflow-wrap: normal; }
   .copy { background: #3b3833; border: 0; border-radius: 8px; padding: 5px 10px; font: 600 0.72rem var(--mono); color: #f6f2ea; cursor: pointer; flex: none; }
   .copy:hover { background: #4a463f; }
   .sign { padding-block: 26px 40px; display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; font: 500 0.74rem var(--mono); color: var(--muted); }
