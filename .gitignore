@@ -1,0 +1,12 @@
+# Operating system clutter
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Editor folders
+.vscode/
+.idea/
+
+# Office and Power BI lock or temp files
+~$*
+*.tmp

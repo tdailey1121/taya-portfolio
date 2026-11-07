@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Credit Card Retention &amp; Churn | Taya Dailey</title>
+<meta name="description" content="A three-page Power BI dashboard for PremierBank, showing which customers are likely to leave, what behaviors signal churn, and where to focus retention.">
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-Q5H3Q46XSD"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-Q5H3Q46XSD');
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,700;12..96,800&family=JetBrains+Mono:wght@500;600&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/case.css">
+</head>
+<body>
+
+<header class="top"><div class="wrap"><div class="bar">
+  <a class="mark" href="../index.html"><i>TD</i> Taya Dailey</a>
+  <div class="bar-links">
+    <a class="ghost hide-sm" href="../downloads/Taya-Dailey-Resume.pdf" target="_blank" rel="noopener">R&eacute;sum&eacute;</a>
+    <a class="solid" href="../recruiter.html">Recruiter view</a>
+  </div>
+</div></div></header>
+
+<div class="wrap page">
+<nav class="pane" aria-label="Applied steps"><h2>Applied steps</h2><ol>
+<li><a href="#source"><span>1</span>Source</a></li>
+<li><a href="#messy"><span>2</span>What was messy</a></li>
+<li><a href="#applied"><span>3</span>Applied steps</a></li>
+<li><a href="#question"><span>4</span>The question</a></li>
+<li><a href="#shows"><span>5</span>What it shows</a></li>
+<li><a href="#recs"><span>6</span>What I’d recommend</a></li>
+<li><a href="#limits"><span>7</span>Data quality &amp; limits</a></li>
+<li><a href="#next"><span>8</span>What I’d do next</a></li>
+</ol><a class="back" href="../index.html#projects">&larr; All projects</a></nav>
+<main>
+<a class="crumb" href="../index.html#projects">&larr; All projects</a>
+<span class="eyebrow">Consumer finance · Built May 2026</span>
+<h1>Credit Card Retention &amp; Churn</h1>
+<p class="summary">A three-page Power BI dashboard for PremierBank, showing which customers are likely to leave, what behaviors signal churn, and where to focus retention.</p>
+<div class="chips"><span class="chip">Power BI</span><span class="chip">Power Query</span><span class="chip">DAX</span><span class="chip">Segmentation</span></div>
+<div class="actions"><a class="btn primary" href="../downloads/pbix/credit-card-churn.pbix" target="_blank" rel="noopener">Download PBIX</a></div>
+<div class="facts"><div class="fact"><b>~84%</b><span>overall retention rate</span></div><div class="fact"><b>~737</b><span>customers flagged high risk</span></div><div class="fact"><b>5</b><span>grouped bands built</span></div></div>
+<figure class="hero"><button class="shot-btn" type="button" data-caption="Customer Insights &amp; Segmentation: Attrition by demographics and card category"><img src="../assets/shots/credit-card-churn-1.png" alt="Customer Insights &amp; Segmentation page of the dashboard"></button><figcaption>Customer Insights &amp; Segmentation: Attrition by demographics and card category. Select to enlarge.</figcaption></figure>
+<section class="step" id="source"><div class="step-label"><b>Step 01</b> &middot; Source</div><h2>Where the data came from</h2><p>A single credit card customer dataset with demographics, card category, account activity and an attrition flag.</p><div class="source"><span class="file">credit card customers</span></div></section>
+<section class="step" id="messy"><div class="step-label"><b>Step 02</b> &middot; What was messy</div><h2>What I had to deal with</h2><ul class="list messy"><li><span>Some Education Level values had <b>spelling and formatting issues</b>.</span></li><li><span>Attrition_Flag values were hard to read on a dashboard.</span></li><li><span>Age, tenure, inactivity, contacts and utilization were raw numbers with no useful groupings.</span></li><li><span>The data is one point in time, with no customer history.</span></li></ul></section>
+<section class="step" id="applied"><div class="step-label"><b>Step 03</b> &middot; Applied steps</div><h2>How I cleaned and modeled it</h2><ul class="list applied"><li><span>Standardized inconsistent category labels in Power Query.</span></li><li><span>Recoded attrition into Active and Attrited.</span></li><li><span>Created Age Group, Tenure Group, Inactivity Band, Contact Frequency and Utilization Band.</span></li><li><span>Wrote DAX for retention rate, attrition rate, utilization, transaction behavior and customer risk.</span></li></ul></section>
+<section class="step" id="question"><div class="step-label"><b>Step 04</b> &middot; The question</div><h2>What the dashboard needed to answer</h2><p class="question">PremierBank is losing customers and seeing inconsistent card use. Which customer attributes and behaviors are associated with churn?</p></section>
+<section class="step" id="shows"><div class="step-label"><b>Step 05</b> &middot; What it shows</div><h2>What the data showed</h2><ul class="list finding"><li><span>Overall retention is about <b>84%</b>.</span></li><li><span><b>Platinum</b> card customers have the highest attrition rate of any card category.</span></li><li><span>Customers with <b>more contacts</b> with the bank attrite more often.</span></li><li><span>Customers with <b>no card utilization</b> show the highest attrition risk.</span></li><li><span>About <b>737 customers</b> were identified as high risk.</span></li></ul><details class="gallery"><summary>See every page <small>3 pages</small></summary><div class="grid"><figure><button class="shot-btn" type="button" data-caption="Customer Insights &amp; Segmentation: Attrition by demographics and card category"><img src="../assets/shots/credit-card-churn-1.png" alt="Customer Insights &amp; Segmentation page of the dashboard" loading="lazy"></button><figcaption><b>Customer Insights &amp; Segmentation</b>Attrition by demographics and card category</figcaption></figure><figure><button class="shot-btn" type="button" data-caption="Behavior &amp; Churn Drivers: Transactions, utilization, inactivity and contacts"><img src="../assets/shots/credit-card-churn-2.png" alt="Behavior &amp; Churn Drivers page of the dashboard" loading="lazy"></button><figcaption><b>Behavior &amp; Churn Drivers</b>Transactions, utilization, inactivity and contacts</figcaption></figure><figure><button class="shot-btn" type="button" data-caption="Retention &amp; Risk Optimization: Risk indicators and retention opportunities"><img src="../assets/shots/credit-card-churn-3.png" alt="Retention &amp; Risk Optimization page of the dashboard" loading="lazy"></button><figcaption><b>Retention &amp; Risk Optimization</b>Risk indicators and retention opportunities</figcaption></figure></div></details></section>
+<section class="step" id="recs"><div class="step-label"><b>Step 06</b> &middot; What I’d recommend</div><h2>What I’d tell the business</h2><ul class="list rec"><li><span>Reach inactive customers before they fully disengage.</span></li><li><span>Watch high-contact customers for service issues.</span></li><li><span>Run targeted retention for Platinum and other high-risk card segments.</span></li><li><span>Encourage use among low- and no-utilization customers.</span></li></ul></section>
+<section class="step" id="limits"><div class="step-label"><b>Step 07</b> &middot; Data quality &amp; limits</div><h2>What to keep in mind</h2><ul class="list messy"><li><span>Attrition_Flag was the main churn indicator: Active means retained, Attrited means closed or lost.</span></li><li><span>Because there’s no history over time, the analysis shows patterns and indicators, not exact causes.</span></li></ul></section>
+<section class="step" id="next"><div class="step-label"><b>Step 08</b> &middot; What I’d do next</div><h2>Where I’d take it next</h2><ul class="list next"><li><span>Add predictive churn scoring.</span></li><li><span>Bring in satisfaction or survey data.</span></li><li><span>Develop customer lifetime value metrics.</span></li><li><span>Track retention campaign performance over time.</span></li></ul></section>
+<a class="next-proj" href="hillman-early-alert.html"><div><small>Next project</small><b>Hillman College Student Success &amp; Early Alert</b></div><span>Open &rarr;</span></a>
+</main></div>
+<div class="wrap"><footer class="foot"><span>&copy; 2026 Taya Dailey &middot; Detroit, MI</span><span><a href="https://linkedin.com/in/tayadailey" target="_blank" rel="noopener">LinkedIn</a> &middot; <a href="https://github.com/tdailey1121" target="_blank" rel="noopener">GitHub</a> &middot; dailey.t@outlook.com</span></footer></div>
+<dialog class="lb" id="lb" aria-label="Screenshot"><img src="" alt=""><div class="lb-bar"><span class="lb-cap"></span><button class="lb-close" type="button">Close</button></div></dialog>
+<script src="../assets/case.js"></script>
+</body>
+</html>

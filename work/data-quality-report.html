@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Weekly Data Quality Report | Taya Dailey</title>
+<meta name="description" content="An offline Power Automate Desktop flow that checks local JSON datasets for inconsistencies and missing values, then writes a weekly data quality report, with no SharePoint or cloud services.">
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-Q5H3Q46XSD"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-Q5H3Q46XSD');
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,700;12..96,800&family=JetBrains+Mono:wght@500;600&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/case.css">
+</head>
+<body>
+
+<header class="top"><div class="wrap"><div class="bar">
+  <a class="mark" href="../index.html"><i>TD</i> Taya Dailey</a>
+  <div class="bar-links">
+    <a class="ghost hide-sm" href="../downloads/Taya-Dailey-Resume.pdf" target="_blank" rel="noopener">R&eacute;sum&eacute;</a>
+    <a class="solid" href="../recruiter.html">Recruiter view</a>
+  </div>
+</div></div></header>
+
+<div class="wrap page">
+<nav class="pane" aria-label="Applied steps"><h2>Applied steps</h2><ol>
+<li><a href="#source"><span>1</span>Source</a></li>
+<li><a href="#messy"><span>2</span>What was messy</a></li>
+<li><a href="#applied"><span>3</span>Applied steps</a></li>
+<li><a href="#question"><span>4</span>The question</a></li>
+<li><a href="#shows"><span>5</span>What it shows</a></li>
+<li><a href="#limits"><span>6</span>Data quality &amp; limits</a></li>
+</ol><a class="back" href="../index.html#projects">&larr; All projects</a></nav>
+<main>
+<a class="crumb" href="../index.html#projects">&larr; All projects</a>
+<span class="eyebrow">Automation · Power Automate Desktop</span>
+<h1>Weekly Data Quality Report</h1>
+<p class="summary">An offline Power Automate Desktop flow that checks local JSON datasets for inconsistencies and missing values, then writes a weekly data quality report, with no SharePoint or cloud services.</p>
+<div class="chips"><span class="chip">Power Automate Desktop</span><span class="chip">JSON</span><span class="chip">Excel / CSV</span></div>
+<div class="facts"><div class="fact"><b>~80%</b><span>less manual verification time</span></div><div class="fact"><b>0</b><span>cloud services needed</span></div><div class="fact"><b>Weekly</b><span>report, generated automatically</span></div></div>
+<figure class="hero"><button class="shot-btn" type="button" data-caption="Flow and report output: The Power Automate Desktop flow and a sample report"><img src="../assets/shots/data-quality-report-1.png" alt="Flow and report output page of the dashboard"></button><figcaption>Flow and report output: The Power Automate Desktop flow and a sample report. Select to enlarge.</figcaption></figure>
+<section class="step" id="source"><div class="step-label"><b>Step 01</b> &middot; Source</div><h2>Where the data came from</h2><p>Local JSON files holding several datasets of different lengths.</p><div class="source"><span class="file">local JSON files</span></div></section>
+<section class="step" id="messy"><div class="step-label"><b>Step 02</b> &middot; What was messy</div><h2>What I had to deal with</h2><ul class="list messy"><li><span>Weekly data checks were done by hand, which was slow and error-prone.</span></li><li><span>The datasets varied in length, so the checks couldn’t assume a fixed structure.</span></li><li><span>Inconsistencies and missing values had to be found record by record.</span></li></ul></section>
+<section class="step" id="applied"><div class="step-label"><b>Step 03</b> &middot; Applied steps</div><h2>How I cleaned and modeled it</h2><ul class="list applied"><li><span>Read and parsed the local JSON files.</span></li><li><span>Looped through every record to check for anomalies and missing values.</span></li><li><span>Applied conditional logic to flag data quality issues.</span></li><li><span>Generated a summarized report, saved locally for weekly review.</span></li></ul></section>
+<section class="step" id="question"><div class="step-label"><b>Step 04</b> &middot; The question</div><h2>What the dashboard needed to answer</h2><p class="question">Can weekly data quality checks run automatically and offline, without relying on SharePoint or cloud services?</p></section>
+<section class="step" id="shows"><div class="step-label"><b>Step 05</b> &middot; What it shows</div><h2>What the data showed</h2><ul class="list finding"><li><span>Recurring data entry issues were <b>identified automatically</b>.</span></li><li><span>Manual verification time dropped by about <b>80%</b>.</span></li><li><span>Weekly reports came out accurate and consistent, so time went to analyzing results instead of gathering them.</span></li></ul></section>
+<section class="step" id="limits"><div class="step-label"><b>Step 06</b> &middot; Data quality &amp; limits</div><h2>What to keep in mind</h2><ul class="list messy"><li><span>It runs locally by design, so the report is saved on one machine rather than a shared site.</span></li></ul></section>
+<a class="next-proj" href="track-record.html"><div><small>Next project</small><b>Track Record: Eight Years of My Music Listening</b></div><span>Open &rarr;</span></a>
+</main></div>
+<div class="wrap"><footer class="foot"><span>&copy; 2026 Taya Dailey &middot; Detroit, MI</span><span><a href="https://linkedin.com/in/tayadailey" target="_blank" rel="noopener">LinkedIn</a> &middot; <a href="https://github.com/tdailey1121" target="_blank" rel="noopener">GitHub</a> &middot; dailey.t@outlook.com</span></footer></div>
+<dialog class="lb" id="lb" aria-label="Screenshot"><img src="" alt=""><div class="lb-bar"><span class="lb-cap"></span><button class="lb-close" type="button">Close</button></div></dialog>
+<script src="../assets/case.js"></script>
+</body>
+</html>

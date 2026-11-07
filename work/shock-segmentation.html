@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Detroit Shock Fan Segmentation &amp; Revenue | Taya Dailey</title>
+<meta name="description" content="A four-page Power BI report on SQL-modeled fan data: who the fans are, how each segment spends on tickets and merchandise, and how they engage digitally.">
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-Q5H3Q46XSD"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-Q5H3Q46XSD');
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,700;12..96,800&family=JetBrains+Mono:wght@500;600&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/case.css">
+</head>
+<body>
+
+<header class="top"><div class="wrap"><div class="bar">
+  <a class="mark" href="../index.html"><i>TD</i> Taya Dailey</a>
+  <div class="bar-links">
+    <a class="ghost hide-sm" href="../downloads/Taya-Dailey-Resume.pdf" target="_blank" rel="noopener">R&eacute;sum&eacute;</a>
+    <a class="solid" href="../recruiter.html">Recruiter view</a>
+  </div>
+</div></div></header>
+
+<div class="wrap page">
+<nav class="pane" aria-label="Applied steps"><h2>Applied steps</h2><ol>
+<li><a href="#source"><span>1</span>Source</a></li>
+<li><a href="#messy"><span>2</span>What was messy</a></li>
+<li><a href="#applied"><span>3</span>Applied steps</a></li>
+<li><a href="#question"><span>4</span>The question</a></li>
+<li><a href="#shows"><span>5</span>What it shows</a></li>
+<li><a href="#recs"><span>6</span>What I’d recommend</a></li>
+<li><a href="#limits"><span>7</span>Data quality &amp; limits</a></li>
+<li><a href="#next"><span>8</span>What I’d do next</a></li>
+</ol><a class="back" href="../index.html#projects">&larr; All projects</a></nav>
+<main>
+<a class="crumb" href="../index.html#projects">&larr; All projects</a>
+<span class="eyebrow">Sports analytics · Built Nov 2025</span>
+<h1>Detroit Shock Fan Segmentation &amp; Revenue</h1>
+<p class="summary">A four-page Power BI report on SQL-modeled fan data: who the fans are, how each segment spends on tickets and merchandise, and how they engage digitally.</p>
+<div class="chips"><span class="chip">SQL</span><span class="chip">Power Query</span><span class="chip">DAX</span><span class="chip">Power BI</span></div>
+<div class="actions"><a class="btn primary" href="../downloads/pbix/shock-segmentation.pbix" target="_blank" rel="noopener">Download PBIX</a><a class="btn" href="../downloads/readme/shock-segmentation.txt" target="_blank" rel="noopener">Project README</a></div>
+<div class="facts"><div class="fact"><b>4</b><span>CSV datasets in SQL</span></div><div class="fact"><b>4</b><span>report pages</span></div><div class="fact"><b>1–3</b><span>games most fans attend a year</span></div></div>
+<figure class="hero"><button class="shot-btn" type="button" data-caption="Fan Segmentation Overview: Executive summary of segments and demographics"><img src="../assets/shots/shock-segmentation-1.png" alt="Fan Segmentation Overview page of the dashboard"></button><figcaption>Fan Segmentation Overview: Executive summary of segments and demographics. Select to enlarge.</figcaption></figure>
+<section class="step" id="source"><div class="step-label"><b>Step 01</b> &middot; Source</div><h2>Where the data came from</h2><p>Fan, engagement, ticketing and merchandise data delivered as separate CSV files.</p><div class="source"><span class="file">fans.csv</span><span class="file">engagement.csv</span><span class="file">tickets.csv</span><span class="file">merch.csv</span></div></section>
+<section class="step" id="messy"><div class="step-label"><b>Step 02</b> &middot; What was messy</div><h2>What I had to deal with</h2><ul class="list messy"><li><span>Four disconnected CSV files with no shared reporting view.</span></li><li><span>Some fans appeared in more than one segment, which would double-count them.</span></li><li><span>A notable share of fans fit no segment at all.</span></li></ul></section>
+<section class="step" id="applied"><div class="step-label"><b>Step 03</b> &middot; Applied steps</div><h2>How I cleaned and modeled it</h2><ul class="list applied"><li><span>Ingested the CSVs into SQL.</span></li><li><span>Cleaned and transformed the data with SQL and Power Query.</span></li><li><span>Built fan-level segmentation logic from behavioral and demographic indicators.</span></li><li><span>Wrote DAX measures to de-duplicate fans who appear in multiple segments.</span></li><li><span>Designed four pages for executive, revenue and CRM stakeholders.</span></li></ul></section>
+<section class="step" id="question"><div class="step-label"><b>Step 04</b> &middot; The question</div><h2>What the dashboard needed to answer</h2><p class="question">Who are our fans, how do they spend, and how do they engage across channels?</p></section>
+<section class="step" id="shows"><div class="step-label"><b>Step 05</b> &middot; What it shows</div><h2>What the data showed</h2><ul class="list finding"><li><span>The fan base is driven by <b>Young Adults (18–30)</b> and <b>Game-Day Casuals</b>, and skews toward 18–44.</span></li><li><span><b>Merch Loyalists</b> spend the most on merchandise per fan despite attending less.</span></li><li><span>Young Adults and Game-Day Casuals bring in the <b>most total ticket revenue</b>; High-Value Superfans have the highest per-fan ticket spend.</span></li><li><span>Most fans attend only <b>1–3 games</b> a year.</span></li><li><span>Young Adults and Digital-Only fans use the app more, and channel preferences vary by segment.</span></li></ul><details class="gallery"><summary>See every page <small>4 pages</small></summary><div class="grid"><figure><button class="shot-btn" type="button" data-caption="Fan Segmentation Overview: Executive summary of segments and demographics"><img src="../assets/shots/shock-segmentation-1.png" alt="Fan Segmentation Overview page of the dashboard" loading="lazy"></button><figcaption><b>Fan Segmentation Overview</b>Executive summary of segments and demographics</figcaption></figure><figure><button class="shot-btn" type="button" data-caption="Ticket &amp; Merch Behavior: Spend and attendance per fan, by segment"><img src="../assets/shots/shock-segmentation-2.png" alt="Ticket &amp; Merch Behavior page of the dashboard" loading="lazy"></button><figcaption><b>Ticket &amp; Merch Behavior</b>Spend and attendance per fan, by segment</figcaption></figure><figure><button class="shot-btn" type="button" data-caption="Ticketing &amp; Revenue: Total ticket revenue and pricing by segment"><img src="../assets/shots/shock-segmentation-3.png" alt="Ticketing &amp; Revenue page of the dashboard" loading="lazy"></button><figcaption><b>Ticketing &amp; Revenue</b>Total ticket revenue and pricing by segment</figcaption></figure><figure><button class="shot-btn" type="button" data-caption="Engagement &amp; Digital Behavior: Email, app and channel preferences"><img src="../assets/shots/shock-segmentation-4.png" alt="Engagement &amp; Digital Behavior page of the dashboard" loading="lazy"></button><figcaption><b>Engagement &amp; Digital Behavior</b>Email, app and channel preferences</figcaption></figure></div></details></section>
+<section class="step" id="recs"><div class="step-label"><b>Step 06</b> &middot; What I’d recommend</div><h2>What I’d tell the business</h2><ul class="list rec"><li><span>Upsell Game-Day Casuals with bundled offers.</span></li><li><span>Use segment-specific channels for CRM outreach.</span></li><li><span>Refine segmentation to classify more fans.</span></li></ul></section>
+<section class="step" id="limits"><div class="step-label"><b>Step 07</b> &middot; Data quality &amp; limits</div><h2>What to keep in mind</h2><ul class="list messy"><li><span>A notable portion of fans remain unclassified, so segment totals don’t cover the whole fan base.</span></li></ul></section>
+<section class="step" id="next"><div class="step-label"><b>Step 08</b> &middot; What I’d do next</div><h2>Where I’d take it next</h2><ul class="list next"><li><span>Track campaign responses.</span></li><li><span>Add churn-risk indicators.</span></li><li><span>Connect personalized messaging through CRM and marketing automation platforms.</span></li></ul></section>
+<a class="next-proj" href="credit-card-churn.html"><div><small>Next project</small><b>Credit Card Retention &amp; Churn</b></div><span>Open &rarr;</span></a>
+</main></div>
+<div class="wrap"><footer class="foot"><span>&copy; 2026 Taya Dailey &middot; Detroit, MI</span><span><a href="https://linkedin.com/in/tayadailey" target="_blank" rel="noopener">LinkedIn</a> &middot; <a href="https://github.com/tdailey1121" target="_blank" rel="noopener">GitHub</a> &middot; dailey.t@outlook.com</span></footer></div>
+<dialog class="lb" id="lb" aria-label="Screenshot"><img src="" alt=""><div class="lb-bar"><span class="lb-cap"></span><button class="lb-close" type="button">Close</button></div></dialog>
+<script src="../assets/case.js"></script>
+</body>
+</html>

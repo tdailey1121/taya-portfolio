@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>U.S. Healthcare Performance &amp; Cost | Taya Dailey</title>
+<meta name="description" content="A four-page Power BI report on patient admissions, diagnoses, cost and utilization, built from a 55,000+ record synthetic healthcare dataset.">
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-Q5H3Q46XSD"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-Q5H3Q46XSD');
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,700;12..96,800&family=JetBrains+Mono:wght@500;600&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/case.css">
+</head>
+<body>
+
+<header class="top"><div class="wrap"><div class="bar">
+  <a class="mark" href="../index.html"><i>TD</i> Taya Dailey</a>
+  <div class="bar-links">
+    <a class="ghost hide-sm" href="../downloads/Taya-Dailey-Resume.pdf" target="_blank" rel="noopener">R&eacute;sum&eacute;</a>
+    <a class="solid" href="../recruiter.html">Recruiter view</a>
+  </div>
+</div></div></header>
+
+<div class="wrap page">
+<nav class="pane" aria-label="Applied steps"><h2>Applied steps</h2><ol>
+<li><a href="#source"><span>1</span>Source</a></li>
+<li><a href="#messy"><span>2</span>What was messy</a></li>
+<li><a href="#applied"><span>3</span>Applied steps</a></li>
+<li><a href="#question"><span>4</span>The question</a></li>
+<li><a href="#shows"><span>5</span>What it shows</a></li>
+<li><a href="#recs"><span>6</span>What I’d recommend</a></li>
+<li><a href="#limits"><span>7</span>Data quality &amp; limits</a></li>
+<li><a href="#next"><span>8</span>What I’d do next</a></li>
+</ol><a class="back" href="../index.html#projects">&larr; All projects</a></nav>
+<main>
+<a class="crumb" href="../index.html#projects">&larr; All projects</a>
+<span class="eyebrow">Healthcare · Built Jun 2026</span>
+<h1>U.S. Healthcare Performance &amp; Cost</h1>
+<p class="summary">A four-page Power BI report on patient admissions, diagnoses, cost and utilization, built from a 55,000+ record synthetic healthcare dataset.</p>
+<div class="chips"><span class="chip">Power BI</span><span class="chip">Power Query</span><span class="chip">DAX</span><span class="chip">Data modeling</span></div>
+<div class="actions"><a class="btn primary" href="../downloads/pbix/healthcare.pbix" target="_blank" rel="noopener">Download PBIX</a></div>
+<div class="facts"><div class="fact"><b>55,000+</b><span>patient records</span></div><div class="fact"><b>4</b><span>report pages</span></div><div class="fact"><b>5</b><span>derived fields</span></div></div>
+<figure class="hero"><button class="shot-btn" type="button" data-caption="Admission Overview: Admissions, length of stay and patient mix"><img src="../assets/shots/healthcare-1.png" alt="Admission Overview page of the dashboard"></button><figcaption>Admission Overview: Admissions, length of stay and patient mix. Select to enlarge.</figcaption></figure>
+<section class="step" id="source"><div class="step-label"><b>Step 01</b> &middot; Source</div><h2>Where the data came from</h2><p>A synthetic healthcare dataset of more than 55,000 patient records, covering admissions, diagnoses, treatment, billing and stays.</p><div class="source"><span class="file">healthcare dataset · 55,000+ rows</span></div></section>
+<section class="step" id="messy"><div class="step-label"><b>Step 02</b> &middot; What was messy</div><h2>What I had to deal with</h2><ul class="list messy"><li><span>Raw fields like age, length of stay and billing amounts needed grouping before they could be compared.</span></li><li><span>Many variables were intentionally balanced, so differences between patient groups were muted.</span></li><li><span>The data is a snapshot in time, with no patient histories or post-discharge outcomes.</span></li></ul></section>
+<section class="step" id="applied"><div class="step-label"><b>Step 03</b> &middot; Applied steps</div><h2>How I cleaned and modeled it</h2><ul class="list applied"><li><span>Cleaned and transformed the dataset in Power Query.</span></li><li><span>Created Patient ID, Admission Year, Age Group, Length of Stay categories and Billing categories.</span></li><li><span>Built DAX measures for KPI reporting and trend analysis.</span></li><li><span>Designed four pages: admissions, diagnoses, cost and utilization, and patient exploration.</span></li><li><span>Added slicers, conditional formatting and interactive filtering.</span></li></ul></section>
+<section class="step" id="question"><div class="step-label"><b>Step 04</b> &middot; The question</div><h2>What the dashboard needed to answer</h2><p class="question">Healthcare organizations need visibility into patient populations, admission patterns, diagnostic outcomes, treatment costs and resource use. How can one report help stakeholders spot trends in all of it?</p></section>
+<section class="step" id="shows"><div class="step-label"><b>Step 05</b> &middot; What it shows</div><h2>What the data showed</h2><ul class="list finding"><li><span>Long-stay patients were the <b>largest utilization category</b>.</span></li><li><span>Most patients fell into <b>moderate and high-cost</b> categories.</span></li><li><span>Admissions stayed relatively consistent through the year, and patient populations were balanced across major conditions.</span></li><li><span>Utilization metrics told a <b>stronger story than patient volume</b> alone.</span></li><li><span>The Patient Explorer lets users filter records across multiple healthcare dimensions on their own.</span></li></ul><details class="gallery"><summary>See every page <small>4 pages</small></summary><div class="grid"><figure><button class="shot-btn" type="button" data-caption="Admission Overview: Admissions, length of stay and patient mix"><img src="../assets/shots/healthcare-1.png" alt="Admission Overview page of the dashboard" loading="lazy"></button><figcaption><b>Admission Overview</b>Admissions, length of stay and patient mix</figcaption></figure><figure><button class="shot-btn" type="button" data-caption="Diagnosis Overview: Test results and medications by condition"><img src="../assets/shots/healthcare-2.png" alt="Diagnosis Overview page of the dashboard" loading="lazy"></button><figcaption><b>Diagnosis Overview</b>Test results and medications by condition</figcaption></figure><figure><button class="shot-btn" type="button" data-caption="Cost &amp; Utilization: Billing and length of stay by admission type"><img src="../assets/shots/healthcare-3.png" alt="Cost &amp; Utilization page of the dashboard" loading="lazy"></button><figcaption><b>Cost &amp; Utilization</b>Billing and length of stay by admission type</figcaption></figure><figure><button class="shot-btn" type="button" data-caption="Patient Explorer: Self-service, patient-level filtering"><img src="../assets/shots/healthcare-4.png" alt="Patient Explorer page of the dashboard" loading="lazy"></button><figcaption><b>Patient Explorer</b>Self-service, patient-level filtering</figcaption></figure></div></details></section>
+<section class="step" id="recs"><div class="step-label"><b>Step 06</b> &middot; What I’d recommend</div><h2>What I’d tell the business</h2><ul class="list rec"><li><span>Monitor utilization trends regularly.</span></li><li><span>Keep tracking treatment cost distributions.</span></li><li><span>Expand future analysis with more clinical variables.</span></li><li><span>Use interactive dashboards to support operational planning.</span></li></ul></section>
+<section class="step" id="limits"><div class="step-label"><b>Step 07</b> &middot; Data quality &amp; limits</div><h2>What to keep in mind</h2><ul class="list messy"><li><span>The data is synthetic, not real patients or healthcare organizations.</span></li><li><span>Because variables were intentionally balanced, the analysis leaned on utilization, cost, admissions and operational trends rather than dramatic group differences.</span></li><li><span>There are no complete patient histories or post-discharge outcomes.</span></li></ul></section>
+<section class="step" id="next"><div class="step-label"><b>Step 08</b> &middot; What I’d do next</div><h2>Where I’d take it next</h2><ul class="list next"><li><span>Integrate real-world healthcare datasets.</span></li><li><span>Add patient outcome metrics.</span></li><li><span>Build predictive models for utilization.</span></li><li><span>Publish as a Power BI App for broader stakeholder access.</span></li></ul></section>
+<a class="next-proj" href="shock-crm.html"><div><small>Next project</small><b>Detroit Shock Fan Lifecycle &amp; CRM</b></div><span>Open &rarr;</span></a>
+</main></div>
+<div class="wrap"><footer class="foot"><span>&copy; 2026 Taya Dailey &middot; Detroit, MI</span><span><a href="https://linkedin.com/in/tayadailey" target="_blank" rel="noopener">LinkedIn</a> &middot; <a href="https://github.com/tdailey1121" target="_blank" rel="noopener">GitHub</a> &middot; dailey.t@outlook.com</span></footer></div>
+<dialog class="lb" id="lb" aria-label="Screenshot"><img src="" alt=""><div class="lb-bar"><span class="lb-cap"></span><button class="lb-close" type="button">Close</button></div></dialog>
+<script src="../assets/case.js"></script>
+</body>
+</html>

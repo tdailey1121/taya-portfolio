@@ -1,145 +1,15 @@
-<!DOCTYPE html>
-<html lang="en" data-bs-theme="dark">
+<!doctype html>
+<html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Customer Experience KPI Dashboard | Taya Dailey</title>
-  <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-Q5H3Q46XSD"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-Q5H3Q46XSD');
-  </script>
-
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-  <link rel="stylesheet" href="css/style.css">
+<meta charset="utf-8">
+<!-- This page moved. Kept so old links keep working. -->
+<meta http-equiv="refresh" content="0; url=work/cx-kpi.html">
+<link rel="canonical" href="work/cx-kpi.html">
+<meta name="robots" content="noindex">
+<title>Moved | Taya Dailey</title>
+<script>location.replace("work/cx-kpi.html");</script>
 </head>
 <body>
-  <!-- Navbar -->
-  <nav class="navbar navbar-expand-lg site-nav sticky-top">
-    <div class="container">
-      <a class="navbar-brand" href="index.html"><span class="brand-mark">TD</span> Taya Dailey</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav ms-auto align-items-lg-center">
-          <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
-          <li class="nav-item"><a class="nav-link active" href="analytics.html" aria-current="page">Analytics</a></li>
-          <li class="nav-item"><a class="nav-link" href="development.html">Web Dev</a></li>
-          <li class="nav-item"><a class="nav-link" href="case_studies.html">Automation</a></li>
-          <li class="nav-item"><a class="nav-link" href="downloads/T%20.Dailey%20Resume.pdf" target="_blank" rel="noopener">Resume</a></li>
-          <li class="nav-item"><a class="btn btn-accent btn-sm ms-lg-2" href="contact.html">Contact</a></li>
-        </ul>
-      </div>
-    </div>
-  </nav>
-
-  <!-- MAIN CONTENT -->
-  <main class="container my-5">
-    <!-- Case Study -->
-    <article class="mb-5">
-      <header class="mb-4 text-center">
-        <h1>Customer Experience KPI Dashboard</h1>
-        <p class="lead">A case study in analytics, visualization, and actionable insights</p>
-      </header>
-
-      <section class="mb-5">
-        <p>
-          This interactive Power BI dashboard analyzes customer support metrics to help leadership
-          monitor team performance and customer satisfaction trends. It demonstrates how data visualization
-          can streamline operations, provide actionable insights, and enhance decision-making.
-        </p>
-      </section>
-
-      <section class="mb-5">
-        <h2>🎯 The Challenge</h2>
-        <p>
-          Support teams tracked KPIs in silos, making it difficult for leadership to see the full picture.
-          The challenge was to build a dashboard that consolidated <strong>resolution speed, customer satisfaction,
-          and bottleneck analysis</strong> into a single report.
-        </p>
-      </section>
-
-      <section class="mb-5">
-        <h2>🛠️ The Process</h2>
-        <ul class="list-group list-group-flush">
-          <li class="list-group-item bg-dark text-light">Used <strong>Power Query</strong> to clean and transform raw ticket data.</li>
-          <li class="list-group-item bg-dark text-light">Built <strong>DAX measures</strong> for KPIs like resolution time and customer rating.</li>
-          <li class="list-group-item bg-dark text-light">Designed a layout that balanced high-level KPIs with detailed drilldowns.</li>
-          <li class="list-group-item bg-dark text-light">Tested multiple visuals to ensure readability and consistency.</li>
-        </ul>
-      </section>
-
-      <section class="mb-5">
-        <h2>📊 The Solution</h2>
-        <div class="alert alert-secondary p-3 rounded">
-          <p><strong>Key Features:</strong></p>
-          <ul>
-            <li>KPI Cards → % resolved, avg. response time, avg. resolution time, avg. customer rating</li>
-            <li>Bar Charts → Agent performance comparisons</li>
-            <li>Donut Charts → Ticket volume by channel</li>
-            <li>Slicers → Filter by agent, channel, chatbot usage</li>
-          </ul>
-        </div>
-
-        <div class="text-center my-4">
-          <img src="Images/dashboard-sample.png" alt="Dashboard Screenshot" class="img-fluid rounded shadow">
-          <p class="mt-2"><em>Sample dashboard visualization (synthetic data)</em></p>
-        </div>
-      </section>
-
-      <section class="mb-5">
-        <h2>🔑 Key Insights</h2>
-        <ul>
-          <li>Phone support resolved tickets <strong>15% faster</strong> than email.</li>
-          <li><strong>Agent A</strong> achieved the highest satisfaction score: 4.32 / 5.</li>
-          <li>Chat requests had the longest resolution time (39.56 hours).</li>
-        </ul>
-      </section>
-
-      <section class="mb-5">
-        <h2>🚀 Impact</h2>
-        <p>
-          Even with synthetic data, this dashboard shows how centralized reporting can save leadership
-          <strong>hours of manual reporting</strong> weekly, while enabling data-driven decisions
-          for team training and resource allocation.
-        </p>
-      </section>
-
-      <section class="mb-5">
-        <h2>🧰 Tools Used</h2>
-        <ul>
-          <li>Power BI (visualization & data modeling)</li>
-          <li>DAX (custom metrics)</li>
-          <li>Power Query (ETL & transformations)</li>
-        </ul>
-      </section>
-
-      <p class="text-center">
-        <a href="case_studies.html" class="btn btn-outline-light">← Back to Case Studies</a>
-      </p>
-    </article>
-  </main>
-
-  <!-- Footer -->
-  <footer class="site-footer">
-    <div class="container d-flex flex-column flex-md-row justify-content-between align-items-center gap-2">
-      <p class="mb-0">&copy; 2026 Taya Dailey &middot; Detroit, MI</p>
-      <p class="mb-0 footer-links">
-        <a href="mailto:dailey.t@outlook.com">Email</a>
-        <a href="https://linkedin.com/in/tayadailey" target="_blank" rel="noopener">LinkedIn</a>
-        <a href="https://github.com/tdailey1121" target="_blank" rel="noopener">GitHub</a>
-      </p>
-    </div>
-  </footer>
-
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<p>This page moved. <a href="work/cx-kpi.html">Continue to the new page</a>.</p>
 </body>
 </html>
-

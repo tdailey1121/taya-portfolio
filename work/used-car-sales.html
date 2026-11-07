@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Used Car Sales Performance | Taya Dailey</title>
+<meta name="description" content="A Power BI dashboard for AutoNation Global, covering sales trends, unsold inventory, customer feedback and sales agent performance.">
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-Q5H3Q46XSD"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-Q5H3Q46XSD');
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,700;12..96,800&family=JetBrains+Mono:wght@500;600&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/case.css">
+</head>
+<body>
+
+<header class="top"><div class="wrap"><div class="bar">
+  <a class="mark" href="../index.html"><i>TD</i> Taya Dailey</a>
+  <div class="bar-links">
+    <a class="ghost hide-sm" href="../downloads/Taya-Dailey-Resume.pdf" target="_blank" rel="noopener">R&eacute;sum&eacute;</a>
+    <a class="solid" href="../recruiter.html">Recruiter view</a>
+  </div>
+</div></div></header>
+
+<div class="wrap page">
+<nav class="pane" aria-label="Applied steps"><h2>Applied steps</h2><ol>
+<li><a href="#source"><span>1</span>Source</a></li>
+<li><a href="#messy"><span>2</span>What was messy</a></li>
+<li><a href="#applied"><span>3</span>Applied steps</a></li>
+<li><a href="#question"><span>4</span>The question</a></li>
+<li><a href="#shows"><span>5</span>What it shows</a></li>
+<li><a href="#recs"><span>6</span>What I’d recommend</a></li>
+<li><a href="#limits"><span>7</span>Data quality &amp; limits</a></li>
+<li><a href="#next"><span>8</span>What I’d do next</a></li>
+</ol><a class="back" href="../index.html#projects">&larr; All projects</a></nav>
+<main>
+<a class="crumb" href="../index.html#projects">&larr; All projects</a>
+<span class="eyebrow">Auto sales · Built May 2026</span>
+<h1>Used Car Sales Performance</h1>
+<p class="summary">A Power BI dashboard for AutoNation Global, covering sales trends, unsold inventory, customer feedback and sales agent performance.</p>
+<div class="chips"><span class="chip">Power BI</span><span class="chip">Power Query</span><span class="chip">DAX</span><span class="chip">Excel / CSV</span></div>
+<div class="actions"><a class="btn primary" href="../downloads/pbix/used-car-sales.pbix" target="_blank" rel="noopener">Download PBIX</a><a class="btn" href="https://youtu.be/gG7aFZuWtkA" target="_blank" rel="noopener">Watch the video walkthrough &nearr;</a></div>
+<div class="facts"><div class="fact"><b>10</b><span>custom KPI measures</span></div><div class="fact"><b>6</b><span>segmentation dimensions</span></div><div class="fact"><b>3</b><span>analysis views</span></div></div>
+<figure class="hero"><button class="shot-btn" type="button" data-caption="Sales Performance Overview: Executive KPIs, sales and feedback"><img src="../assets/shots/used-car-sales-1.png" alt="Sales Performance Overview page of the dashboard"></button><figcaption>Sales Performance Overview: Executive KPIs, sales and feedback. Select to enlarge.</figcaption></figure>
+<section class="step" id="source"><div class="step-label"><b>Step 01</b> &middot; Source</div><h2>Where the data came from</h2><p>One used car sales dataset with vehicles, manufacturers, locations, sale status, ratings, commission and feedback.</p><div class="source"><span class="file">used car sales.csv</span></div></section>
+<section class="step" id="messy"><div class="step-label"><b>Step 02</b> &middot; What was messy</div><h2>What I had to deal with</h2><ul class="list messy"><li><span>A single flat sales file with no structured reporting view.</span></li><li><span>Raw mileage and sales ratings needed bands before they could be compared.</span></li><li><span>No measures existed for conversion, commission or days to sell.</span></li></ul></section>
+<section class="step" id="applied"><div class="step-label"><b>Step 03</b> &middot; Applied steps</div><h2>How I cleaned and modeled it</h2><ul class="list applied"><li><span>Cleaned and transformed the data in Power Query.</span></li><li><span>Segmented vehicles by manufacturer, car type, location, mileage band, sales rating band and sale status.</span></li><li><span>Built 10 measures: total, sold and unsold cars, conversion rate, revenue, average price, rating, total and average commission, and days to sell.</span></li><li><span>Added slicers for manufacturer, location, car type, sales agent and feedback category.</span></li></ul></section>
+<section class="step" id="question"><div class="step-label"><b>Step 04</b> &middot; The question</div><h2>What the dashboard needed to answer</h2><p class="question">Which manufacturers, vehicle types, agents and locations drive performance, and where is inventory moving slowly?</p></section>
+<section class="step" id="shows"><div class="step-label"><b>Step 05</b> &middot; What it shows</div><h2>What the data showed</h2><ul class="list finding"><li><span><b>Maruti, Hyundai and Toyota</b> had some of the highest sales volume.</span></li><li><span><b>Hatchbacks and SUVs</b> were among the most frequently sold types.</span></li><li><span>Some locations held <b>more unsold inventory</b> than others.</span></li><li><span>Customer feedback was mostly positive, led by Excellent and Good ratings.</span></li><li><span>Agent performance varied, pointing to best practices worth sharing.</span></li></ul><details class="gallery"><summary>See every page <small>3 pages</small></summary><div class="grid"><figure><button class="shot-btn" type="button" data-caption="Sales Performance Overview: Executive KPIs, sales and feedback"><img src="../assets/shots/used-car-sales-1.png" alt="Sales Performance Overview page of the dashboard" loading="lazy"></button><figcaption><b>Sales Performance Overview</b>Executive KPIs, sales and feedback</figcaption></figure><figure><button class="shot-btn" type="button" data-caption="Sales &amp; Inventory: Volume and unsold inventory by segment"><img src="../assets/shots/used-car-sales-2.png" alt="Sales &amp; Inventory page of the dashboard" loading="lazy"></button><figcaption><b>Sales &amp; Inventory</b>Volume and unsold inventory by segment</figcaption></figure><figure><button class="shot-btn" type="button" data-caption="Feedback &amp; Agent Performance: Ratings, commission and agent productivity"><img src="../assets/shots/used-car-sales-3.png" alt="Feedback &amp; Agent Performance page of the dashboard" loading="lazy"></button><figcaption><b>Feedback &amp; Agent Performance</b>Ratings, commission and agent productivity</figcaption></figure></div></details></section>
+<section class="step" id="recs"><div class="step-label"><b>Step 06</b> &middot; What I’d recommend</div><h2>What I’d tell the business</h2><ul class="list rec"><li><span>Focus inventory reduction on locations with the most unsold vehicles.</span></li><li><span>Review slow-moving manufacturers and types for pricing or marketing changes.</span></li><li><span>Share top agents’ practices with the wider team.</span></li></ul></section>
+<section class="step" id="limits"><div class="step-label"><b>Step 07</b> &middot; Data quality &amp; limits</div><h2>What to keep in mind</h2><ul class="list messy"><li><span>Everything comes from one sales dataset, so the dashboard has no outside or regional benchmarks yet.</span></li></ul></section>
+<section class="step" id="next"><div class="step-label"><b>Step 08</b> &middot; What I’d do next</div><h2>Where I’d take it next</h2><ul class="list next"><li><span>Add predictive inventory risk scoring.</span></li><li><span>Deepen profitability analysis.</span></li><li><span>Automate refresh pipelines and add regional benchmarking.</span></li><li><span>Add drill-throughs at the vehicle, location and agent level.</span></li></ul></section>
+<a class="next-proj" href="cx-kpi.html"><div><small>Next project</small><b>Customer Experience KPIs</b></div><span>Open &rarr;</span></a>
+</main></div>
+<div class="wrap"><footer class="foot"><span>&copy; 2026 Taya Dailey &middot; Detroit, MI</span><span><a href="https://linkedin.com/in/tayadailey" target="_blank" rel="noopener">LinkedIn</a> &middot; <a href="https://github.com/tdailey1121" target="_blank" rel="noopener">GitHub</a> &middot; dailey.t@outlook.com</span></footer></div>
+<dialog class="lb" id="lb" aria-label="Screenshot"><img src="" alt=""><div class="lb-bar"><span class="lb-cap"></span><button class="lb-close" type="button">Close</button></div></dialog>
+<script src="../assets/case.js"></script>
+</body>
+</html>
