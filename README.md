@@ -25,6 +25,7 @@ All project data is synthetic or public. Nothing here comes from an employer.
 ## Structure
 
 ```
+404.html              Sends old page addresses to their new pages
 index.html            Home: the cleanup intro, profile, case study, projects, refresh history, contact
 recruiter.html        One-page summary for recruiters (no animation)
 work/                 One case study page per project
@@ -39,7 +40,7 @@ downloads/
   notebooks/          Python notebooks
 ```
 
-The old top-level pages (for example `US Healthcare Analysis.html`) are now small redirect pages, so links shared before the redesign still work. `downloads/T .Dailey Resume.pdf` is the same résumé under its old name for the same reason.
+Pages from the old site (for example `US Healthcare Analysis.html`) were removed. `404.html`, which GitHub Pages shows for any missing address, sends those old links to their new pages, so links shared before the redesign still work. `downloads/T .Dailey Resume.pdf` is the same résumé under its old name for the same reason.
 
 ## Contact
 
