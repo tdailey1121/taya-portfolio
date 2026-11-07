@@ -75,6 +75,13 @@
   .bar-links { display: flex; align-items: center; gap: 6px; }
   .ghost { text-decoration: none; font-size: 0.88rem; font-weight: 600; color: var(--muted); padding: 8px 10px; border-radius: 10px; }
   .ghost:hover { color: var(--ink); background: #f3f0e9; }
+  .snd { display: grid; place-items: center; width: 36px; height: 36px; border-radius: 10px; border: 1px solid transparent; background: none; color: var(--muted); cursor: pointer; padding: 0; }
+  .snd:hover { color: var(--ink); background: #f3f0e9; }
+  .snd svg { width: 20px; height: 20px; }
+  .snd .waves { display: none; }
+  .snd[aria-pressed="true"] { color: var(--coral); border-color: #f6c3ae; background: var(--coral-soft); }
+  .snd[aria-pressed="true"] .waves { display: inline; }
+  .snd[aria-pressed="true"] .mute { display: none; }
   .solid { text-decoration: none; font-size: 0.88rem; font-weight: 700; background: var(--ink); color: var(--paper); padding: 9px 14px; border-radius: 10px; }
   .solid:hover { background: #000; }
   @media (max-width: 520px) { .ghost.hide-sm { display: none; } }
@@ -493,6 +500,9 @@
     <div class="bar">
       <a class="mark" href="#stage"><i>TD</i> Taya Dailey</a>
       <div class="bar-links">
+        <button class="snd" id="snd" type="button" aria-pressed="false" aria-label="Turn sound on">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 9.5h3.5L12 5.5v13l-4.5-4H4z"/><g class="waves"><path d="M15.5 9a4.2 4.2 0 0 1 0 6"/><path d="M18.3 6.5a8 8 0 0 1 0 11"/></g><g class="mute"><path d="M16 9.5l5 5"/><path d="M21 9.5l-5 5"/></g></svg>
+        </button>
         <a class="ghost hide-sm" href="downloads/Taya-Dailey-Resume.pdf" target="_blank" rel="noopener">Résumé</a>
         <a class="solid" href="recruiter.html">Recruiter view</a>
       </div>
@@ -887,10 +897,92 @@
     }));
   }
 
+  // ---------- sound: off until a visitor turns it on; generated in the browser ----------
+  const sfx = (() => {
+    let on = false, ctx = null, master = null, buf = null;
+    try { on = localStorage.getItem('td-sound') === '1'; } catch (e) {}
+    function ensure() {
+      if (!ctx) {
+        const AC = window.AudioContext || window.webkitAudioContext;
+        if (!AC) return null;
+        ctx = new AC(); master = ctx.createGain(); master.gain.value = 0.5; master.connect(ctx.destination);
+      }
+      if (ctx.state === 'suspended') ctx.resume();
+      return ctx;
+    }
+    const ready = () => on && ctx && ctx.state === 'running' && !document.hidden;
+    function noise() {
+      if (!buf) {
+        buf = ctx.createBuffer(1, Math.floor(ctx.sampleRate * 0.25), ctx.sampleRate);
+        const d = buf.getChannelData(0);
+        for (let i = 0; i < d.length; i++) d[i] = Math.random() * 2 - 1;
+      }
+      return buf;
+    }
+    function env(g, t, peak, decay) {
+      g.gain.setValueAtTime(0.0001, t);
+      g.gain.exponentialRampToValueAtTime(peak, t + 0.003);
+      g.gain.exponentialRampToValueAtTime(0.0001, t + 0.003 + decay);
+    }
+    function burst(t, type, freq, q, peak, decay) {
+      const src = ctx.createBufferSource(); src.buffer = noise();
+      const f = ctx.createBiquadFilter(); f.type = type; f.frequency.value = freq; f.Q.value = q;
+      const g = ctx.createGain(); env(g, t, peak, decay);
+      src.connect(f).connect(g).connect(master); src.start(t, Math.random() * 0.15, decay + 0.03);
+    }
+    function tone(t, type, f0, f1, peak, decay) {
+      const o = ctx.createOscillator(); o.type = type;
+      o.frequency.setValueAtTime(f0, t); if (f1) o.frequency.exponentialRampToValueAtTime(f1, t + decay);
+      const g = ctx.createGain(); env(g, t, peak, decay);
+      o.connect(g).connect(master); o.start(t); o.stop(t + decay + 0.05);
+    }
+    const api = {
+      get on() { return on; },
+      key() { if (!ready()) return; const t = ctx.currentTime; burst(t, 'bandpass', 2000 + Math.random() * 1800, 1.4, 0.16 + Math.random() * 0.08, 0.03); tone(t, 'sine', 170 + Math.random() * 50, 0, 0.05, 0.03); },
+      tick() { if (!ready()) return; tone(ctx.currentTime, 'sine', 1320, 0, 0.09, 0.05); },
+      click() { if (!ready()) return; burst(ctx.currentTime, 'highpass', 3200, 0.7, 0.14, 0.02); },
+      clunk() { if (!ready()) return; const t = ctx.currentTime; tone(t, 'sine', 150, 55, 0.32, 0.22); burst(t, 'lowpass', 700, 0.8, 0.12, 0.08); },
+      chime() { if (!ready()) return; const t = ctx.currentTime; tone(t, 'triangle', 659.25, 0, 0.12, 0.5); tone(t + 0.12, 'triangle', 987.77, 0, 0.1, 0.65); },
+      set(v, quiet) {
+        on = v;
+        try { localStorage.setItem('td-sound', v ? '1' : '0'); } catch (e) {}
+        const b = $('snd');
+        b.setAttribute('aria-pressed', String(v));
+        b.setAttribute('aria-label', v ? 'Turn sound off' : 'Turn sound on');
+        if (v && !quiet && ensure()) ctx.resume().then(() => api.tick());
+      },
+    };
+    // a returning visitor who left sound on: browsers only allow audio after a click or key press
+    ['pointerdown', 'keydown'].forEach(ev => window.addEventListener(ev, () => { if (on) ensure(); }, { once: true, capture: true }));
+    return api;
+  })();
+  $('snd').addEventListener('click', () => sfx.set(!sfx.on));
+  sfx.set(sfx.on, true);
+
+  // type each step's M code into the formula bar, with a key click every few characters
+  let typing = 0;
+  function typeFx(text) {
+    const el = $('fx');
+    cancelAnimationFrame(typing);
+    if (reduce) { el.textContent = text; return; }
+    const dur = Math.min(750, text.length * 9), t0 = performance.now();
+    let shown = 0, lastKey = 0;
+    (function frame(now) {
+      const n = Math.min(text.length, Math.ceil(text.length * Math.min(1, (now - t0) / dur)));
+      if (n !== shown) {
+        shown = n; el.textContent = text.slice(0, n);
+        if (now - lastKey > 50) { sfx.key(); lastKey = now; }
+      }
+      if (n < text.length) typing = requestAnimationFrame(frame);
+    })(t0);
+  }
+  function reveal() { $('stage').classList.add('done'); sfx.clunk(); }
+
   function show(k) {
     step = k;
     const s = STEPS[k];
-    $('fx').textContent = s.m;
+    typeFx(s.m);
+    if (k > 0) sfx.tick();
     if (s.chart) renderChart(); else if (s.group) renderGroup(); else renderTable(k);
     STEPS.forEach((_, i) => {
       const b = $('step-' + i);
@@ -907,7 +999,7 @@
   // ---------- autoplay: clean step by step, then reveal the name ----------
   let timers = [];
   function stopAuto() { timers.forEach(clearTimeout); timers = []; }
-  function finish() { stopAuto(); show(STEPS.length - 1); $('stage').classList.add('done'); }
+  function finish() { stopAuto(); show(STEPS.length - 1); reveal(); }
   function play() {
     stopAuto();
     $('stage').classList.remove('done');
@@ -916,7 +1008,7 @@
     const beat = [1700, 1500, 1700, 1500, 1400, 1500, 1900];
     let t = 0;
     for (let i = 1; i < STEPS.length; i++) { t += beat[i - 1]; timers.push(setTimeout(() => show(i), t)); }
-    timers.push(setTimeout(() => $('stage').classList.add('done'), t + beat[STEPS.length - 1]));
+    timers.push(setTimeout(reveal, t + beat[STEPS.length - 1]));
   }
 
   $('skip').addEventListener('click', finish);
@@ -924,6 +1016,7 @@
 
   // 3D tilt toward the pointer
   const btn = $('btn3d');
+  btn.addEventListener('click', () => sfx.click());
   btn.addEventListener('pointermove', e => {
     if (reduce) return;
     const r = btn.getBoundingClientRect();
@@ -1169,18 +1262,20 @@
   // ---------- close & apply ----------
   $('ca').addEventListener('click', () => {
     const bar = $('caBar'), txt = $('caText');
+    sfx.click();
     bar.style.transition = 'none'; bar.style.width = '0%';
     txt.textContent = 'Applying query changes\u2026';
     void bar.offsetWidth;
     bar.style.transition = ''; bar.style.width = '100%';
     setTimeout(() => {
       txt.innerHTML = '<b>&check; Loaded.</b> 1 of 1 queries applied: taya_dailey &rarr; your team';
+      sfx.chime();
       $('copyMail').focus();
     }, reduce ? 0 : 1450);
   });
   $('copyMail').addEventListener('click', () => {
     const btn = $('copyMail'), addr = $('mailAddr').textContent;
-    const done = () => { btn.textContent = 'Copied'; setTimeout(() => { btn.textContent = 'Copy'; }, 1800); };
+    const done = () => { sfx.tick(); btn.textContent = 'Copied'; setTimeout(() => { btn.textContent = 'Copy'; }, 1800); };
     const fallback = () => { const r = document.createRange(); r.selectNodeContents($('mailAddr')); const sel = getSelection(); sel.removeAllRanges(); sel.addRange(r); btn.textContent = 'Selected'; };
     try { navigator.clipboard.writeText(addr).then(done, fallback); } catch (e) { fallback(); }
   });
