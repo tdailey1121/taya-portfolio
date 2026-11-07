@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Track Record: Eight Years of My Music Listening | Taya Dailey</title>
+<meta name="description" content="My own Apple Music history from August 2018 to October 2026, turned into an interactive dashboard: what I listen to, when, what I skip, and whether shuffle changes how I listen.">
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-Q5H3Q46XSD"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-Q5H3Q46XSD');
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,700;12..96,800&family=JetBrains+Mono:wght@500;600&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/case.css">
+</head>
+<body>
+
+<header class="top"><div class="wrap"><div class="bar">
+  <a class="mark" href="../index.html"><i>TD</i> Taya Dailey</a>
+  <div class="bar-links">
+    <a class="ghost hide-sm" href="../downloads/Taya-Dailey-Resume.pdf" target="_blank" rel="noopener">R&eacute;sum&eacute;</a>
+    <a class="solid" href="../recruiter.html">Recruiter view</a>
+  </div>
+</div></div></header>
+
+<div class="wrap page">
+<nav class="pane" aria-label="Applied steps"><h2>Applied steps</h2><ol>
+<li><a href="#source"><span>1</span>Source</a></li>
+<li><a href="#messy"><span>2</span>What was messy</a></li>
+<li><a href="#applied"><span>3</span>Applied steps</a></li>
+<li><a href="#question"><span>4</span>The question</a></li>
+<li><a href="#shows"><span>5</span>What it shows</a></li>
+<li><a href="#limits"><span>6</span>Data quality &amp; limits</a></li>
+<li><a href="#next"><span>7</span>What I’d do next</a></li>
+</ol><a class="back" href="../index.html#projects">&larr; All projects</a></nav>
+<main>
+<a class="crumb" href="../index.html#projects">&larr; All projects</a>
+<span class="eyebrow">Personal data · Built Oct 2026</span>
+<h1>Track Record: Eight Years of My Music Listening</h1>
+<p class="summary">My own Apple Music history from August 2018 to October 2026, turned into an interactive dashboard: what I listen to, when, what I skip, and whether shuffle changes how I listen.</p>
+<div class="chips"><span class="chip">Python</span><span class="chip">iTunes Search API</span><span class="chip">Star schema</span><span class="chip">A/B comparison</span><span class="chip ai">AI-assisted</span></div>
+<div class="actions"><a class="btn primary" href="https://claude.ai/artifact/HHVBS2UvQWZ2o7wkfpHSGD" target="_blank" rel="noopener">Open the live dashboard &nearr;</a></div>
+<div class="facts"><div class="fact"><b>7,252</b><span>hours of listening</span></div><div class="fact"><b>142,156</b><span>counted plays</span></div><div class="fact"><b>91.5%</b><span>of listening time matched to an artist</span></div></div>
+<figure class="hero"><button class="shot-btn" type="button" data-caption="Overview: Hours, plays, songs, artists, skip rate and hours by year"><img src="../assets/shots/track-record-1.png" alt="Overview page of the dashboard"></button><figcaption>Overview: Hours, plays, songs, artists, skip rate and hours by year. Select to enlarge.</figcaption></figure>
+<section class="step" id="source"><div class="step-label"><b>Step 01</b> &middot; Source</div><h2>Where the data came from</h2><p>My full play history from Apple’s Data &amp; Privacy export, about eight years of individual play events.</p><div class="source"><span class="file">Apple Music play history</span></div></section>
+<section class="step" id="messy"><div class="step-label"><b>Step 02</b> &middot; What was messy</div><h2>What I had to deal with</h2><ul class="list messy"><li><span>Dragging the progress bar was logged as a song ending, which would inflate skips.</span></li><li><span>Rarely played songs came with no artist or genre.</span></li><li><span>Timestamps weren’t in local time.</span></li><li><span>2018 starts in August and 2026 ends in October, so both years are partial.</span></li></ul></section>
+<section class="step" id="applied"><div class="step-label"><b>Step 03</b> &middot; Applied steps</div><h2>How I cleaned and modeled it</h2><ul class="list applied"><li><span>Cleaned the export in Python and converted timestamps to local time.</span></li><li><span>Counted a play only at 30 seconds or more, and filtered out progress-bar scrubs.</span></li><li><span>Matched songs to artists, albums and genres through the iTunes Search API.</span></li><li><span>Modeled a star schema: play facts with song, artist, date and source dimensions.</span></li><li><span>Defined skip rate as skips divided by real song endings, and flagged partial years everywhere they appear.</span></li></ul><p class="subhead">About the AI-assisted part</p><p>I designed the pipeline, metric definitions and analysis questions. The interactive web version was built with Claude, an AI assistant, from my cleaned data, and I checked its figures against the pipeline output.</p></section>
+<section class="step" id="question"><div class="step-label"><b>Step 04</b> &middot; The question</div><h2>What the dashboard needed to answer</h2><p class="question">Music is one of my favorite things, so I wanted a project where I was both the analyst and the stakeholder. What do I actually listen to, when, and does shuffle make me skip more?</p></section>
+<section class="step" id="shows"><div class="step-label"><b>Step 05</b> &middot; What it shows</div><h2>What the data showed</h2><ul class="list finding"><li><span>I’ve played <b>7,252 hours</b> of music since 2018. My biggest year was <b>2020</b>, with 1,076 hours.</span></li><li><span>That’s <b>142,156 counted plays</b> across 18,422 unique songs and 1,358 artists.</span></li><li><span>My overall skip rate is <b>18.6%</b> of real song endings.</span></li><li><span>The Skips & Loyalty page compares shuffle on and off with a two-proportion z-test and 95% confidence intervals.</span></li></ul></section>
+<section class="step" id="limits"><div class="step-label"><b>Step 06</b> &middot; Data quality &amp; limits</div><h2>What to keep in mind</h2><ul class="list messy"><li><span>This compares my past behavior rather than a randomized experiment, so the shuffle result is an association, not proof that shuffle causes skips.</span></li><li><span>Songs I rarely played weren’t looked up in iTunes, so they count toward hours and plays but not toward artist or genre rankings (artist coverage is 91.5%).</span></li><li><span>Apple didn’t record shuffle state in every year, so the shuffle comparison only uses years where it exists.</span></li><li><span>It’s one person’s listening, so it describes my habits, not listeners in general.</span></li><li><span>Artist and song names are left out of the public dashboard on purpose. The analysis is about listening behavior, not taste.</span></li></ul></section>
+<section class="step" id="next"><div class="step-label"><b>Step 07</b> &middot; What I’d do next</div><h2>Where I’d take it next</h2><ul class="list next"><li><span>Rebuild the report in Power BI with a dark theme and one accent color per page.</span></li><li><span>Add the PBIX download here when it’s finished.</span></li></ul></section>
+<a class="next-proj" href="healthcare.html"><div><small>Next project</small><b>U.S. Healthcare Performance &amp; Cost</b></div><span>Open &rarr;</span></a>
+</main></div>
+<div class="wrap"><footer class="foot"><span>&copy; 2026 Taya Dailey &middot; Detroit, MI</span><span><a href="https://linkedin.com/in/tayadailey" target="_blank" rel="noopener">LinkedIn</a> &middot; <a href="https://github.com/tdailey1121" target="_blank" rel="noopener">GitHub</a> &middot; dailey.t@outlook.com</span></footer></div>
+<dialog class="lb" id="lb" aria-label="Screenshot"><img src="" alt=""><div class="lb-bar"><span class="lb-cap"></span><button class="lb-close" type="button">Close</button></div></dialog>
+<script src="../assets/case.js"></script>
+</body>
+</html>

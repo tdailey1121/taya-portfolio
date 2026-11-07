@@ -1,199 +1,1189 @@
-<!DOCTYPE html>
-<html lang="en" data-bs-theme="dark">
+<!doctype html>
+<html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Taya Dailey | BI &amp; Analytics Portfolio</title>
-  <meta name="description" content="Taya Dailey, Detroit-based BI analyst. Power BI dashboards, SQL and automation for healthcare and customer analytics.">
-
-    <!-- Google tag (gtag.js) -->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Taya Dailey | BI &amp; Analytics Portfolio</title>
+<meta name="description" content="Taya Dailey, Detroit-based BI analyst. I turn messy data into Power BI dashboards and process fixes people actually use.">
+<!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-Q5H3Q46XSD"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
-
   gtag('config', 'G-Q5H3Q46XSD');
 </script>
-  
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-  <link rel="stylesheet" href="css/style.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=JetBrains+Mono:wght@400;500;600&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; }
+  html { padding-top: env(safe-area-inset-top, 0px); padding-bottom: env(safe-area-inset-bottom, 0px); -webkit-text-size-adjust: 100%; }
+  body { margin: 0; }
+  img { max-width: 100%; }
+  [hidden] { display: none !important; }
+  /* Layout: a spreadsheet-paper page. Act 1 is a query editor cleaning a messy table
+     (Applied Steps pane beside it). Act 2 is the name, centered over the cleaned result.
+     Single light look by choice: Taya asked for a white "database" feel. */
+  :root {
+    --paper: #fbfaf6;        /* page */
+    --sheet: #ffffff;        /* editor surface */
+    --grid: #e9e5dc;         /* cell lines */
+    --rule: #d8d2c6;
+    --ink: #1b1a17;
+    --muted: #77726a;
+    --coral: #ef6f45;        /* Taya's accent, a touch deeper for white paper */
+    --coral-soft: #fde3d8;
+    --valid: #2f9a6b;        /* column-quality green */
+    --err: #d24b4b;
+    --empty: #b9b3a7;
+    --display: 'Bricolage Grotesque', 'Segoe UI', system-ui, sans-serif;
+    --body: 'Manrope', 'Segoe UI', system-ui, sans-serif;
+    --mono: 'JetBrains Mono', 'SFMono-Regular', Consolas, monospace;
+    color-scheme: light;
+  }
+  html { scroll-behavior: smooth; }
+  body {
+    background-color: var(--paper);
+    background-image:
+      linear-gradient(var(--grid) 1px, transparent 1px),
+      linear-gradient(90deg, var(--grid) 1px, transparent 1px);
+    background-size: 100% 28px, 96px 100%;
+    color: var(--ink);
+    font-family: var(--body);
+  }
+  @media (prefers-reduced-motion: no-preference) { html { scroll-behavior: smooth; } }
+  a { color: inherit; }
+  button { font: inherit; color: inherit; }
+  :focus-visible { outline: 2px solid var(--coral); outline-offset: 3px; }
+  .wrap {
+    max-width: 1180px; margin: 0 auto;
+    padding-left: max(16px, env(safe-area-inset-left, 0px));
+    padding-right: max(16px, env(safe-area-inset-right, 0px));
+  }
+
+  /* ---------- header ---------- */
+  .top { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 20; padding-block: 12px; }
+  body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-area-inset-top, 0px); background: var(--paper); z-index: 30; }
+  .bar {
+    display: flex; align-items: center; justify-content: space-between; gap: 12px;
+    background: rgba(255, 255, 255, 0.86); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);
+    border: 1px solid var(--rule); border-radius: 14px; padding: 8px 8px 8px 14px;
+  }
+  .mark { display: inline-flex; align-items: center; gap: 8px; text-decoration: none; font-family: var(--display); font-weight: 800; font-size: 1.05rem; }
+  .mark i { width: 22px; height: 22px; border-radius: 6px; background: var(--ink); color: var(--paper); display: grid; place-items: center; font: 600 0.68rem var(--mono); font-style: normal; }
+  .bar-links { display: flex; align-items: center; gap: 6px; }
+  .ghost { text-decoration: none; font-size: 0.88rem; font-weight: 600; color: var(--muted); padding: 8px 10px; border-radius: 10px; }
+  .ghost:hover { color: var(--ink); background: #f3f0e9; }
+  .solid { text-decoration: none; font-size: 0.88rem; font-weight: 700; background: var(--ink); color: var(--paper); padding: 9px 14px; border-radius: 10px; }
+  .solid:hover { background: #000; }
+  @media (max-width: 520px) { .ghost.hide-sm { display: none; } }
+
+  /* ---------- stage (act 1 + act 2 share it) ---------- */
+  .stage { position: relative; min-height: calc(100svh - 80px); display: grid; align-items: center; padding-block: 8px 28px; }
+
+  .editor {
+    position: relative; z-index: 1;
+    display: grid; grid-template-columns: minmax(0, 1fr) 260px; gap: 0;
+    background: var(--sheet); border: 1px solid var(--rule); border-radius: 16px;
+    box-shadow: 0 1px 0 #fff inset, 0 24px 60px -30px rgba(27, 26, 23, 0.35);
+    overflow: hidden;
+    transition: opacity 0.9s ease, filter 0.9s ease, transform 0.9s cubic-bezier(.3,.7,.2,1);
+  }
+  .stage.done .editor { opacity: 0.16; filter: blur(2px) saturate(0.6); transform: scale(0.97); pointer-events: none; }
+  @media (max-width: 860px) { .editor { grid-template-columns: minmax(0, 1fr); } }
+
+  .ed-main { min-width: 0; display: grid; grid-template-rows: auto auto minmax(0, 1fr); }
+  .ed-title { display: flex; justify-content: space-between; align-items: center; gap: 12px; padding: 10px 14px; border-bottom: 1px solid var(--grid); font: 500 0.78rem var(--mono); color: var(--muted); }
+  .ed-title b { color: var(--ink); font-weight: 600; }
+  .skip { background: none; border: 1px solid var(--rule); border-radius: 8px; padding: 4px 10px; cursor: pointer; font: 500 0.74rem var(--mono); color: var(--muted); }
+  .skip:hover { color: var(--ink); border-color: var(--muted); }
+
+  .fx { display: flex; gap: 10px; align-items: flex-start; padding: 9px 14px; border-bottom: 1px solid var(--grid); background: #fcfbf8; }
+  .fx span { font: italic 600 0.82rem var(--mono); color: var(--muted); padding-top: 1px; }
+  .fx code { min-width: 0; font: 400 0.8rem/1.45 var(--mono); color: var(--ink); white-space: pre-wrap; word-break: break-word; }
+
+  .tbl-box { overflow: auto; min-height: 330px; max-height: 58svh; padding: 0 0 8px; }
+  table { border-collapse: collapse; width: 100%; font: 400 0.84rem var(--mono); font-variant-numeric: tabular-nums; }
+  th, td { text-align: left; padding: 0 12px; border-bottom: 1px solid var(--grid); border-right: 1px solid var(--grid); white-space: nowrap; }
+  th:last-child, td:last-child { border-right: 0; }
+  th { position: sticky; top: 0; background: var(--sheet); z-index: 1; padding-top: 10px; padding-bottom: 8px; font-weight: 600; vertical-align: bottom; }
+  th .ty { color: var(--muted); font-weight: 500; margin-right: 6px; }
+  .q { display: flex; height: 3px; margin-top: 7px; border-radius: 2px; overflow: hidden; background: var(--grid); }
+  .q i { display: block; height: 100%; transition: width 0.6s ease; }
+  .q .v { background: var(--valid); } .q .e { background: var(--err); } .q .m { background: var(--empty); }
+  .qtxt { display: block; margin-top: 5px; font: 500 0.66rem var(--mono); color: var(--muted); letter-spacing: 0.02em; }
+  td.n { width: 36px; color: var(--muted); text-align: right; background: #fcfbf8; }
+  tr.r td { height: 30px; transition: height 0.45s ease, opacity 0.35s ease, background-color 0.4s ease; }
+  tr.r td > div { overflow: hidden; transition: max-height 0.45s ease; max-height: 30px; }
+  tr.r.gone td { height: 0; opacity: 0; border-bottom-width: 0; }
+  tr.r.gone td > div { max-height: 0; }
+  td.bad { color: var(--err); font-style: italic; }
+  td.ws > div { background: repeating-linear-gradient(90deg, transparent 0 7px, rgba(239,111,69,0.18) 7px 8px); }
+  td.chg { background: var(--coral-soft); }
+  td.cnt { width: 1%; }
+  @media (max-width: 520px) {
+    table { font-size: 0.72rem; }
+    th, td { padding: 0 7px; }
+    td.n { width: 22px; }
+    .skip .long { display: none; }
+  }
+
+  /* grouped chart */
+  .chart { display: grid; gap: 14px; padding: 22px 18px 18px; }
+  .chart-h { font: 500 0.78rem var(--mono); color: var(--muted); }
+  .chart-row { display: grid; grid-template-columns: 92px minmax(0, 1fr) 30px; align-items: center; gap: 12px; font: 500 0.88rem var(--mono); }
+  .chart-row .track { height: 30px; background: #f4f1ea; border-radius: 6px; overflow: hidden; }
+  .chart-row .fill { height: 100%; width: 0; background: var(--ink); border-radius: 6px; transition: width 0.9s cubic-bezier(.3,.7,.2,1); }
+  .chart-row:first-of-type .fill { background: var(--coral); }
+  .chart-row b { text-align: right; font-weight: 600; }
+
+  /* applied steps pane */
+  .pane { border-left: 1px solid var(--grid); background: #fcfbf8; padding: 12px 12px 14px; min-width: 0; }
+  @media (max-width: 860px) { .pane { border-left: 0; border-top: 1px solid var(--grid); order: -1; } }
+  .pane h3 { margin: 2px 4px 10px; font: 600 0.72rem var(--mono); letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted); }
+  .steps { list-style: none; margin: 0; padding: 0; display: grid; gap: 2px; }
+  @media (max-width: 860px) {
+    .steps { display: flex; gap: 6px; overflow-x: auto; padding-bottom: 4px; scrollbar-width: thin; }
+    .pane h3 { margin-bottom: 8px; }
+  }
+  .step {
+    width: 100%; display: flex; align-items: center; gap: 9px; text-align: left; cursor: pointer;
+    background: none; border: 1px solid transparent; border-radius: 8px; padding: 7px 9px;
+    font: 500 0.82rem var(--body); color: var(--muted); white-space: nowrap;
+  }
+  .step .ico { width: 16px; height: 16px; flex: none; border-radius: 4px; border: 1px solid var(--rule); display: grid; place-items: center; font: 600 0.62rem var(--mono); color: var(--muted); background: var(--sheet); }
+  .step.past { color: var(--ink); }
+  .step.past .ico { background: var(--ink); border-color: var(--ink); color: var(--paper); }
+  .step.now { background: var(--coral-soft); border-color: #f6c3ae; color: var(--ink); font-weight: 700; }
+  .step.now .ico { background: var(--coral); border-color: var(--coral); color: #fff; }
+  .step:hover:not(.now) { background: #f3f0e9; }
+
+  /* ---------- act 2: the name ---------- */
+  .hero {
+    position: absolute; inset: 0; z-index: 2;
+    display: grid; place-content: center; justify-items: center; text-align: center; gap: 18px;
+    opacity: 0; visibility: hidden; transform: translateY(14px);
+    transition: opacity 0.8s ease 0.25s, transform 0.8s cubic-bezier(.3,.7,.2,1) 0.25s, visibility 0s linear 1.1s;
+    pointer-events: none;
+  }
+  .stage.done .hero { opacity: 1; visibility: visible; transform: none; transition-delay: 0.25s, 0.25s, 0s; pointer-events: auto; }
+  .eyebrow { font: 600 0.76rem var(--mono); letter-spacing: 0.16em; text-transform: uppercase; color: var(--coral); }
+  .hero h1 {
+    margin: 0; font-family: var(--display); font-weight: 800; letter-spacing: -0.045em; line-height: 0.88;
+    font-size: clamp(4rem, 15vw, 10.5rem);
+  }
+  .hero h1 .cell { position: relative; }
+  .hero h1 .cell::after {
+    content: ""; position: absolute; left: -0.06em; right: -0.06em; top: 0.06em; bottom: -0.02em;
+    border: 3px solid var(--coral); border-radius: 4px;
+    animation: blink 1.1s steps(1) infinite; pointer-events: none;
+  }
+  @keyframes blink { 50% { border-color: transparent; } }
+  .tag { margin: 0; max-width: 34ch; font-size: clamp(1.05rem, 2.2vw, 1.3rem); line-height: 1.5; color: #3d3a35; text-wrap: balance; }
+  .tag em { font-style: normal; background: linear-gradient(transparent 62%, var(--coral-soft) 62%); }
+  .hero-actions { display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 18px; margin-top: 10px; }
+  .replay { background: none; border: 0; cursor: pointer; font: 500 0.82rem var(--mono); color: var(--muted); text-decoration: underline; text-underline-offset: 4px; }
+  .replay:hover { color: var(--ink); }
+
+  /* the hovering 3D button */
+  .tilt { perspective: 700px; }
+  .btn3d {
+    --rx: 0deg; --ry: 0deg;
+    display: inline-flex; align-items: center; gap: 12px; text-decoration: none;
+    padding: 17px 28px; border-radius: 16px; font-weight: 700; font-size: 1.05rem;
+    color: #fff; background: linear-gradient(180deg, #2b2925, var(--ink));
+    box-shadow: 0 7px 0 #000, 0 22px 34px -12px rgba(27, 26, 23, 0.55), inset 0 1px 0 rgba(255, 255, 255, 0.18);
+    transform: rotateX(var(--rx)) rotateY(var(--ry));
+    animation: float 3.4s ease-in-out infinite;
+  }
+  .btn3d .dot { width: 9px; height: 9px; border-radius: 50%; background: var(--coral); box-shadow: 0 0 0 4px rgba(239, 111, 69, 0.3); }
+  .btn3d:active { animation: none; transform: rotateX(var(--rx)) rotateY(var(--ry)) translateY(6px); box-shadow: 0 1px 0 #000, 0 8px 16px -8px rgba(27, 26, 23, 0.5); }
+  @keyframes float {
+    0%, 100% { transform: rotateX(var(--rx)) rotateY(var(--ry)) translateY(0); }
+    50% { transform: rotateX(var(--rx)) rotateY(var(--ry)) translateY(-7px); }
+  }
+  .scroll-cue { font: 500 0.74rem var(--mono); letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted); text-decoration: none; margin-top: 6px; }
+
+  /* ---------- next section preview: profiled columns ---------- */
+  .profile { padding-block: 56px 80px; }
+  .sec-head { display: grid; gap: 8px; margin-bottom: 22px; }
+  .sec-head .eyebrow { color: var(--muted); }
+  .sec-head h2 { margin: 0; font-family: var(--display); font-weight: 700; letter-spacing: -0.03em; font-size: clamp(2rem, 5vw, 3.2rem); line-height: 1; text-wrap: balance; }
+  .sec-head p { margin: 0; color: var(--muted); max-width: 60ch; line-height: 1.6; }
+  .prof { background: var(--sheet); border: 1px solid var(--rule); border-radius: 16px; overflow: hidden; }
+  .prof-row { display: grid; grid-template-columns: 150px minmax(0, 1fr) 150px; gap: 18px; align-items: center; padding: 14px 18px; border-bottom: 1px solid var(--grid); }
+  .prof-row:last-child { border-bottom: 0; }
+  .prof-row .col { font: 600 0.84rem var(--mono); }
+  .prof-row .col small { display: block; font-weight: 400; color: var(--muted); font-size: 0.72rem; margin-top: 2px; }
+  .prof-row .val { line-height: 1.5; min-width: 0; }
+  .prof-row .qual { font: 500 0.68rem var(--mono); color: var(--muted); }
+  .prof-row .qual .q { margin: 0 0 5px; }
+  @media (max-width: 680px) {
+    .prof-row { grid-template-columns: minmax(0, 1fr); gap: 6px; }
+  }
+  .prof-foot { padding: 12px 18px; font: 500 0.76rem var(--mono); color: var(--muted); background: #fcfbf8; border-top: 1px solid var(--grid); }
+
+  /* ---------- case study: scroll story ---------- */
+  .story { padding-block: 40px 40px; }
+  .story-grid { display: grid; grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr); gap: 48px; align-items: start; }
+  .viz-wrap { position: sticky; top: calc(env(safe-area-inset-top, 0px) + 92px); }
+  .viz {
+    position: relative; background: var(--sheet); border: 1px solid var(--rule); border-radius: 16px;
+    padding: 18px 18px 14px; min-height: 420px; overflow: hidden;
+  }
+  .viz-h { display: flex; justify-content: space-between; gap: 12px; font: 500 0.74rem var(--mono); color: var(--muted); margin-bottom: 14px; }
+  .viz-h b { color: var(--ink); font-weight: 600; }
+  .viz-note { position: absolute; left: 18px; right: 18px; bottom: 10px; font: 500 0.66rem var(--mono); color: var(--muted); }
+  .layer { position: absolute; inset: 50px 18px 34px; opacity: 0; visibility: hidden; transition: opacity 0.5s ease, visibility 0s linear 0.5s; }
+  .layer.on { opacity: 1; visibility: visible; transition: opacity 0.5s ease 0.1s, visibility 0s; }
+
+  /* layer 1: 9 teams x 3 quizzes */
+  .qgrid { display: grid; grid-template-columns: 64px repeat(3, minmax(0, 1fr)); gap: 6px; font: 500 0.72rem var(--mono); }
+  .qgrid .hd { color: var(--muted); text-align: center; padding-bottom: 2px; }
+  .qgrid .tm { color: var(--muted); align-self: center; }
+  .qgrid .cell { height: 26px; border-radius: 5px; background: #f1ede5; border: 1px solid var(--grid); transform: scale(0.6); opacity: 0; transition: transform 0.4s ease, opacity 0.4s ease; }
+  .layer.on .qgrid .cell { transform: none; opacity: 1; }
+
+  /* layers 2 and 4: miss rate by question, one dot per team */
+  .dots { display: grid; gap: 5px; height: 100%; grid-template-rows: auto repeat(12, minmax(0, 1fr)) auto; }
+  .drow { display: grid; grid-template-columns: 34px minmax(0, 1fr); align-items: center; gap: 8px; font: 500 0.7rem var(--mono); color: var(--muted); }
+  .drow .lane { position: relative; height: 100%; min-height: 14px; border-bottom: 1px dashed var(--grid); }
+  .drow .d { position: absolute; top: 50%; width: 9px; height: 9px; margin: -4.5px 0 0 -4.5px; border-radius: 50%; background: var(--ink); opacity: 0.55; transition: left 1.1s cubic-bezier(.3,.7,.2,1), background-color 0.5s ease; }
+  .drow.hot .d { background: var(--coral); opacity: 0.9; }
+  .drow.hot { color: var(--coral); font-weight: 600; }
+  .axis { display: grid; grid-template-columns: 34px minmax(0, 1fr); gap: 8px; font: 500 0.66rem var(--mono); color: var(--muted); }
+  .axis div { display: flex; justify-content: space-between; }
+  .dots-key { display: flex; gap: 14px; font: 500 0.68rem var(--mono); color: var(--muted); }
+  .dots-key i { display: inline-block; width: 8px; height: 8px; border-radius: 50%; background: var(--ink); opacity: 0.55; margin-right: 6px; }
+
+  /* layer 3: wording mismatch */
+  .words { display: grid; gap: 12px; align-content: center; height: 100%; }
+  .doc { border: 1px solid var(--rule); border-radius: 12px; padding: 14px 16px; background: #fcfbf8; }
+  .doc .lbl { font: 600 0.68rem var(--mono); letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); }
+  .doc p { margin: 8px 0 0; font-size: 1rem; line-height: 1.55; }
+  .doc mark { background: var(--coral-soft); color: var(--ink); border-radius: 3px; padding: 0 3px; }
+  .doc.quiz { border-color: #f1b8a2; }
+  .neq { justify-self: center; font: 700 1.3rem var(--mono); color: var(--coral); }
+
+  /* layer 5: result */
+  .result { display: grid; align-content: center; justify-items: start; gap: 6px; height: 100%; }
+  .big { font-family: var(--display); font-weight: 800; letter-spacing: -0.05em; line-height: 0.85; font-size: clamp(5rem, 13vw, 9rem); }
+  .big span { color: var(--coral); }
+  .result p { margin: 0; font-size: 1.05rem; color: #3d3a35; max-width: 30ch; line-height: 1.5; }
+
+  .beats { display: grid; gap: 0; }
+  .beat { min-height: 62vh; display: grid; align-content: center; gap: 10px; padding-block: 24px; opacity: 0.35; transition: opacity 0.4s ease; }
+  .beat:first-child { min-height: 46vh; align-content: start; padding-top: 70px; }
+  .beat.on { opacity: 1; }
+  .beat .num { font: 600 0.72rem var(--mono); letter-spacing: 0.14em; color: var(--coral); }
+  .beat h3 { margin: 0; font-family: var(--display); font-weight: 700; font-size: clamp(1.5rem, 3vw, 2rem); line-height: 1.1; letter-spacing: -0.02em; text-wrap: balance; }
+  .beat p { margin: 0; color: #3d3a35; font-size: 1.04rem; line-height: 1.65; max-width: 46ch; }
+
+  @media (max-width: 860px) {
+    .story-grid { grid-template-columns: minmax(0, 1fr); gap: 0; }
+    .viz-wrap { top: calc(env(safe-area-inset-top, 0px) + 74px); z-index: 5; }
+    .viz { min-height: 300px; padding: 14px 14px 10px; box-shadow: 0 18px 30px -22px rgba(27, 26, 23, 0.45); }
+    .layer { inset: 42px 14px 30px; }
+    .viz-note { left: 14px; right: 14px; bottom: 8px; }
+    .qgrid .cell { height: 18px; }
+    .words { gap: 8px; }
+    .doc { padding: 10px 12px; }
+    .doc p { font-size: 0.88rem; }
+    .beat, .beat:first-child { min-height: 75vh; padding-top: 28px; align-content: start; }
+    .beat:last-child { min-height: 60vh; }
+  }
+
+  /* ---------- merged queries: projects ---------- */
+  .projects { padding-block: 40px 100px; }
+  .mq { display: grid; grid-template-columns: 250px minmax(0, 1fr); background: var(--sheet); border: 1px solid var(--rule); border-radius: 16px; overflow: hidden; }
+  .qpane { border-right: 1px solid var(--grid); background: #fcfbf8; padding: 12px 10px; min-width: 0; }
+  .qpane h3 { margin: 4px 8px 10px; font: 600 0.72rem var(--mono); letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted); }
+  .qgroup { font: 600 0.68rem var(--mono); color: var(--muted); margin: 12px 8px 4px; display: flex; align-items: center; gap: 6px; }
+  .qgroup::before { content: "\25BE"; font-size: 0.7rem; }
+  .qlist { list-style: none; margin: 0; padding: 0; display: grid; gap: 1px; }
+  .qbtn {
+    width: 100%; display: flex; align-items: center; gap: 9px; text-align: left; cursor: pointer;
+    background: none; border: 1px solid transparent; border-radius: 8px; padding: 7px 9px;
+    font: 500 0.86rem var(--body); color: #3d3a35; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+  }
+  .qbtn .tbl { flex: none; width: 15px; height: 12px; border: 1.5px solid currentColor; border-radius: 2px; opacity: 0.55;
+    background: linear-gradient(currentColor, currentColor) 0 3px / 100% 1.5px no-repeat, linear-gradient(90deg, currentColor, currentColor) 5px 0 / 1.5px 100% no-repeat; }
+  .qbtn:hover { background: #f3f0e9; }
+  .qbtn[aria-selected="true"] { background: var(--coral-soft); border-color: #f6c3ae; color: var(--ink); font-weight: 700; }
+  .qbtn[aria-selected="true"] .tbl { color: var(--coral); opacity: 1; }
+
+  .qdetail { min-width: 0; padding: 18px 20px 22px; display: grid; gap: 16px; align-content: start; }
+  .qd-head { display: flex; justify-content: space-between; align-items: flex-start; gap: 14px; flex-wrap: wrap; }
+  .qd-head h3 { margin: 0; font-family: var(--display); font-weight: 700; font-size: clamp(1.4rem, 2.6vw, 1.9rem); letter-spacing: -0.02em; line-height: 1.1; text-wrap: balance; }
+  .qd-meta { margin-top: 6px; font: 500 0.76rem var(--mono); color: var(--muted); }
+  .chips { display: flex; flex-wrap: wrap; gap: 6px; }
+  .chip { font: 500 0.72rem var(--mono); padding: 3px 9px; border-radius: 999px; border: 1px solid var(--rule); color: #3d3a35; background: #fcfbf8; }
+  .chip.ai { color: #8a5aa0; border-color: #dcc6e6; background: #f8f1fb; }
+
+  /* before / after compare */
+  .compare { --pos: 50%; position: relative; aspect-ratio: 16 / 9; max-width: 100%; border: 1px solid var(--rule); border-radius: 12px; overflow: hidden; background: #f4f1ea; user-select: none; touch-action: pan-y; }
+  .cmp-before, .cmp-after { position: absolute; inset: 0; }
+  .cmp-after { clip-path: inset(0 0 0 var(--pos)); background: #fff; display: grid; place-items: center; }
+  .cmp-after img { width: 100%; height: 100%; object-fit: contain; display: block; }
+  .cmp-after .live { display: grid; place-items: center; gap: 10px; text-align: center; padding: 20px; height: 100%; width: 100%;
+    background: radial-gradient(120% 90% at 100% 0%, #3a1f2c 0, #141217 60%); color: #f3ede4; }
+  .cmp-after .live b { font-family: var(--display); font-size: clamp(1.4rem, 3.4vw, 2.2rem); letter-spacing: -0.02em; }
+  .cmp-after .live span { font: 500 0.74rem var(--mono); color: #c9bfb3; }
+  .cmp-after .live .bars { display: flex; gap: 5px; align-items: flex-end; height: 46px; }
+  .cmp-after .live .bars i { width: 12px; border-radius: 3px 3px 0 0; }
+  .cmp-label { position: absolute; top: 10px; z-index: 2; font: 600 0.66rem var(--mono); letter-spacing: 0.12em; text-transform: uppercase; padding: 4px 8px; border-radius: 6px; }
+  .cmp-label.l { left: 10px; background: #fbe9e9; color: var(--err); border: 1px solid #f1c9c9; }
+  .cmp-label.r { right: 10px; background: #e6f4ec; color: var(--valid); border: 1px solid #bfe2ce; }
+  .handle { position: absolute; top: 0; bottom: 0; left: var(--pos); width: 2px; margin-left: -1px; background: var(--ink); z-index: 3; pointer-events: none; }
+  .handle::after { content: "\2039\00a0\203A"; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
+    width: 36px; height: 36px; border-radius: 50%; background: var(--ink); color: #fff; display: grid; place-items: center; font: 700 0.95rem var(--mono); box-shadow: 0 4px 14px rgba(0,0,0,0.25); }
+  .compare input[type="range"] { position: absolute; inset: 0; width: 100%; height: 100%; margin: 0; opacity: 0; cursor: ew-resize; z-index: 4; }
+  .compare:focus-within .handle::after { outline: 2px solid var(--coral); outline-offset: 3px; }
+
+  /* the "raw" side: source files + messy texture */
+  .raw { height: 100%; padding: 46px 18px 16px; display: grid; grid-template-rows: auto minmax(0, 1fr); gap: 12px;
+    background:
+      repeating-linear-gradient(0deg, transparent 0 21px, #e3ddd2 21px 22px),
+      repeating-linear-gradient(90deg, transparent 0 89px, #e3ddd2 89px 90px), #f7f4ee; }
+  .files { display: flex; flex-wrap: wrap; gap: 8px; }
+  .file { display: inline-flex; align-items: center; gap: 7px; font: 500 0.76rem var(--mono); background: #fff; border: 1px solid var(--rule); border-radius: 8px; padding: 6px 9px; box-shadow: 0 2px 0 #e9e4da; }
+  .file::before { content: ""; width: 10px; height: 12px; border: 1.5px solid var(--muted); border-radius: 2px; }
+  .file:nth-child(2) { transform: rotate(-1.5deg); } .file:nth-child(3) { transform: rotate(1.2deg); } .file:nth-child(4) { transform: rotate(-0.8deg); }
+  .noise { overflow: hidden; font: 500 0.74rem/22px var(--mono); color: #9b958b; white-space: pre; mask-image: linear-gradient(180deg, #000 55%, transparent); -webkit-mask-image: linear-gradient(180deg, #000 55%, transparent); }
+  .noise em { font-style: italic; color: var(--err); }
+
+  .qd-cols { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 22px; }
+  .qd-cols h4 { margin: 0 0 8px; font: 600 0.7rem var(--mono); letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted); }
+  .issues, .fixes { list-style: none; margin: 0; padding: 0; display: grid; gap: 7px; }
+  .issues li, .fixes li { display: grid; grid-template-columns: 18px minmax(0, 1fr); gap: 8px; line-height: 1.5; font-size: 0.95rem; }
+  .issues li::before { content: "!"; width: 16px; height: 16px; margin-top: 3px; border-radius: 50%; background: #fbe9e9; color: var(--err); font: 700 0.64rem var(--mono); display: grid; place-items: center; }
+  .fixes li::before { content: "\2713"; width: 16px; height: 16px; margin-top: 3px; border-radius: 4px; background: var(--ink); color: #fff; font: 700 0.6rem var(--mono); display: grid; place-items: center; }
+  .qd-foot { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 12px; border-top: 1px solid var(--grid); padding-top: 14px; }
+  .qd-foot a { font-weight: 700; text-decoration: none; color: var(--ink); border-bottom: 2px solid var(--coral); padding-bottom: 1px; }
+  .qd-foot small { font: 500 0.7rem var(--mono); color: var(--muted); }
+
+  @media (max-width: 860px) {
+    .mq { grid-template-columns: minmax(0, 1fr); }
+    .qpane { border-right: 0; border-bottom: 1px solid var(--grid); padding: 10px; }
+    .qpane h3 { margin: 2px 4px 8px; }
+    .qgroup { display: none; }
+    .qlists { display: flex; gap: 6px; overflow-x: auto; padding-bottom: 4px; }
+    .qlist { display: flex; gap: 6px; }
+    .qbtn { width: auto; border-color: var(--rule); background: var(--sheet); }
+    .qdetail { padding: 16px 14px 18px; }
+    .qd-cols { grid-template-columns: minmax(0, 1fr); gap: 16px; }
+    .compare { aspect-ratio: 4 / 3; }
+    .raw { padding: 42px 12px 12px; }
+  }
+
+  /* ---------- refresh history: growth timeline ---------- */
+  .history { padding-block: 10px 110px; }
+  .first { display: grid; grid-template-columns: minmax(0, 1.45fr) minmax(0, 1fr); gap: 26px; align-items: start;
+    background: var(--sheet); border: 1px solid var(--rule); border-radius: 16px; padding: 18px; margin-bottom: 18px; }
+  .first-h { grid-column: 1 / -1; display: flex; justify-content: space-between; align-items: baseline; gap: 12px; flex-wrap: wrap; }
+  .first-h h3 { margin: 0; font-family: var(--display); font-weight: 700; font-size: 1.35rem; letter-spacing: -0.01em; }
+  .first-h span { font: 500 0.74rem var(--mono); color: var(--muted); }
+  .shot { position: relative; border: 1px solid var(--rule); border-radius: 10px; overflow: hidden; }
+  .shot img { display: block; width: 100%; height: auto; }
+  .pin { position: absolute; width: 28px; height: 28px; margin: -14px 0 0 -14px; border-radius: 50%; border: 2px solid #fff;
+    background: var(--coral); color: #fff; font: 700 0.78rem var(--mono); display: grid; place-items: center; cursor: pointer;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.25); transition: transform 0.2s ease; padding: 0; }
+  .pin::after { content: ""; position: absolute; inset: -7px; border-radius: 50%; border: 2px solid var(--coral); opacity: 0; transition: opacity 0.2s ease; }
+  .pin.on, .pin:hover { transform: scale(1.15); }
+  .pin.on::after { opacity: 0.5; }
+  .notes { list-style: none; margin: 0; padding: 0; display: grid; gap: 4px; counter-reset: n; }
+  .notes li { display: grid; grid-template-columns: 24px minmax(0, 1fr); gap: 10px; padding: 9px 10px; border-radius: 10px; cursor: pointer; line-height: 1.5; transition: background-color 0.2s ease; }
+  .notes li::before { counter-increment: n; content: counter(n); width: 22px; height: 22px; border-radius: 50%; background: #f3f0e9; color: var(--ink); font: 700 0.72rem var(--mono); display: grid; place-items: center; }
+  .notes li.on { background: var(--coral-soft); }
+  .notes li.on::before { background: var(--coral); color: #fff; }
+  .notes b { display: block; font-size: 0.95rem; }
+  .notes span { color: #55514a; font-size: 0.9rem; }
+  .notes-foot { margin-top: 10px; font: 500 0.72rem var(--mono); color: var(--muted); }
+
+  .log { background: var(--sheet); border: 1px solid var(--rule); border-radius: 16px; overflow: hidden; }
+  .log-h, .log-r { display: grid; grid-template-columns: 110px 104px minmax(0, 1.1fr) minmax(0, 1.6fr); gap: 16px; align-items: center; padding: 12px 18px; }
+  .log-h { font: 600 0.68rem var(--mono); letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); background: #fcfbf8; border-bottom: 1px solid var(--grid); }
+  .log-r { border-bottom: 1px solid var(--grid); }
+  .log-r:last-child { border-bottom: 0; }
+  .log-r .when { font: 500 0.82rem var(--mono); font-variant-numeric: tabular-nums; }
+  .ok { display: inline-flex; align-items: center; gap: 6px; font: 600 0.72rem var(--mono); color: var(--valid); }
+  .ok::before { content: "\2713"; width: 16px; height: 16px; border-radius: 50%; background: #e6f4ec; display: grid; place-items: center; font-size: 0.62rem; }
+  .ok.web { color: #8a5aa0; } .ok.web::before { content: "</>"; background: #f8f1fb; font-size: 0.5rem; }
+  .log-r .proj { font-weight: 700; line-height: 1.35; }
+  .log-r .proj a { text-decoration: none; border-bottom: 1px solid var(--rule); }
+  .log-r .proj a:hover { border-color: var(--coral); }
+  .log-r .new { color: #3d3a35; line-height: 1.5; font-size: 0.94rem; }
+  .log-r .new em { font-style: normal; font: 600 0.66rem var(--mono); letter-spacing: 0.08em; text-transform: uppercase; color: var(--coral); margin-right: 6px; }
+  .log-r.latest { background: linear-gradient(90deg, var(--coral-soft), transparent 70%); }
+  @media (max-width: 860px) {
+    .first { grid-template-columns: minmax(0, 1fr); padding: 14px; }
+    .pin { width: 24px; height: 24px; margin: -12px 0 0 -12px; font-size: 0.7rem; }
+    .log-h { display: none; }
+    .log-r { grid-template-columns: minmax(0, 1fr) auto; gap: 4px 12px; padding: 14px; }
+    .log-r .when { grid-column: 1; grid-row: 1; color: var(--muted); }
+    .log-r .ok { grid-column: 2; grid-row: 1; justify-self: end; }
+    .log-r .proj, .log-r .new { grid-column: 1 / -1; }
+  }
+
+  /* ---------- close & apply: contact ---------- */
+  .apply { padding-block: 10px 40px; }
+  .apply-card { background: var(--ink); color: #f6f2ea; border-radius: 20px; padding: clamp(22px, 4vw, 44px); display: grid; gap: 26px; position: relative; overflow: hidden; }
+  .apply-card::before { content: ""; position: absolute; inset: 0; pointer-events: none; opacity: 0.08;
+    background-image: linear-gradient(#fff 1px, transparent 1px), linear-gradient(90deg, #fff 1px, transparent 1px); background-size: 100% 28px, 96px 100%; }
+  .apply-top { position: relative; display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 24px; align-items: end; }
+  .apply-top .eyebrow { color: #ff9c78; }
+  .apply-top h2 { margin: 8px 0 10px; font-family: var(--display); font-weight: 800; letter-spacing: -0.04em; line-height: 0.95; font-size: clamp(2.4rem, 6vw, 4.4rem); text-wrap: balance; }
+  .apply-top p { margin: 0; color: #cfc8bd; max-width: 52ch; line-height: 1.6; }
+  .ca { display: grid; justify-items: center; gap: 8px; background: #2a2824; border: 1px solid #3b3833; border-radius: 14px; padding: 14px 18px 12px; cursor: pointer; color: #f6f2ea; font: 600 0.82rem var(--body); min-width: 118px;
+    box-shadow: 0 5px 0 #0b0b0a; transition: transform 0.1s ease, box-shadow 0.1s ease; }
+  .ca:active { transform: translateY(4px); box-shadow: 0 1px 0 #0b0b0a; }
+  .ca svg { width: 34px; height: 34px; }
+  .apply-status { position: relative; display: grid; gap: 8px; font: 500 0.78rem var(--mono); color: #cfc8bd; }
+  .apply-bar { height: 4px; border-radius: 2px; background: #3b3833; overflow: hidden; }
+  .apply-bar i { display: block; height: 100%; width: 100%; background: var(--valid); transition: width 1.4s cubic-bezier(.3,.7,.2,1); }
+  .apply-status b { color: #7fd1a6; font-weight: 600; }
+  .dest { position: relative; display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 12px; }
+  .dest a, .dest .mail { display: grid; gap: 4px; text-decoration: none; color: #f6f2ea; background: #23211e; border: 1px solid #3b3833; border-radius: 14px; padding: 14px 16px; min-width: 0; transition: border-color 0.2s ease, transform 0.2s ease; }
+  .dest a:hover { border-color: #ff9c78; transform: translateY(-2px); }
+  .dest small { font: 600 0.66rem var(--mono); letter-spacing: 0.12em; text-transform: uppercase; color: #a39b8f; }
+  .dest span { font-weight: 600; overflow-wrap: anywhere; }
+  .mail-row { display: flex; align-items: center; justify-content: space-between; gap: 10px; }
+  .mail-row span { user-select: all; }
+  .copy { background: #3b3833; border: 0; border-radius: 8px; padding: 5px 10px; font: 600 0.72rem var(--mono); color: #f6f2ea; cursor: pointer; flex: none; }
+  .copy:hover { background: #4a463f; }
+  .sign { padding-block: 26px 40px; display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; font: 500 0.74rem var(--mono); color: var(--muted); }
+  @media (max-width: 640px) { .apply-top { grid-template-columns: minmax(0, 1fr); } .ca { justify-self: start; } }
+
+
+  /* ---------- other builds ---------- */
+  .others { padding-block: 10px 70px; }
+  .ob-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; }
+  .ob { background: var(--sheet); border: 1px solid var(--rule); border-radius: 16px; padding: 18px 20px; display: grid; gap: 8px; align-content: start; }
+  .ob .kind { font: 600 0.68rem var(--mono); letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); display: flex; gap: 8px; flex-wrap: wrap; align-items: center; }
+  .ob .kind .wip { color: #8a5aa0; background: #f8f1fb; border: 1px solid #dcc6e6; border-radius: 999px; padding: 1px 8px; letter-spacing: 0.06em; }
+  .ob h3 { margin: 0; font-family: var(--display); font-weight: 700; font-size: 1.3rem; letter-spacing: -0.01em; }
+  .ob p { margin: 0; color: #3d3a35; line-height: 1.6; }
+  .ob .links { display: flex; flex-wrap: wrap; gap: 14px; margin-top: 4px; }
+  .ob .links a { font-weight: 700; text-decoration: none; border-bottom: 2px solid var(--coral); padding-bottom: 1px; }
+  @media (max-width: 720px) { .ob-grid { grid-template-columns: minmax(0, 1fr); } }
+
+  /* side step card */
+  .side { padding-block: 10px 40px; }
+  .side-card {
+    display: grid; grid-template-columns: auto minmax(0, 1fr); gap: 18px; align-items: start;
+    background: var(--sheet); border: 1px solid var(--rule); border-radius: 16px; padding: 20px 22px;
+  }
+  .side-card .err { font: 600 0.72rem var(--mono); color: var(--err); background: #fbe9e9; border: 1px solid #f1c9c9; border-radius: 8px; padding: 6px 9px; white-space: nowrap; }
+  .side-card h3 { margin: 0 0 6px; font-family: var(--display); font-weight: 700; font-size: 1.3rem; letter-spacing: -0.01em; }
+  .side-card p { margin: 0; color: #3d3a35; line-height: 1.6; max-width: 64ch; }
+  .side-card code { font: 500 0.86em var(--mono); background: #f3f0e9; border-radius: 4px; padding: 1px 5px; }
+  @media (max-width: 560px) { .side-card { grid-template-columns: minmax(0, 1fr); gap: 10px; } .side-card .err { justify-self: start; } }
+
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after { animation: none !important; transition: none !important; }
+  }
+</style>
 </head>
 <body>
-<!-- Navbar -->
-  <nav class="navbar navbar-expand-lg site-nav sticky-top">
-    <div class="container">
-      <a class="navbar-brand" href="index.html"><span class="brand-mark">TD</span> Taya Dailey</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav ms-auto align-items-lg-center">
-          <li class="nav-item"><a class="nav-link active" href="index.html" aria-current="page">Home</a></li>
-          <li class="nav-item"><a class="nav-link" href="analytics.html">Analytics</a></li>
-          <li class="nav-item"><a class="nav-link" href="development.html">Web Dev</a></li>
-          <li class="nav-item"><a class="nav-link" href="case_studies.html">Automation</a></li>
-          <li class="nav-item"><a class="nav-link" href="downloads/T%20.Dailey%20Resume.pdf" target="_blank" rel="noopener">Resume</a></li>
-          <li class="nav-item"><a class="btn btn-accent btn-sm ms-lg-2" href="contact.html">Contact</a></li>
-        </ul>
+<header class="top">
+  <div class="wrap">
+    <div class="bar">
+      <a class="mark" href="#stage"><i>TD</i> Taya Dailey</a>
+      <div class="bar-links">
+        <a class="ghost hide-sm" href="downloads/Taya-Dailey-Resume.pdf" target="_blank" rel="noopener">Résumé</a>
+        <a class="solid" href="recruiter.html">Recruiter view</a>
       </div>
     </div>
-  </nav>
+  </div>
+</header>
 
-  <main>
-    <!-- Hero -->
-    <section class="hero">
-      <div class="container">
-        <span class="eyebrow">Business Intelligence &amp; Analytics</span>
-        <h1>I build dashboards that turn <span class="accent">healthcare and customer data</span> into decisions.</h1>
-        <p class="lead">
-          I'm Taya Dailey, a BI analyst based in Detroit with a background in payer analytics and healthcare revenue cycle.
-          I design Power BI reports, model data with SQL, and automate the busywork in between, always aiming for
-          reports people actually open.
-        </p>
-        <div class="hero-actions">
-          <a href="analytics.html" class="btn btn-accent">See my dashboards</a>
-          <a href="downloads/T%20.Dailey%20Resume.pdf" class="btn btn-outline-light" target="_blank" rel="noopener">Download resume</a>
-          <a href="https://linkedin.com/in/tayadailey" class="btn btn-outline-light" target="_blank" rel="noopener">LinkedIn</a>
+<main>
+  <section class="stage wrap" id="stage">
+    <div class="editor" id="editor" aria-label="A messy table being cleaned step by step">
+      <div class="ed-main">
+        <div class="ed-title">
+          <span>Query: <b>taya_portfolio</b></span>
+          <button class="skip" id="skip" type="button">Skip<span class="long"> to the end</span> &rarr;</button>
         </div>
-
-        <div class="stat-row">
-          <div class="stat"><div class="stat-num">9</div><div class="stat-label">Dashboards &amp; analytics projects</div></div>
-          <div class="stat"><div class="stat-num">Epic</div><div class="stat-label">Professional Billing certified</div></div>
-          <div class="stat"><div class="stat-num">PL-300</div><div class="stat-label">Power BI Data Analyst, in progress</div></div>
-          <div class="stat"><div class="stat-num">MS</div><div class="stat-label">Business Analytics, Oakland University (2027)</div></div>
-        </div>
+        <div class="fx"><span>fx</span><code id="fx"></code></div>
+        <div class="tbl-box" id="tblbox"></div>
       </div>
-    </section>
-
-    <!-- Featured work -->
-    <section class="section">
-      <div class="container">
-        <div class="section-head">
-          <h2>Featured work</h2>
-          <a href="analytics.html">All analytics projects &rarr;</a>
-        </div>
-        <div class="row g-4">
-
-          <div class="col-md-6">
-            <div class="card h-100">
-              <img src="Images/Admission%20Overview.png" class="card-img-top" alt="US Healthcare Analysis dashboard, admissions overview page" loading="lazy">
-              <div class="card-body">
-                <div class="tags"><span class="tag tag-accent">Healthcare</span><span class="tag">Power BI</span><span class="tag">DAX</span><span class="tag">Power Query</span></div>
-                <h3 class="card-title h5">US Healthcare Performance &amp; Cost Analysis</h3>
-                <p class="card-text">Four-page Power BI report on 55,000+ patient records covering admissions, diagnoses, cost and utilization, with a self-service patient explorer.</p>
-                <div><a href="US%20Healthcare%20Analysis.html" class="btn btn-accent btn-sm">View case study</a></div>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-md-6">
-            <div class="card h-100">
-              <img src="Images/Detroit%20Shock%20Executive%20Overview.png" class="card-img-top" alt="Detroit Shock Fan Lifecycle dashboard, executive overview page" loading="lazy">
-              <div class="card-body">
-                <div class="tags"><span class="tag tag-accent">CRM</span><span class="tag">Segmentation</span><span class="tag">Power BI</span></div>
-                <h3 class="card-title h5">Detroit Shock Fan Lifecycle &amp; CRM Intelligence</h3>
-                <p class="card-text">Fan lifecycle modeling and behavioral segmentation that end in next-best-action recommendations for retention and engagement.</p>
-                <div><a href="Detroit%20Shock%20Fan%20Lifecycle%20CRM%20Intelligence.html" class="btn btn-accent btn-sm">View case study</a></div>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-md-6">
-            <div class="card h-100">
-              <img src="Images/Credit%20Card%20Customer%20Insights.png" class="card-img-top" alt="Credit Card Customer Retention dashboard, customer insights page" loading="lazy">
-              <div class="card-body">
-                <div class="tags"><span class="tag tag-accent">Churn</span><span class="tag">Finance</span><span class="tag">Power BI</span></div>
-                <h3 class="card-title h5">Credit Card Customer Retention &amp; Churn</h3>
-                <p class="card-text">Attrition drivers, engagement patterns and risk segments, built to show a retention team where to act first.</p>
-                <div><a href="Credit%20Card%20Customer%20Retention%20%26%20Churn%20Analytics%20Dashboard.html" class="btn btn-accent btn-sm">View case study</a></div>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-md-6">
-            <div class="card h-100">
-              <div class="card-img-top music-cover" role="img" aria-label="Track Record music listening dashboard">
-                <span>Track Record</span>
-              </div>
-              <div class="card-body">
-                <div class="tags"><span class="tag tag-accent">Personal data</span><span class="tag">A/B comparison</span><span class="ai-badge">AI-assisted</span></div>
-                <h3 class="card-title h5">Track Record: Eight Years of My Listening</h3>
-                <p class="card-text">My real Apple Music history, 2018–2026, turned into an interactive dashboard, including a test of whether shuffle makes me skip more.</p>
-                <div><a href="music-listening-dashboard.html" class="btn btn-accent btn-sm">View case study</a></div>
-              </div>
-            </div>
-          </div>
-
-        </div>
-      </div>
-    </section>
-
-    <!-- Toolkit -->
-    <section class="section">
-      <div class="container">
-        <div class="section-head"><h2>Toolkit</h2></div>
-        <div class="skill-grid">
-          <span class="tag">Power BI</span><span class="tag">DAX</span><span class="tag">Power Query</span><span class="tag">SQL</span>
-          <span class="tag">Python (Pandas)</span><span class="tag">Tableau</span><span class="tag">Excel</span><span class="tag">SAS</span>
-          <span class="tag">Power Automate</span><span class="tag">Power Apps</span><span class="tag">SharePoint</span><span class="tag">Salesforce</span>
-          <span class="tag">Epic Professional Billing</span><span class="tag">Facets</span><span class="tag">Jira</span>
-          <span class="tag">HTML / CSS / JavaScript</span><span class="tag">Google Analytics &amp; Tag Manager</span>
-        </div>
-      </div>
-    </section>
-
-    <!-- More -->
-    <section class="section">
-      <div class="container">
-        <div class="row g-4">
-          <div class="col-md-6">
-            <div class="card h-100">
-              <div class="card-body">
-                <h3 class="card-title h5">Automation case studies</h3>
-                <p class="card-text">Power Automate Desktop workflows that validate data and turn recurring checks into reports.</p>
-                <div><a href="case_studies.html" class="btn btn-outline-light btn-sm">See automation work</a></div>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-6">
-            <div class="card h-100">
-              <div class="card-body">
-                <h3 class="card-title h5">Web development</h3>
-                <p class="card-text">Responsive sites built by hand in HTML, CSS and JavaScript, including this one.</p>
-                <div><a href="development.html" class="btn btn-outline-light btn-sm">See web projects</a></div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="section">
-      <div class="container">
-        <div class="cta-band">
-          <h2>Hiring for BI or healthcare analytics?</h2>
-          <p class="lead mb-4">I'd love to talk about what your team is working on.</p>
-          <a href="contact.html" class="btn btn-accent">Get in touch</a>
-        </div>
-      </div>
-    </section>
-  </main>
-
-  <footer class="site-footer">
-    <div class="container d-flex flex-column flex-md-row justify-content-between align-items-center gap-2">
-      <p class="mb-0">&copy; 2026 Taya Dailey &middot; Detroit, MI</p>
-      <p class="mb-0 footer-links">
-        <a href="mailto:dailey.t@outlook.com">Email</a>
-        <a href="https://linkedin.com/in/tayadailey" target="_blank" rel="noopener">LinkedIn</a>
-        <a href="https://github.com/tdailey1121" target="_blank" rel="noopener">GitHub</a>
-      </p>
+      <aside class="pane">
+        <h3>Applied steps</h3>
+        <ol class="steps" id="steps"></ol>
+      </aside>
     </div>
-  </footer>
 
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <div class="hero" id="hero">
+      <span class="eyebrow">BI &amp; Analytics &middot; Detroit</span>
+      <h1>Taya<br>Daile<span class="cell">y</span></h1>
+      <p class="tag">I take <em>messy data</em>, from health plan reporting to my own music history, and turn it into something people want to look at.</p>
+      <div class="hero-actions">
+        <span class="tilt"><a class="btn3d" id="btn3d" href="#projects"><span class="dot" aria-hidden="true"></span>Explore my work</a></span>
+        <button class="replay" id="replay" type="button">&#8635; Replay the cleanup</button>
+      </div>
+      <a class="scroll-cue" href="#profile">Next step: Profiled Columns &darr;</a>
+    </div>
+  </section>
+
+  <section class="profile wrap" id="profile">
+    <div class="sec-head">
+      <span class="eyebrow">Applied step 08 &middot; Profiled Columns</span>
+      <h2>About me, column by column</h2>
+      <p>Every dataset gets profiled before anyone builds on it. Here's mine.</p>
+    </div>
+    <div class="prof" id="prof"></div>
+  </section>
+
+  <section class="story wrap" id="story">
+    <div class="sec-head">
+      <span class="eyebrow">Applied step 09 &middot; Case study</span>
+      <h2>The questions everyone missed</h2>
+      <p>A training dashboard I built in a previous BI role at a health plan, and the pattern that changed the quizzes instead of the people.</p>
+    </div>
+
+    <div class="story-grid">
+      <div class="viz-wrap">
+        <div class="viz" id="viz" role="img" aria-label="Illustration that changes with each step of the story">
+          <div class="viz-h"><span id="vizTitle"><b>training_quizzes</b></span><span id="vizMeta">9 teams &middot; 3 quizzes each</span></div>
+
+          <div class="layer on" data-layer="0">
+            <div class="qgrid" id="qgrid"></div>
+          </div>
+
+          <div class="layer" data-layer="1">
+            <div class="dots" id="dots"></div>
+          </div>
+
+          <div class="layer" data-layer="2">
+            <div class="words">
+              <div class="doc"><div class="lbl">Policy document</div><p>Requests must be <mark>logged within two business days</mark> of receipt.</p></div>
+              <div class="neq" aria-hidden="true">&ne;</div>
+              <div class="doc quiz"><div class="lbl">Quiz question</div><p>What is the <mark>turnaround window</mark> for a new request?</p></div>
+            </div>
+          </div>
+
+          <div class="layer" data-layer="3">
+            <div class="result">
+              <div class="big">90<span>%</span></div>
+              <p>fewer people missed those questions once the rewritten versions went in.</p>
+            </div>
+          </div>
+
+          <div class="viz-note" id="vizNote">Illustration. The real dashboard and quiz content are internal.</div>
+        </div>
+      </div>
+
+      <div class="beats">
+        <article class="beat on" data-show="0">
+          <span class="num">01 &middot; THE DASHBOARD</span>
+          <h3>27 quizzes across 9 teams</h3>
+          <p>I built a Power BI dashboard to track how people performed on internal training. Each of nine teams had three quizzes: basic, advanced and final.</p>
+        </article>
+        <article class="beat" data-show="1">
+          <span class="num">02 &middot; THE PATTERN</span>
+          <h3>Some questions were missed no matter who took them</h3>
+          <p>Most wrong answers were scattered across teams, the way you'd expect. A handful of questions were different. Every team missed them at about the same high rate.</p>
+        </article>
+        <article class="beat" data-show="2">
+          <span class="num">03 &middot; THE ROOT CAUSE</span>
+          <h3>So the problem wasn't the people</h3>
+          <p>When one team struggles, that's a training gap. When every team struggles on the same question, look at the question. I compared those questions with the policy documents they were based on, and the wording didn't match.</p>
+        </article>
+        <article class="beat" data-show="1" data-fixed="1">
+          <span class="num">04 &middot; THE FIX</span>
+          <h3>Rewrite the question, not the training</h3>
+          <p>I wrote alternative questions for those topics using the policy documents' own language, so the quiz measured whether people knew the policy instead of whether they could decode the question.</p>
+        </article>
+        <article class="beat" data-show="3">
+          <span class="num">05 &middot; THE RESULT</span>
+          <h3>90% fewer misses</h3>
+          <p>When we reviewed the quizzes after the change, people were getting those questions right. The number of people missing them dropped by 90%. The data found the problem, but the fix came from reading the source documents.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="side wrap" id="side">
+    <div class="side-card">
+      <span class="err">Flow failed: can't reach library</span>
+      <div>
+        <h3>Side step: the flow that wouldn't connect</h3>
+        <p>A Power Automate flow kept failing to connect to its SharePoint library. I used Copilot to work through the possible causes and found it: the <code>site URL</code> was wrong. Once I corrected the address, the flow connected. Sometimes the messy data is one line of configuration.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="projects wrap" id="projects">
+    <div class="sec-head">
+      <span class="eyebrow">Applied step 10 &middot; Merged Queries</span>
+      <h2>Eight projects, before and after</h2>
+      <p>Pick a query, then drag the slider to see what the data looked like when it arrived and what it became.</p>
+    </div>
+
+    <div class="mq">
+      <aside class="qpane">
+        <h3>Queries [8]</h3>
+        <div class="qlists" id="qlists" role="tablist" aria-label="Projects"></div>
+      </aside>
+
+      <div class="qdetail" id="qdetail" role="tabpanel">
+        <div class="qd-head">
+          <div>
+            <h3 id="qdTitle"></h3>
+            <div class="qd-meta" id="qdMeta"></div>
+          </div>
+          <div class="chips" id="qdChips"></div>
+        </div>
+
+        <div class="compare" id="compare">
+          <div class="cmp-before">
+            <span class="cmp-label l">Raw</span>
+            <div class="raw"><div class="files" id="qdFiles"></div><div class="noise" id="qdNoise" aria-hidden="true"></div></div>
+          </div>
+          <div class="cmp-after" id="qdAfter"></div>
+          <span class="cmp-label r" id="cmpR">Loaded</span>
+          <div class="handle" aria-hidden="true"></div>
+          <input type="range" id="cmpRange" min="0" max="100" value="50" aria-label="Drag to compare the raw data with the finished dashboard">
+        </div>
+
+        <div class="qd-cols">
+          <div><h4>What was messy</h4><ul class="issues" id="qdIssues"></ul></div>
+          <div><h4>Applied steps</h4><ul class="fixes" id="qdFixes"></ul></div>
+        </div>
+
+        <div class="qd-foot">
+          <a id="qdLink" href="#" target="_blank" rel="noopener">Read the case study &rarr;</a>
+          <small id="qdNote"></small>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="history wrap" id="history">
+    <div class="sec-head">
+      <span class="eyebrow">Applied step 11 &middot; Refresh history</span>
+      <h2>Every refresh got a little better</h2>
+      <p>My dashboards in the order I built them, starting with the first one, marked up with what I'd change now.</p>
+    </div>
+
+    <div class="first">
+      <div class="first-h"><h3>Refresh #1: Customer Experience KPIs</h3><span>2025 &middot; my first time in Power BI</span></div>
+      <div class="shot" id="shot">
+        <img src="assets/shots/cx-kpi-1.png" alt="My first Power BI dashboard: customer support KPIs with slicers, four KPI cards, two bar charts and a donut chart" loading="lazy">
+      </div>
+      <div>
+        <ol class="notes" id="notes"></ol>
+        <div class="notes-foot">Tap a number to find it on the dashboard.</div>
+      </div>
+    </div>
+
+    <div class="log" role="table" aria-label="Refresh history of my projects">
+      <div class="log-h" role="row"><span role="columnheader">Date</span><span role="columnheader">Status</span><span role="columnheader">Project</span><span role="columnheader">New in this refresh</span></div>
+      <div id="logRows"></div>
+    </div>
+  </section>
+
+  <section class="others wrap" id="other">
+    <div class="sec-head">
+      <span class="eyebrow">Side queries &middot; Other builds</span>
+      <h2>Other things I've built</h2>
+      <p>Automation and web projects that sit next to the dashboards.</p>
+    </div>
+    <div class="ob-grid">
+      <article class="ob">
+        <span class="kind">Automation &middot; Power Automate Desktop</span>
+        <h3>Weekly Data Quality Report</h3>
+        <p>An offline flow that checks local JSON datasets for missing and inconsistent values and writes a weekly report. It cut manual verification time by about 80%.</p>
+        <div class="links"><a href="work/data-quality-report.html">Read the case study &rarr;</a></div>
+      </article>
+      <article class="ob">
+        <span class="kind">Web &middot; HTML, CSS, Bootstrap</span>
+        <h3>The Daily Drip Coffee</h3>
+        <p>A responsive landing page for a fictional coffee shop, hosted on GitHub Pages.</p>
+        <div class="links"><a href="https://tdailey1121.github.io/thedailydrip/" target="_blank" rel="noopener">Live site &nearr;</a><a href="https://github.com/tdailey1121/thedailydrip" target="_blank" rel="noopener">Code &nearr;</a></div>
+      </article>
+      <article class="ob">
+        <span class="kind">Web &middot; HTML, CSS, JavaScript <span class="wip">In progress</span></span>
+        <h3>Higher Thought EnT</h3>
+        <p>A branded site for a creative collective focused on conscious storytelling, with ethereal visuals and interactive navigation.</p>
+        <div class="links"><a href="https://tdailey1121.github.io/higherthoughtllc/" target="_blank" rel="noopener">Live site &nearr;</a><a href="https://github.com/tdailey1121/higherthoughtllc" target="_blank" rel="noopener">Code &nearr;</a></div>
+      </article>
+      <article class="ob">
+        <span class="kind">Web &middot; HTML, CSS, JavaScript</span>
+        <h3>This portfolio</h3>
+        <p>Hand-built and hosted on GitHub Pages, with Google Analytics tracking visits. The code is public, including how each project page is built.</p>
+        <div class="links"><a href="https://github.com/tdailey1121/taya-portfolio" target="_blank" rel="noopener">View the code &nearr;</a></div>
+      </article>
+    </div>
+  </section>
+
+  <section class="apply wrap" id="contact">
+    <div class="apply-card">
+      <div class="apply-top">
+        <div>
+          <span class="eyebrow">Final step &middot; Close &amp; Apply</span>
+          <h2>Ready to load into your team.</h2>
+          <p>I'm looking for BI and analytics roles where messy data needs someone who'll clean it up and make it make sense. Let's talk.</p>
+        </div>
+        <button class="ca" id="ca" type="button" aria-describedby="caStatus">
+          <svg viewBox="0 0 34 34" aria-hidden="true"><rect x="3" y="5" width="22" height="22" rx="3" fill="none" stroke="#f6f2ea" stroke-width="2"/><path d="M3 11h22M10 5v22" stroke="#f6f2ea" stroke-width="2"/><circle cx="25" cy="25" r="7" fill="#ef6f45"/><path d="M21.8 25.2l2.2 2.2 4-4.4" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          Close &amp; Apply
+        </button>
+      </div>
+      <div class="apply-status" id="caStatus" aria-live="polite">
+        <div class="apply-bar"><i id="caBar"></i></div>
+        <span id="caText"><b>&check; Loaded.</b> 1 of 1 queries applied: taya_dailey &rarr; your team</span>
+      </div>
+      <div class="dest">
+        <div class="mail">
+          <small>Email</small>
+          <div class="mail-row"><span id="mailAddr">dailey.t@outlook.com</span><button class="copy" id="copyMail" type="button">Copy</button></div>
+        </div>
+        <a href="https://linkedin.com/in/tayadailey" target="_blank" rel="noopener"><small>LinkedIn</small><span>in/tayadailey &nearr;</span></a>
+        <a href="downloads/Taya-Dailey-Resume.pdf" target="_blank" rel="noopener"><small>R&eacute;sum&eacute;</small><span>Download PDF &nearr;</span></a>
+        <a href="https://github.com/tdailey1121" target="_blank" rel="noopener"><small>GitHub</small><span>tdailey1121 &nearr;</span></a>
+      </div>
+    </div>
+    <div class="sign"><span>&copy; 2026 Taya Dailey &middot; Detroit, MI</span><span>Built by hand in HTML, CSS and JavaScript, with AI assistance</span></div>
+  </section>
+</main>
+
+<script>
+(() => {
+  const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const $ = id => document.getElementById(id);
+
+  // ---------- the messy source: Taya's 9 portfolio projects and their tools ----------
+  // Cleaned result is real: Power BI 7, SQL 3, Python 2.
+  const RAW = [
+    ['  us healthcare analysis', 'power bi'],
+    ['US Healthcare Analysis', 'Power BI '],
+    ['Detroit Shock CRM', 'PowerBI'],
+    ['null', 'null'],
+    ['detroit shock segmentation', 'pbi'],
+    ['Detroit Shock Segmentation', 'sql'],
+    ['Credit Card Churn ', 'Power BI'],
+    ['Used car sales', 'power bi'],
+    ['#N/A', '#N/A'],
+    ['Hillman Early Alert', 'Power Bi'],
+    ['HILLMAN EARLY ALERT', 'SQL Server'],
+    ['Hillman Early Alert', 'python'],
+    ['CX KPI Dashboard', 'pbi'],
+    ['Track Record', 'Python3'],
+    ['track record', 'python'],
+  ].map(([p, t], i) => ({ id: i, p, t }));
+
+  const PROJECT = {
+    'us healthcare analysis': 'US Healthcare Analysis', 'detroit shock crm': 'Detroit Shock CRM',
+    'detroit shock segmentation': 'Detroit Shock Segmentation', 'credit card churn': 'Credit Card Churn',
+    'used car sales': 'Used Car Sales', 'hillman early alert': 'Hillman Early Alert',
+    'website insights': 'Website Insights', 'cx kpi dashboard': 'CX KPI Dashboard', 'track record': 'Track Record',
+  };
+  const TOOL = {
+    'power bi': 'Power BI', 'powerbi': 'Power BI', 'pbi': 'Power BI',
+    'sql': 'SQL', 'sql server': 'SQL', 'python': 'Python', 'python3': 'Python',
+  };
+  const isEmpty = v => v === 'null' || v === '#N/A' || v === '';
+
+  const STEPS = [
+    { name: 'Source', m: '= Csv.Document(File.Contents("taya_portfolio_raw.csv"), [Delimiter=","])',
+      fn: rows => rows },
+    { name: 'Trimmed Text', m: '= Table.TransformColumns(Source, {{"project", Text.Trim}, {"tool", Text.Trim}})',
+      fn: rows => rows.map(r => ({ ...r, p: r.p.trim(), t: r.t.trim() })) },
+    { name: 'Replaced Values', m: '= Table.ReplaceValue(#"Trimmed Text", "pbi", "Power BI", Replacer.ReplaceText, {"tool"})',
+      fn: rows => rows.map(r => isEmpty(r.p) ? r : ({ ...r, p: PROJECT[r.p.toLowerCase()] || r.p, t: TOOL[r.t.toLowerCase()] || r.t })) },
+    { name: 'Filtered Rows', m: '= Table.SelectRows(#"Replaced Values", each [project] <> "null" and [project] <> "#N/A")',
+      fn: rows => rows.filter(r => !isEmpty(r.p)) },
+    { name: 'Removed Duplicates', m: '= Table.Distinct(#"Filtered Rows")',
+      fn: rows => { const seen = new Set(); return rows.filter(r => { const k = r.p + '|' + r.t; if (seen.has(k)) return false; seen.add(k); return true; }); } },
+    { name: 'Grouped Rows', m: '= Table.Group(#"Removed Duplicates", {"tool"}, {{"projects", each Table.RowCount(_), Int64.Type}})',
+      group: true },
+    { name: 'Visualized', m: '// From here, Power BI takes over.', chart: true },
+  ];
+
+  // precompute row-level states for the table steps
+  const states = [];
+  let cur = RAW;
+  STEPS.forEach((s, i) => { if (s.fn) { cur = s.fn(cur); } states[i] = cur; });
+  const grouped = () => {
+    const c = {};
+    states[4].forEach(r => { c[r.t] = (c[r.t] || 0) + 1; });
+    return Object.entries(c).sort((a, b) => b[1] - a[1]);
+  };
+
+  // ---------- applied steps pane ----------
+  const stepsEl = $('steps');
+  STEPS.forEach((s, i) => {
+    const li = document.createElement('li');
+    const b = document.createElement('button');
+    b.type = 'button'; b.className = 'step'; b.id = 'step-' + i;
+    b.innerHTML = `<span class="ico">${i === 0 ? '&#9783;' : i}</span><span></span>`;
+    b.lastChild.textContent = s.name;
+    b.addEventListener('click', () => { stopAuto(); show(i); });
+    li.appendChild(b); stepsEl.appendChild(li);
+  });
+
+  // ---------- column quality, like the editor's header bars ----------
+  function quality(rows, key) {
+    const n = rows.length || 1;
+    const empty = rows.filter(r => isEmpty(r[key])).length;
+    const valid = n - empty;
+    return { v: Math.round(valid / n * 100), m: Math.round(empty / n * 100) };
+  }
+  function head(label, type, q) {
+    return `<th><span class="ty">${type}</span>${label}
+      <div class="q"><i class="v" style="width:${q.v}%"></i><i class="m" style="width:${q.m}%"></i></div>
+      <span class="qtxt">Valid ${q.v}% · Error 0% · Empty ${q.m}%</span></th>`;
+  }
+
+  let step = 0;
+  function renderTable(k) {
+    const rows = states[k], prev = states[Math.max(0, k - 1)];
+    const live = new Map(rows.map(r => [r.id, r]));
+    const before = new Map(prev.map(r => [r.id, r]));
+    const lastSeen = {};
+    for (let j = 0; j <= k; j++) states[j].forEach(r => { lastSeen[r.id] = r; });
+    const qp = quality(rows, 'p'), qt = quality(rows, 't');
+    let html = `<table><thead><tr><th class="n"></th>${head('project', 'ABC', qp)}${head('tool', 'ABC', qt)}</tr></thead><tbody>`;
+    let n = 0;
+    RAW.forEach(raw => {
+      const r = live.get(raw.id), shown = r || lastSeen[raw.id] || raw;
+      const was = before.get(raw.id);
+      const cls = r ? 'r' : 'r gone';
+      if (r) n++;
+      const cell = (key) => {
+        const v = shown[key];
+        const c = [];
+        if (isEmpty(v)) c.push('bad');
+        if (k > 0 && r && was && was[key] !== v) c.push('chg');
+        if (k === 0 && v !== v.trim()) c.push('ws');
+        return `<td class="${c.join(' ')}"><div>${v.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/ /g, '&nbsp;')}</div></td>`;
+      };
+      html += `<tr class="${cls}"><td class="n"><div>${r ? n : ''}</div></td>${cell('p')}${cell('t')}</tr>`;
+    });
+    html += `</tbody></table>`;
+    $('tblbox').innerHTML = html;
+  }
+
+  function renderGroup() {
+    const g = grouped();
+    let html = `<table><thead><tr><th class="n"></th>${head('tool', 'ABC', { v: 100, m: 0 })}<th class="cnt"><span class="ty">1²3</span>projects<div class="q"><i class="v" style="width:100%"></i></div><span class="qtxt">Valid 100%</span></th></tr></thead><tbody>`;
+    g.forEach(([t, c], i) => { html += `<tr class="r"><td class="n"><div>${i + 1}</div></td><td class="chg"><div>${t}</div></td><td class="chg cnt"><div>${c}</div></td></tr>`; });
+    $('tblbox').innerHTML = html + '</tbody></table>';
+  }
+
+  function renderChart() {
+    const g = grouped(), max = Math.max(...g.map(x => x[1]));
+    const total = states[4].reduce((s, r) => s.add(r.p), new Set()).size;
+    let html = `<div class="chart"><div class="chart-h">${total} projects, cleaned and grouped by tool</div>`;
+    g.forEach(([t, c]) => { html += `<div class="chart-row"><span>${t}</span><div class="track"><div class="fill" data-w="${c / max * 100}"></div></div><b>${c}</b></div>`; });
+    $('tblbox').innerHTML = html + '</div>';
+    requestAnimationFrame(() => requestAnimationFrame(() => {
+      document.querySelectorAll('.chart .fill').forEach(f => { f.style.width = f.dataset.w + '%'; });
+    }));
+  }
+
+  function show(k) {
+    step = k;
+    const s = STEPS[k];
+    $('fx').textContent = s.m;
+    if (s.chart) renderChart(); else if (s.group) renderGroup(); else renderTable(k);
+    STEPS.forEach((_, i) => {
+      const b = $('step-' + i);
+      b.className = 'step' + (i < k ? ' past' : '') + (i === k ? ' now' : '');
+      b.setAttribute('aria-current', i === k ? 'step' : 'false');
+    });
+    // keep the current step visible inside the pane only (never scroll the page)
+    const list = $('steps'), btnK = $('step-' + k);
+    if (list.scrollWidth > list.clientWidth) {
+      list.scrollLeft = Math.max(0, btnK.offsetLeft - list.offsetLeft - 12);
+    }
+  }
+
+  // ---------- autoplay: clean step by step, then reveal the name ----------
+  let timers = [];
+  function stopAuto() { timers.forEach(clearTimeout); timers = []; }
+  function finish() { stopAuto(); show(STEPS.length - 1); $('stage').classList.add('done'); }
+  function play() {
+    stopAuto();
+    $('stage').classList.remove('done');
+    show(0);
+    if (reduce) { finish(); return; }
+    const beat = [1700, 1500, 1700, 1500, 1400, 1500, 1900];
+    let t = 0;
+    for (let i = 1; i < STEPS.length; i++) { t += beat[i - 1]; timers.push(setTimeout(() => show(i), t)); }
+    timers.push(setTimeout(() => $('stage').classList.add('done'), t + beat[STEPS.length - 1]));
+  }
+
+  $('skip').addEventListener('click', finish);
+  $('replay').addEventListener('click', () => { window.scrollTo({ top: 0 }); play(); });
+
+  // 3D tilt toward the pointer
+  const btn = $('btn3d');
+  btn.addEventListener('pointermove', e => {
+    if (reduce) return;
+    const r = btn.getBoundingClientRect();
+    const dx = (e.clientX - r.left) / r.width - 0.5, dy = (e.clientY - r.top) / r.height - 0.5;
+    btn.style.setProperty('--ry', (dx * 18).toFixed(1) + 'deg');
+    btn.style.setProperty('--rx', (-dy * 18).toFixed(1) + 'deg');
+  });
+  btn.addEventListener('pointerleave', () => { btn.style.setProperty('--rx', '0deg'); btn.style.setProperty('--ry', '0deg'); });
+
+  // ---------- profiled columns ----------
+  const PROFILE = [
+    ['what_i_do', 'text', 'Turn messy, multi-source data into dashboards, workflows and recommendations people actually use, from requirements all the way through rollout.', 100, 0],
+    ['proven_in', 'text', 'Healthcare and insurance: 3+ years across a health plan and a health system’s revenue cycle, where the data is about as messy as it gets.', 100, 0],
+    ['also_built_for', 'list', 'Sports fan CRM · consumer finance · auto sales · higher education · customer service', 100, 0],
+    ['stack', 'list', 'Power BI (DAX, Power Query) · SQL · Python (Pandas) · Power Apps · Power Automate · SharePoint', 100, 0],
+    ['how_i_deliver', 'list', 'Requirements → build → testing (UAT) → training & job aids → rollout', 100, 0],
+    ['education', 'text', 'MS Business Analytics, Oakland University (May 2027) · BS Management Information Systems (2022)', 100, 0],
+    ['certifications', 'list', 'IBM Data Analyst (2025) · Microsoft Cybersecurity Analyst (2026) · Microsoft PL-300 in progress · Epic Professional Billing', 85, 15],
+    ['off_hours', 'list', 'Analyzing 7,252 hours of my own music listening · tracking which hair products actually work', 100, 0],
+  ];
+  $('prof').innerHTML = PROFILE.map(([c, ty, v, ok, em]) => `
+    <div class="prof-row">
+      <div class="col">${c}<small>${ty}</small></div>
+      <div class="val">${v}</div>
+      <div class="qual"><div class="q"><i class="v" style="width:${ok}%"></i><i class="m" style="width:${em}%"></i></div>Valid ${ok}% · Empty ${em}%</div>
+    </div>`).join('') + `<div class="prof-foot">8 columns · 0 errors · 1 value still loading (PL-300)</div>`;
+
+  // ---------- case study: illustrative visuals ----------
+  const TEAMS = 9, QUIZZES = ['Basic', 'Advanced', 'Final'];
+  let g = '<div></div>' + QUIZZES.map(q => `<div class="hd">${q}</div>`).join('');
+  for (let t = 1; t <= TEAMS; t++) {
+    g += `<div class="tm">Team ${t}</div>`;
+    QUIZZES.forEach((_, j) => { g += `<div class="cell" style="transition-delay:${(t * 3 + j) * 18}ms"></div>`; });
+  }
+  $('qgrid').innerHTML = g;
+
+  // Illustrative miss rates: most questions scatter low; 3 are high for every team.
+  let seed = 42; const rnd = () => (seed = (seed * 16807) % 2147483647) / 2147483647;
+  const HOT = new Set([3, 7, 10]);
+  const QS = Array.from({ length: 12 }, (_, q) => ({
+    q, hot: HOT.has(q),
+    before: Array.from({ length: TEAMS }, () => HOT.has(q) ? 62 + rnd() * 22 : 4 + rnd() * 26),
+    after: Array.from({ length: TEAMS }, () => 4 + rnd() * 18),
+  }));
+  let d = `<div class="dots-key"><span><i></i>one dot per team</span><span>x = % answered wrong</span></div>`;
+  QS.forEach(({ q, hot }) => {
+    d += `<div class="drow${hot ? ' hot' : ''}"><span>Q${q + 1}</span><div class="lane">${'<i class="d"></i>'.repeat(TEAMS)}</div></div>`;
+  });
+  d += `<div class="axis"><span></span><div><span>0%</span><span>50%</span><span>100%</span></div></div>`;
+  $('dots').innerHTML = d;
+  const rows = [...document.querySelectorAll('.drow')];
+  function placeDots(fixed) {
+    rows.forEach((row, i) => {
+      const vals = fixed ? QS[i].after : QS[i].before;
+      row.classList.toggle('hot', QS[i].hot && !fixed);
+      row.querySelectorAll('.d').forEach((dot, k) => { dot.style.left = vals[k].toFixed(1) + '%'; });
+    });
+  }
+  placeDots(false);
+
+  const META = [
+    ['training_quizzes', '9 teams · 3 quizzes each'],
+    ['miss_rate_by_question', 'before'],
+    ['source_check', 'policy vs. quiz'],
+    ['people_missing_question', 'after rewrite'],
+  ];
+  const beats = [...document.querySelectorAll('.beat')];
+  let activeBeat = -1;
+  function setBeat(i) {
+    if (i === activeBeat) return;
+    activeBeat = i;
+    const b = beats[i], layer = +b.dataset.show, fixed = b.dataset.fixed === '1';
+    beats.forEach((x, k) => x.classList.toggle('on', k === i));
+    document.querySelectorAll('.layer').forEach(l => l.classList.toggle('on', +l.dataset.layer === layer));
+    if (layer === 1) placeDots(fixed);
+    const [name, meta] = META[layer];
+    $('vizTitle').innerHTML = `<b>${name}</b>`;
+    $('vizMeta').textContent = layer === 1 ? (fixed ? 'after rewrite' : 'before') : meta;
+    $('vizNote').textContent = layer === 2
+      ? 'Example of the kind of mismatch. Not the actual policy or question.'
+      : 'Illustration. The real dashboard and quiz content are internal.';
+  }
+  if ('IntersectionObserver' in window) {
+    const io = new IntersectionObserver(entries => {
+      entries.forEach(e => { if (e.isIntersecting) setBeat(beats.indexOf(e.target)); });
+    // on phones the sticky visual covers the top half, so read the beat sitting below it
+    }, { rootMargin: window.matchMedia('(max-width: 860px)').matches ? '-62% 0px -28% 0px' : '-45% 0px -45% 0px' });
+    beats.forEach(b => io.observe(b));
+  }
+  setBeat(0);
+
+  // ---------- merged queries: the nine projects ----------
+  const PROJECTS = [
+    { id: 'music', group: 'Personal data', name: 'Track Record', title: 'Track Record: eight years of my listening',
+      meta: 'Personal · 7,252 hours and 142,156 plays, 2018–2026', tools: ['Python', 'iTunes API', 'Star schema'], ai: true,
+      files: ['Apple Music play history'],
+      noise: ['played_at=2019-03-02T04:11:09Z  end=<em>SCRUB_END</em>', 'artist=<em>(blank)</em>  genre=<em>(blank)</em>', 'played_ms=4100  end=<em>SKIP?</em>', 'played_at=<em>UTC</em>  (not local time)', 'year=2018  <em>starts in August</em>'],
+      issues: ['Dragging the progress bar was logged as a song ending', 'Rarely played songs had no artist or genre', 'Timestamps weren’t in local time', '2018 and 2026 are partial years'],
+      fixes: ['Cleaned the export in Python and converted to local time', 'Counted a play only at 30+ seconds; filtered out scrubs', 'Matched songs to artists and genres with the iTunes Search API', 'Modeled a star schema and flagged partial years'],
+      img: 'assets/shots/track-record-1.png', link: 'work/track-record.html', note: 'Interactive version built with AI assistance; Power BI version in progress.' },
+    { id: 'health', group: 'Healthcare', name: 'US Healthcare Analysis', title: 'U.S. Healthcare Performance & Cost',
+      meta: 'Healthcare · 55,000+ synthetic patient records', tools: ['Power BI', 'Power Query', 'DAX'],
+      files: ['healthcare dataset · 55,000+ rows'],
+      noise: ['admission · diagnosis · cost · stay', 'one flat file, every field as text', 'no model, no measures, no filters'],
+      issues: ['55,000+ patient records in one flat file', 'A snapshot in time, without complete patient history'],
+      fixes: ['Cleaned and transformed the data in Power Query', 'Modeled admissions, diagnoses, cost and utilization', 'Built DAX measures and executive KPI scorecards', 'Added a self-service patient explorer'],
+      img: 'assets/shots/healthcare-1.png', link: 'work/healthcare.html', note: 'Synthetic data, not real patients.' },
+    { id: 'shockcrm', group: 'Customer & CRM', name: 'Detroit Shock CRM', title: 'Detroit Shock Fan Lifecycle & CRM',
+      meta: 'Sports · fan engagement and spend', tools: ['Power BI', 'Power Query', 'DAX'],
+      files: ['fans', 'engagement', 'ticket purchases', 'merchandise'],
+      noise: ['ticket_spend=185.00  last_ticket_date=<em>null</em>', 'merch_spend=42.50   last_merch_date=<em>null</em>', 'join_date=<em>(not in dataset)</em>', '4 tables · not joined'],
+      issues: ['Four separate datasets with no fan-level view', 'Fans with spend but a missing last purchase date', 'No join date, so new fans can’t be identified'],
+      fixes: ['Combined everything into one fan-level table', 'Flagged missing dates (Missing_Ticket_Date_Flag, Missing_Merch_Date_Flag)', 'Built lifecycle segments and left out “New” honestly', 'Mapped every fan to a next-best action'],
+      img: 'assets/shots/shock-crm-1.png', link: 'work/shock-crm.html' },
+    { id: 'shockseg', group: 'Customer & CRM', name: 'Detroit Shock Segmentation', title: 'Detroit Shock Fan Segmentation & Revenue',
+      meta: 'Sports · segmentation and revenue', tools: ['SQL', 'Power Query', 'Power BI'],
+      files: ['fans.csv', 'engagement.csv', 'tickets.csv', 'merch.csv'],
+      noise: ['fan_id 1042  segment=Loyal', 'fan_id 1042  segment=<em>High Value</em>  (counted twice)', 'fan_id 2210  segment=<em>(none)</em>'],
+      issues: ['Disconnected CSV files', 'Fans appearing in more than one segment', 'A notable share of fans left unclassified'],
+      fixes: ['Ingested the CSVs into SQL', 'Cleaned and transformed with SQL and Power Query', 'Wrote DAX measures to de-duplicate fans across segments'],
+      img: 'assets/shots/shock-segmentation-1.png', link: 'work/shock-segmentation.html' },
+    { id: 'credit', group: 'Customer & CRM', name: 'Credit Card Churn', title: 'Credit Card Retention & Churn',
+      meta: 'Consumer finance · customer attrition', tools: ['Power BI', 'Power Query', 'DAX'],
+      files: ['credit card customers'],
+      noise: ['Education_Level=<em>inconsistent spelling</em>', 'Attrition_Flag=<em>coded values</em>', 'Customer_Age=47  Months_on_book=39'],
+      issues: ['Spelling and formatting issues in Education Level', 'Attrition codes that were hard to read', 'Raw numbers with no useful groupings', 'No full customer history over time'],
+      fixes: ['Standardized the category labels in Power Query', 'Recoded attrition into Active and Attrited', 'Grouped age, tenure, inactivity, contact and utilization bands', 'Built retention and risk measures in DAX'],
+      img: 'assets/shots/credit-card-churn-1.png', link: 'work/credit-card-churn.html' },
+    { id: 'hillman', group: 'Operations', name: 'Hillman Early Alert', title: 'Hillman College Student Success & Early Alert',
+      meta: 'Higher education · retention risk', tools: ['Python', 'SQL (SQLite)', 'Power BI'],
+      files: ['students', 'enrollment', 'engagement', 'advising'],
+      noise: ['student data = <em>private</em>', 'enrollment ↔ advising  <em>no shared key yet</em>', '4 tables · no term-level view'],
+      issues: ['Real student data can’t be shared', 'Four disconnected tables', 'No single student-by-term view'],
+      fixes: ['Generated privacy-safe synthetic data in Python', 'Modeled relational tables in SQLite', 'Built a student-term analytics mart', 'Surfaced risk drivers in Power BI'],
+      img: 'assets/shots/hillman-early-alert-1.png', link: 'work/hillman-early-alert.html' },
+    { id: 'usedcar', group: 'Operations', name: 'Used Car Sales', title: 'Used Car Sales Performance',
+      meta: 'Auto sales · inventory and agents', tools: ['Power BI', 'Power Query', 'DAX'],
+      files: ['used car sales.csv'],
+      noise: ['mileage=48211  rating=4  status=<em>?</em>', 'one sales file, no bands, no measures'],
+      issues: ['A single flat sales file', 'Raw mileage and ratings with no bands', 'No measures for profit or commission'],
+      fixes: ['Cleaned and transformed in Power Query', 'Segmented by manufacturer, type, location, mileage and rating bands', 'Built DAX for sales, inventory, profit and commission'],
+      img: 'assets/shots/used-car-sales-1.png', link: 'work/used-car-sales.html' },
+    { id: 'cx', group: 'Operations', name: 'CX KPI Dashboard', title: 'Customer Experience KPIs',
+      meta: 'Customer service · support tickets', tools: ['Power BI', 'Power Query', 'DAX'],
+      files: ['raw support tickets'],
+      noise: ['opened → resolved = <em>not calculated</em>', 'rating, channel, agent → all raw'],
+      issues: ['Raw ticket exports', 'No resolution-time or rating KPIs'],
+      fixes: ['Cleaned and transformed ticket data in Power Query', 'Built DAX for resolution time and customer rating', 'Balanced high-level KPIs with drilldowns'],
+      img: 'assets/shots/cx-kpi-1.png', link: 'work/cx-kpi.html' },
+  ];
+
+  const esc = s => String(s).replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
+  const groups = [...new Set(PROJECTS.map(p => p.group))];
+  $('qlists').innerHTML = groups.map(gname => `<div class="qgroup">${esc(gname)}</div><ul class="qlist">${
+    PROJECTS.filter(p => p.group === gname).map(p => `<li><button class="qbtn" type="button" role="tab" id="q-${p.id}" aria-controls="qdetail" aria-selected="false"><span class="tbl" aria-hidden="true"></span>${esc(p.name)}</button></li>`).join('')
+  }</ul>`).join('');
+
+  const cmp = $('compare'), range = $('cmpRange');
+  const setPos = v => cmp.style.setProperty('--pos', v + '%');
+  range.addEventListener('input', () => { cancelSweep(); setPos(range.value); });
+  let sweepRaf = 0;
+  function cancelSweep() { cancelAnimationFrame(sweepRaf); sweepRaf = 0; }
+  function sweep() {
+    cancelSweep();
+    if (reduce) { range.value = 50; setPos(50); return; }
+    const t0 = performance.now(), from = 92, to = 50, dur = 1100;
+    (function f(now) {
+      const k = Math.min(1, (now - t0) / dur), e = 1 - Math.pow(1 - k, 3), v = from + (to - from) * e;
+      range.value = Math.round(v); setPos(v.toFixed(1));
+      if (k < 1) sweepRaf = requestAnimationFrame(f);
+    })(t0);
+  }
+
+  function pick(id) {
+    const p = PROJECTS.find(x => x.id === id);
+    document.querySelectorAll('.qbtn').forEach(b => b.setAttribute('aria-selected', b.id === 'q-' + id ? 'true' : 'false'));
+    $('qdTitle').textContent = p.title;
+    $('qdMeta').textContent = p.meta;
+    $('qdChips').innerHTML = p.tools.map(t => `<span class="chip">${esc(t)}</span>`).join('') + (p.ai ? '<span class="chip ai">AI-assisted</span>' : '');
+    $('qdFiles').innerHTML = p.files.map(f => `<span class="file">${esc(f)}</span>`).join('');
+    $('qdNoise').innerHTML = Array.from({ length: 4 }, () => p.noise.join('\n')).join('\n'); // noise strings are authored above, not user data
+    $('qdIssues').innerHTML = p.issues.map(x => `<li>${esc(x)}</li>`).join('');
+    $('qdFixes').innerHTML = p.fixes.map(x => `<li>${esc(x)}</li>`).join('');
+    $('qdLink').href = p.link;
+    $('qdLink').innerHTML = 'Read the case study &rarr;';
+    $('qdNote').textContent = p.note || '';
+    $('cmpR').textContent = p.img ? 'Dashboard' : 'Live dashboard';
+    $('qdAfter').innerHTML = p.img
+      ? `<img src="${p.img}" alt="${esc(p.title)} dashboard" loading="lazy">`
+      : `<div class="live"><div class="bars" aria-hidden="true"><i style="height:40%;background:#7b2d43"></i><i style="height:70%;background:#e0a245"></i><i style="height:100%;background:#ff8a5c"></i><i style="height:60%;background:#8e6aa3"></i></div><b>Track Record</b><span>Screenshot coming soon</span></div>`;
+    sweep();
+  }
+  document.querySelectorAll('.qbtn').forEach(b => b.addEventListener('click', () => pick(b.id.slice(2))));
+  pick('music');
+
+  // ---------- refresh history ----------
+  // Pins sit at % positions on the 1160x647 screenshot.
+  const NOTES = [
+    { x: 33, y: 5, t: '“Resolved %” says 0.56', d: 'It should read 56%. The format never got set.' },
+    { x: 49.5, y: 29, t: 'Numbers with no units', d: '12.61 and 37.82 what? Minutes, hours? A reader can’t tell.' },
+    { x: 22, y: 77, t: 'A donut that says nothing', d: 'Three slices at 34%, 33.5% and 32.5%. One sentence would do: tickets split evenly across channels.' },
+    { x: 45.5, y: 60, t: 'Titles name fields, not findings', d: '“Count of Ticket ID by Channel” describes the data. Today I’d title the takeaway.' },
+    { x: 31, y: 51, t: 'Gaps and no grid', d: 'Cards, slicers and charts don’t line up, and there’s a hole in the middle.' },
+  ];
+  const shot = $('shot');
+  NOTES.forEach((n, i) => {
+    const b = document.createElement('button');
+    b.type = 'button'; b.className = 'pin'; b.textContent = i + 1;
+    b.style.left = n.x + '%'; b.style.top = n.y + '%';
+    b.setAttribute('aria-label', `Note ${i + 1}: ${n.t}`);
+    b.addEventListener('click', () => focusNote(i));
+    shot.appendChild(b);
+  });
+  $('notes').innerHTML = NOTES.map(n => `<li><div><b>${esc(n.t)}</b><span>${esc(n.d)}</span></div></li>`).join('');
+  const pins = [...shot.querySelectorAll('.pin')], items = [...document.querySelectorAll('#notes li')];
+  function focusNote(i) {
+    pins.forEach((p, k) => p.classList.toggle('on', k === i));
+    items.forEach((li, k) => li.classList.toggle('on', k === i));
+  }
+  items.forEach((li, i) => { li.addEventListener('click', () => focusNote(i)); li.addEventListener('mouseenter', () => focusNote(i)); });
+  focusNote(0);
+
+  const LOG = [
+    { when: '2025', name: 'Customer Experience KPIs', link: 'work/cx-kpi.html', new: 'My first time in Power BI: my first DAX measures, my first multi-table model, plus KPI cards and slicers.' },
+    { when: 'Jul 2025', name: 'The Daily Drip Coffee', link: 'https://tdailey1121.github.io/thedailydrip/', web: true, new: 'A responsive website in HTML, CSS and Bootstrap. Layout and design, outside Power BI.' },
+    { when: 'Nov 2025', name: 'Detroit Shock Fan Segmentation', link: 'work/shock-segmentation.html', new: 'Data prep moved into SQL, plus DAX to de-duplicate fans across segments.' },
+    { when: 'Nov–Dec 2025', name: 'Hillman College Early Alert', link: 'work/hillman-early-alert.html', new: 'Generated my own synthetic data in Python and modeled a student-term mart in SQLite.' },
+    { when: 'Winter 2025', name: 'Detroit Shock Fan Lifecycle & CRM', link: 'work/shock-crm.html', new: 'Four sources into one fan-level model, data quality flags, and a next-best action for every fan.' },
+    { when: 'May 2026', name: 'Used Car Sales Performance', link: 'work/used-car-sales.html', new: 'Business measures like profit and commission, with segmentation bands for slicing.' },
+    { when: 'May 2026', name: 'Credit Card Retention & Churn', link: 'work/credit-card-churn.html', new: 'Cleaned category labels, recoded attrition and built risk bands for retention.' },
+    { when: 'Jun 2026', name: 'U.S. Healthcare Performance & Cost', link: 'work/healthcare.html', new: 'My largest dataset yet: 55,000+ records, executive scorecards and a self-service patient explorer.' },
+    { when: 'Oct 2026', name: 'Track Record', link: 'work/track-record.html', latest: true, new: 'My own data end to end: 7,252 hours of listening through a Python pipeline, API enrichment, a star schema and an A/B test.' },
+  ];
+  $('logRows').innerHTML = LOG.map(r => `
+    <div class="log-r${r.latest ? ' latest' : ''}" role="row">
+      <span class="when" role="cell">${esc(r.when)}</span>
+      <span class="ok${r.web ? ' web' : ''}" role="cell">${r.web ? 'Web build' : 'Completed'}</span>
+      <span class="proj" role="cell"><a href="${r.link}" target="_blank" rel="noopener">${esc(r.name)}</a></span>
+      <span class="new" role="cell">${r.latest ? '<em>Latest</em>' : ''}${esc(r.new)}</span>
+    </div>`).join('');
+
+  // ---------- close & apply ----------
+  $('ca').addEventListener('click', () => {
+    const bar = $('caBar'), txt = $('caText');
+    bar.style.transition = 'none'; bar.style.width = '0%';
+    txt.textContent = 'Applying query changes\u2026';
+    void bar.offsetWidth;
+    bar.style.transition = ''; bar.style.width = '100%';
+    setTimeout(() => {
+      txt.innerHTML = '<b>&check; Loaded.</b> 1 of 1 queries applied: taya_dailey &rarr; your team';
+      $('copyMail').focus();
+    }, reduce ? 0 : 1450);
+  });
+  $('copyMail').addEventListener('click', () => {
+    const btn = $('copyMail'), addr = $('mailAddr').textContent;
+    const done = () => { btn.textContent = 'Copied'; setTimeout(() => { btn.textContent = 'Copy'; }, 1800); };
+    const fallback = () => { const r = document.createRange(); r.selectNodeContents($('mailAddr')); const sel = getSelection(); sel.removeAllRanges(); sel.addRange(r); btn.textContent = 'Selected'; };
+    try { navigator.clipboard.writeText(addr).then(done, fallback); } catch (e) { fallback(); }
+  });
+
+  play();
+})();
+</script>
 </body>
 </html>

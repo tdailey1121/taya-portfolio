@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Hillman College Student Success &amp; Early Alert | Taya Dailey</title>
+<meta name="description" content="A four-page Power BI platform for spotting at-risk students early, built on synthetic data I generated in Python and modeled in SQL.">
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-Q5H3Q46XSD"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-Q5H3Q46XSD');
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,700;12..96,800&family=JetBrains+Mono:wght@500;600&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/case.css">
+</head>
+<body>
+
+<header class="top"><div class="wrap"><div class="bar">
+  <a class="mark" href="../index.html"><i>TD</i> Taya Dailey</a>
+  <div class="bar-links">
+    <a class="ghost hide-sm" href="../downloads/Taya-Dailey-Resume.pdf" target="_blank" rel="noopener">R&eacute;sum&eacute;</a>
+    <a class="solid" href="../recruiter.html">Recruiter view</a>
+  </div>
+</div></div></header>
+
+<div class="wrap page">
+<nav class="pane" aria-label="Applied steps"><h2>Applied steps</h2><ol>
+<li><a href="#source"><span>1</span>Source</a></li>
+<li><a href="#messy"><span>2</span>What was messy</a></li>
+<li><a href="#applied"><span>3</span>Applied steps</a></li>
+<li><a href="#question"><span>4</span>The question</a></li>
+<li><a href="#shows"><span>5</span>What it shows</a></li>
+<li><a href="#limits"><span>6</span>Data quality &amp; limits</a></li>
+<li><a href="#next"><span>7</span>What I’d do next</a></li>
+</ol><a class="back" href="../index.html#projects">&larr; All projects</a></nav>
+<main>
+<a class="crumb" href="../index.html#projects">&larr; All projects</a>
+<span class="eyebrow">Higher education · Built Nov–Dec 2025</span>
+<h1>Hillman College Student Success &amp; Early Alert</h1>
+<p class="summary">A four-page Power BI platform for spotting at-risk students early, built on synthetic data I generated in Python and modeled in SQL.</p>
+<div class="chips"><span class="chip">Python (Pandas, NumPy, Faker)</span><span class="chip">SQL (SQLite)</span><span class="chip">Power BI</span><span class="chip">DAX</span></div>
+<div class="actions"><a class="btn primary" href="https://1drv.ms/p/c/0aba82f26b7d522a/IQCbSnFfEQKOQpUprsCneGSCAY_ZgDEmnbv4MnRTYjBPx9w?e=93iQNM" target="_blank" rel="noopener">View the presentation &nearr;</a></div>
+<div class="facts"><div class="fact"><b>4</b><span>synthetic source tables</span></div><div class="fact"><b>1</b><span>student-term analytics mart</span></div><div class="fact"><b>4</b><span>report pages</span></div></div>
+<figure class="hero"><button class="shot-btn" type="button" data-caption="Executive Student Success Overview: Retention, academics and risk distribution"><img src="../assets/shots/hillman-early-alert-1.png" alt="Executive Student Success Overview page of the dashboard"></button><figcaption>Executive Student Success Overview: Retention, academics and risk distribution. Select to enlarge.</figcaption></figure>
+<section class="step" id="source"><div class="step-label"><b>Step 01</b> &middot; Source</div><h2>Where the data came from</h2><p>Student, enrollment, engagement and advising data that I generated myself, because real student records are private.</p><div class="source"><span class="file">students</span><span class="file">enrollment</span><span class="file">engagement</span><span class="file">advising</span></div></section>
+<section class="step" id="messy"><div class="step-label"><b>Step 02</b> &middot; What was messy</div><h2>What I had to deal with</h2><ul class="list messy"><li><span>Real student data can’t be shared, so there was nothing public to start from.</span></li><li><span>Academic, advising and engagement data usually live in separate systems.</span></li><li><span>There was no single student-by-term view to measure risk over time.</span></li></ul></section>
+<section class="step" id="applied"><div class="step-label"><b>Step 03</b> &middot; Applied steps</div><h2>How I cleaned and modeled it</h2><ul class="list applied"><li><span>Generated privacy-safe synthetic datasets in Python.</span></li><li><span>Modeled relational tables and built a student-term analytics mart in SQLite.</span></li><li><span>Calculated GPA, completion ratios, retention indicators and composite risk scores.</span></li><li><span>Built early alert logic from academic, engagement and advising risk flags.</span></li><li><span>Designed four pages for leadership, advisors and institutional research.</span></li></ul></section>
+<section class="step" id="question"><div class="step-label"><b>Step 04</b> &middot; The question</div><h2>What the dashboard needed to answer</h2><p class="question">How can a college identify at-risk students early, understand what drives attrition, and prioritize who to help first?</p></section>
+<section class="step" id="shows"><div class="step-label"><b>Step 05</b> &middot; What it shows</div><h2>What the data showed</h2><ul class="list finding"><li><span>Next-term retention <b>declines as composite risk rises</b>.</span></li><li><span><b>Engagement and advising gaps</b> are the dominant risk drivers.</span></li><li><span>Academic performance <b>alone doesn’t explain</b> attrition.</span></li><li><span>Advisors can filter by term, program and class level, then drill through to a single student’s history.</span></li></ul><details class="gallery"><summary>See every page <small>4 pages</small></summary><div class="grid"><figure><button class="shot-btn" type="button" data-caption="Executive Student Success Overview: Retention, academics and risk distribution"><img src="../assets/shots/hillman-early-alert-1.png" alt="Executive Student Success Overview page of the dashboard" loading="lazy"></button><figcaption><b>Executive Student Success Overview</b>Retention, academics and risk distribution</figcaption></figure><figure><button class="shot-btn" type="button" data-caption="Early Alert &amp; Advisor Dashboard: At-risk roster for outreach"><img src="../assets/shots/hillman-early-alert-2.png" alt="Early Alert &amp; Advisor Dashboard page of the dashboard" loading="lazy"></button><figcaption><b>Early Alert &amp; Advisor Dashboard</b>At-risk roster for outreach</figcaption></figure><figure><button class="shot-btn" type="button" data-caption="Retention &amp; Risk Drivers: How risk relates to retention"><img src="../assets/shots/hillman-early-alert-3.png" alt="Retention &amp; Risk Drivers page of the dashboard" loading="lazy"></button><figcaption><b>Retention &amp; Risk Drivers</b>How risk relates to retention</figcaption></figure><figure><button class="shot-btn" type="button" data-caption="Student Profile: Drill-through for one student"><img src="../assets/shots/hillman-early-alert-4.png" alt="Student Profile page of the dashboard" loading="lazy"></button><figcaption><b>Student Profile</b>Drill-through for one student</figcaption></figure></div></details></section>
+<section class="step" id="limits"><div class="step-label"><b>Step 06</b> &middot; Data quality &amp; limits</div><h2>What to keep in mind</h2><ul class="list messy"><li><span>All data is synthetic, so findings demonstrate the framework rather than describe a real college.</span></li></ul></section>
+<section class="step" id="next"><div class="step-label"><b>Step 07</b> &middot; What I’d do next</div><h2>Where I’d take it next</h2><ul class="list next"><li><span>Add predictive risk modeling.</span></li><li><span>Automate refresh pipelines.</span></li><li><span>Track cohort persistence and advisor workload.</span></li><li><span>Integrate SIS-style schemas, such as Banner-like environments.</span></li></ul></section>
+<a class="next-proj" href="used-car-sales.html"><div><small>Next project</small><b>Used Car Sales Performance</b></div><span>Open &rarr;</span></a>
+</main></div>
+<div class="wrap"><footer class="foot"><span>&copy; 2026 Taya Dailey &middot; Detroit, MI</span><span><a href="https://linkedin.com/in/tayadailey" target="_blank" rel="noopener">LinkedIn</a> &middot; <a href="https://github.com/tdailey1121" target="_blank" rel="noopener">GitHub</a> &middot; dailey.t@outlook.com</span></footer></div>
+<dialog class="lb" id="lb" aria-label="Screenshot"><img src="" alt=""><div class="lb-bar"><span class="lb-cap"></span><button class="lb-close" type="button">Close</button></div></dialog>
+<script src="../assets/case.js"></script>
+</body>
+</html>

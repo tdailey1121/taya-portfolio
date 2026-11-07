@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Detroit Shock Fan Lifecycle &amp; CRM | Taya Dailey</title>
+<meta name="description" content="A three-page Power BI dashboard that turns fan, engagement, ticketing and merchandise data into lifecycle stages, behavioral segments and a next-best action for every fan.">
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-Q5H3Q46XSD"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-Q5H3Q46XSD');
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,700;12..96,800&family=JetBrains+Mono:wght@500;600&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/case.css">
+</head>
+<body>
+
+<header class="top"><div class="wrap"><div class="bar">
+  <a class="mark" href="../index.html"><i>TD</i> Taya Dailey</a>
+  <div class="bar-links">
+    <a class="ghost hide-sm" href="../downloads/Taya-Dailey-Resume.pdf" target="_blank" rel="noopener">R&eacute;sum&eacute;</a>
+    <a class="solid" href="../recruiter.html">Recruiter view</a>
+  </div>
+</div></div></header>
+
+<div class="wrap page">
+<nav class="pane" aria-label="Applied steps"><h2>Applied steps</h2><ol>
+<li><a href="#source"><span>1</span>Source</a></li>
+<li><a href="#messy"><span>2</span>What was messy</a></li>
+<li><a href="#applied"><span>3</span>Applied steps</a></li>
+<li><a href="#question"><span>4</span>The question</a></li>
+<li><a href="#shows"><span>5</span>What it shows</a></li>
+<li><a href="#recs"><span>6</span>What I’d recommend</a></li>
+<li><a href="#limits"><span>7</span>Data quality &amp; limits</a></li>
+<li><a href="#next"><span>8</span>What I’d do next</a></li>
+</ol><a class="back" href="../index.html#projects">&larr; All projects</a></nav>
+<main>
+<a class="crumb" href="../index.html#projects">&larr; All projects</a>
+<span class="eyebrow">Sports CRM · Built Winter 2025</span>
+<h1>Detroit Shock Fan Lifecycle &amp; CRM</h1>
+<p class="summary">A three-page Power BI dashboard that turns fan, engagement, ticketing and merchandise data into lifecycle stages, behavioral segments and a next-best action for every fan.</p>
+<div class="chips"><span class="chip">Power BI</span><span class="chip">DAX</span><span class="chip">Power Query</span><span class="chip">Lifecycle segmentation</span></div>
+<div class="actions"><a class="btn primary" href="../downloads/pbix/shock-crm.pbix" target="_blank" rel="noopener">Download PBIX</a></div>
+<div class="facts"><div class="fact"><b>4</b><span>source datasets merged</span></div><div class="fact"><b>1</b><span>fan-level master table</span></div><div class="fact"><b>3</b><span>report pages</span></div></div>
+<figure class="hero"><button class="shot-btn" type="button" data-caption="Executive Overview: Lifecycle, segments and key fan metrics"><img src="../assets/shots/shock-crm-1.png" alt="Executive Overview page of the dashboard"></button><figcaption>Executive Overview: Lifecycle, segments and key fan metrics. Select to enlarge.</figcaption></figure>
+<section class="step" id="source"><div class="step-label"><b>Step 01</b> &middot; Source</div><h2>Where the data came from</h2><p>Four datasets for the same fans: profiles, engagement, ticket purchases and merchandise. This project expands my earlier Detroit Shock segmentation work.</p><div class="source"><span class="file">fans</span><span class="file">engagement</span><span class="file">ticket purchases</span><span class="file">merchandise</span></div></section>
+<section class="step" id="messy"><div class="step-label"><b>Step 02</b> &middot; What was messy</div><h2>What I had to deal with</h2><ul class="list messy"><li><span><b>Missing transaction dates:</b> some fans had ticket or merchandise spend but no last purchase date.</span></li><li><span><b>Channel ambiguity:</b> some fans had merchandise spend but no team shop visits, which suggests online purchases or inconsistent visit tracking.</span></li><li><span><b>No recorded activity:</b> some fans had no email, ticket or merchandise activity at all.</span></li><li><span><b>Historical skew:</b> some fans hadn’t been active in more than 1,000 days.</span></li><li><span>No acquisition or join date, so “new” fans couldn’t be identified.</span></li></ul></section>
+<section class="step" id="applied"><div class="step-label"><b>Step 03</b> &middot; Applied steps</div><h2>How I cleaned and modeled it</h2><ul class="list applied"><li><span>Related all four datasets on fan_id and built a unified Fan_Master table.</span></li><li><span>Flagged missing dates with Missing_Ticket_Date_Flag and Missing_Merch_Date_Flag.</span></li><li><span>Set Days_Since_Last_Activity to −1 for fans with no activity and treated them as dormant.</span></li><li><span>Adjusted lifecycle thresholds to fit the historical data instead of changing dates.</span></li><li><span>Wrote DAX for fan value, engagement score, recency, lifecycle stage, segment and next-best action.</span></li></ul></section>
+<section class="step" id="question"><div class="step-label"><b>Step 04</b> &middot; The question</div><h2>What the dashboard needed to answer</h2><p class="question">Leadership needs to know which fans are loyal, which are slipping away, which have conversion potential, and what to do about each group.</p></section>
+<section class="step" id="shows"><div class="step-label"><b>Step 05</b> &middot; What it shows</div><h2>What the data showed</h2><ul class="list finding"><li><span>Most fans are in the <b>casual segment</b>, which is a large conversion opportunity.</span></li><li><span><b>At-risk fans</b> are a meaningful share of the base and should be prioritized for retention.</span></li><li><span>At-risk high-value fans are a small but important audience for VIP retention.</span></li><li><span>Most recommended actions are <b>introductory offers</b>, reflecting the large casual base.</span></li><li><span>The fan-level table ties each fan’s attributes directly to a recommended action.</span></li></ul><details class="gallery"><summary>See every page <small>3 pages</small></summary><div class="grid"><figure><button class="shot-btn" type="button" data-caption="Executive Overview: Lifecycle, segments and key fan metrics"><img src="../assets/shots/shock-crm-1.png" alt="Executive Overview page of the dashboard" loading="lazy"></button><figcaption><b>Executive Overview</b>Lifecycle, segments and key fan metrics</figcaption></figure><figure><button class="shot-btn" type="button" data-caption="Fan Deep Dive: Fan-level filtering and detail"><img src="../assets/shots/shock-crm-2.png" alt="Fan Deep Dive page of the dashboard" loading="lazy"></button><figcaption><b>Fan Deep Dive</b>Fan-level filtering and detail</figcaption></figure><figure><button class="shot-btn" type="button" data-caption="Strategy &amp; Next Best Action: CRM recommendations by lifecycle and segment"><img src="../assets/shots/shock-crm-3.png" alt="Strategy &amp; Next Best Action page of the dashboard" loading="lazy"></button><figcaption><b>Strategy &amp; Next Best Action</b>CRM recommendations by lifecycle and segment</figcaption></figure></div></details></section>
+<section class="step" id="recs"><div class="step-label"><b>Step 06</b> &middot; What I’d recommend</div><h2>What I’d tell the business</h2><ul class="list rec"><li><span>Launch introductory ticket or merchandise offers to move casual fans up.</span></li><li><span>Re-engage at-risk fans before they go fully dormant.</span></li><li><span>Use app and email campaigns to turn digital fans into buyers.</span></li><li><span>Protect VIP and loyal fans with exclusive perks and early access.</span></li></ul></section>
+<section class="step" id="limits"><div class="step-label"><b>Step 07</b> &middot; Data quality &amp; limits</div><h2>What to keep in mind</h2><ul class="list messy"><li><span>Lifecycle stages were based on observed recency, engagement and value patterns.</span></li><li><span>The “New” stage was left out because the data has no join date.</span></li><li><span>Next-best actions are rule-based, built to demonstrate CRM decision logic.</span></li></ul></section>
+<section class="step" id="next"><div class="step-label"><b>Step 08</b> &middot; What I’d do next</div><h2>Where I’d take it next</h2><ul class="list next"><li><span>Publish as a Power BI App.</span></li><li><span>Add campaign response data and a campaign ROI page.</span></li><li><span>Simulate revenue impact by action type.</span></li><li><span>Add more advanced churn-risk scoring.</span></li></ul></section>
+<a class="next-proj" href="shock-segmentation.html"><div><small>Next project</small><b>Detroit Shock Fan Segmentation &amp; Revenue</b></div><span>Open &rarr;</span></a>
+</main></div>
+<div class="wrap"><footer class="foot"><span>&copy; 2026 Taya Dailey &middot; Detroit, MI</span><span><a href="https://linkedin.com/in/tayadailey" target="_blank" rel="noopener">LinkedIn</a> &middot; <a href="https://github.com/tdailey1121" target="_blank" rel="noopener">GitHub</a> &middot; dailey.t@outlook.com</span></footer></div>
+<dialog class="lb" id="lb" aria-label="Screenshot"><img src="" alt=""><div class="lb-bar"><span class="lb-cap"></span><button class="lb-close" type="button">Close</button></div></dialog>
+<script src="../assets/case.js"></script>
+</body>
+</html>

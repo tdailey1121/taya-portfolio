@@ -1,35 +1,45 @@
 # Taya Dailey – BI & Analytics Portfolio
 
-Portfolio of Power BI dashboards, SQL and Python analysis, automation case studies, and hand-built web projects.
-
 **Live site:** https://tdailey1121.github.io/taya-portfolio/
 
-## Featured projects
+I turn messy data into dashboards and process fixes people actually use. The site is built around that idea: it opens on a messy table that cleans itself step by step, Power Query style, then walks through my work as a series of applied steps.
 
-| Project | Focus | Tools |
+Hand-built in HTML, CSS and JavaScript, with AI assistance, and hosted on GitHub Pages. No frameworks or build tools are needed to run it.
+
+## Projects
+
+| Project | Domain | Tools |
 |---|---|---|
-| [US Healthcare Performance & Cost Analysis](US%20Healthcare%20Analysis.html) | Admissions, diagnoses, cost and utilization across 55,000+ records | Power BI, DAX, Power Query |
-| [Detroit Shock Fan Lifecycle & CRM Intelligence](Detroit%20Shock%20Fan%20Lifecycle%20CRM%20Intelligence.html) | Lifecycle segmentation and next-best-action strategy | Power BI, SQL |
-| [Credit Card Customer Retention & Churn](Credit%20Card%20Customer%20Retention%20%26%20Churn%20Analytics%20Dashboard.html) | Attrition drivers and retention risk | Power BI |
-| [Hillman College Student Success & Early Alert](Hillman%20College%20Student%20Success%20%26%20Early%20Alert%20Analytics.html) | Early alert and retention analytics | Power BI, SQL, Python |
-| [Used Car Sales Performance](used-car-sales-performance-analytics.html) | Sales, inventory and agent performance | Power BI |
-| [Track Record: Music Listening Dashboard](music-listening-dashboard.html) | Eight years of my Apple Music history, incl. shuffle A/B comparison (AI-assisted) | Python, iTunes API, star schema |
+| [Track Record](work/track-record.html) | My own Apple Music history, 2018–2026 | Python, iTunes API, star schema, A/B comparison (AI-assisted) |
+| [U.S. Healthcare Performance & Cost](work/healthcare.html) | Healthcare | Power BI, Power Query, DAX |
+| [Detroit Shock Fan Lifecycle & CRM](work/shock-crm.html) | Sports CRM | Power BI, DAX, Power Query |
+| [Detroit Shock Fan Segmentation & Revenue](work/shock-segmentation.html) | Sports analytics | SQL, Power Query, DAX, Power BI |
+| [Credit Card Retention & Churn](work/credit-card-churn.html) | Consumer finance | Power BI, Power Query, DAX |
+| [Hillman College Student Success & Early Alert](work/hillman-early-alert.html) | Higher education | Python, SQL (SQLite), Power BI |
+| [Used Car Sales Performance](work/used-car-sales.html) | Auto sales | Power BI, Power Query, DAX |
+| [Customer Experience KPIs](work/cx-kpi.html) | Customer service (my first Power BI dashboard) | Power BI, Power Query, DAX |
+| [Weekly Data Quality Report](work/data-quality-report.html) | Automation | Power Automate Desktop |
 
-More: Detroit Shock Fan Segmentation, Customer Experience KPI Dashboard, SQL Website Customer Insights, Telco churn prediction notebook, Power Automate case studies.
+All project data is synthetic or public. Nothing here comes from an employer.
 
 ## Structure
 
 ```
-index.html                 Home: featured work, toolkit, contact
-analytics.html             All analytics and dashboard projects
-<project>.html             One case study page per project
-development.html           Web development projects
-case_studies.html          Automation case studies
-contact.html
-css/style.css              Shared styles (on top of Bootstrap 5.3)
-Images/                    Dashboard screenshots
-downloads/                 PBIX files, notebooks, SQL, resume PDF
+index.html            Home: the cleanup intro, profile, case study, projects, refresh history, contact
+recruiter.html        One-page summary for recruiters (no animation)
+work/                 One case study page per project
+assets/
+  case.css, case.js   Shared styles and script for the case study pages
+  shots/              Dashboard screenshots, named <project>-<page>.png
+  other/              Images for other builds
+downloads/
+  Taya-Dailey-Resume.pdf
+  pbix/               Power BI files, named after each project
+  readme/             Project notes
+  notebooks/          Python notebooks
 ```
+
+The old top-level pages (for example `US Healthcare Analysis.html`) are now small redirect pages, so links shared before the redesign still work. `downloads/T .Dailey Resume.pdf` is the same résumé under its old name for the same reason.
 
 ## Contact
 
