@@ -489,6 +489,25 @@
   .side-card code { font: 500 0.86em var(--mono); background: #f3f0e9; border-radius: 4px; padding: 1px 5px; }
   @media (max-width: 560px) { .side-card { grid-template-columns: minmax(0, 1fr); gap: 10px; } .side-card .err { justify-self: start; } }
 
+
+  /* header on small phones: one line; the name hides only on the narrowest screens */
+  @media (max-width: 400px) {
+    .mark, .solid { white-space: nowrap; }
+    .solid { padding: 8px 11px; font-size: 0.84rem; min-height: 36px; display: inline-flex; align-items: center; }
+  }
+  @media (max-width: 350px) {
+    .mark-name { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+  }
+  /* ---------- phones: comfortable tap targets and readable labels ---------- */
+  .snd { flex: none; }
+  .prof-row .qual, .viz-note, .cmp-label { font-size: 0.72rem; }
+  .step .ico { font-size: 0.68rem; }
+  @media (max-width: 860px) {
+    .skip { min-height: 36px; padding: 6px 12px; }
+    .step { min-height: 40px; }
+    .pin { width: 30px; height: 30px; margin: -15px 0 0 -15px; font-size: 0.74rem; }
+  }
+
   @media (prefers-reduced-motion: reduce) {
     *, *::before, *::after { animation: none !important; transition: none !important; }
   }
@@ -498,7 +517,7 @@
 <header class="top">
   <div class="wrap">
     <div class="bar">
-      <a class="mark" href="#stage"><i>TD</i> Taya Dailey</a>
+      <a class="mark" href="#stage"><i>TD</i> <span class="mark-name">Taya Dailey</span></a>
       <div class="bar-links">
         <button class="snd" id="snd" type="button" aria-pressed="false" aria-label="Turn sound on">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 9.5h3.5L12 5.5v13l-4.5-4H4z"/><g class="waves"><path d="M15.5 9a4.2 4.2 0 0 1 0 6"/><path d="M18.3 6.5a8 8 0 0 1 0 11"/></g><g class="mute"><path d="M16 9.5l5 5"/><path d="M21 9.5l-5 5"/></g></svg>
